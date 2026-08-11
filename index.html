@@ -9,9 +9,9 @@
 
 <style>
 
-/* =====================================================
+/* =========================
    BASE
-===================================================== */
+========================= */
 
 * {
     box-sizing: border-box;
@@ -33,13 +33,13 @@ body {
         );
 
     color: #eeeeee;
-    font-family: Georgia, "Times New Roman", serif;
+    font-family: Georgia, serif;
 }
 
 
-/* =====================================================
+/* =========================
    CENÁRIO
-===================================================== */
+========================= */
 
 .cenario {
     position: fixed;
@@ -48,32 +48,34 @@ body {
 }
 
 
-/* =====================================================
+/* =========================
    ESTRELAS
-===================================================== */
+========================= */
 
 .estrelas {
     position: absolute;
     inset: 0;
 
     background-image:
-        radial-gradient(circle at 8% 12%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 18% 25%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 29% 8%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 39% 22%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 51% 10%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 62% 25%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 74% 8%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 88% 19%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 95% 35%, white 0 1px, transparent 2px);
+        radial-gradient(circle at 12% 18%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 25% 8%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 38% 22%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 52% 10%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 68% 18%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 82% 7%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 91% 28%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 7% 38%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 31% 35%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 74% 34%, white 0 1px, transparent 2px);
 
-    opacity: 0.55;
+    opacity: 0.65;
+    z-index: 1;
 }
 
 
-/* =====================================================
+/* =========================
    ÁRVORES
-===================================================== */
+========================= */
 
 .arvores {
     position: absolute;
@@ -94,12 +96,90 @@ body {
         );
 
     opacity: 0.8;
+    z-index: 2;
 }
 
 
-/* =====================================================
+/* =========================
+   CIDADE
+========================= */
+
+.cidade {
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 38%;
+
+    background: #050505;
+
+    z-index: 3;
+
+    clip-path: polygon(
+        0 65%,
+        5% 62%,
+        5% 48%,
+        10% 48%,
+        10% 58%,
+        15% 58%,
+        15% 35%,
+        20% 35%,
+        20% 55%,
+        25% 55%,
+        25% 42%,
+        30% 42%,
+        30% 53%,
+        36% 53%,
+        36% 30%,
+        41% 30%,
+        41% 50%,
+        47% 50%,
+        47% 40%,
+        52% 40%,
+        52% 55%,
+        58% 55%,
+        58% 32%,
+        64% 32%,
+        64% 50%,
+        70% 50%,
+        70% 38%,
+        76% 38%,
+        76% 54%,
+        82% 54%,
+        82% 43%,
+        88% 43%,
+        88% 55%,
+        94% 55%,
+        94% 46%,
+        100% 46%,
+        100% 100%,
+        0 100%
+    );
+}
+
+
+/* Luzes */
+
+.cidade::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(circle at 18% 65%, #a00000 0 2px, transparent 4px),
+        radial-gradient(circle at 42% 67%, #a00000 0 2px, transparent 4px),
+        radial-gradient(circle at 60% 60%, #a00000 0 2px, transparent 4px),
+        radial-gradient(circle at 72% 67%, #a00000 0 2px, transparent 4px),
+        radial-gradient(circle at 86% 61%, #a00000 0 2px, transparent 4px);
+}
+
+
+/* =========================
    NÉVOA
-===================================================== */
+========================= */
 
 .nevoa {
     position: absolute;
@@ -120,6 +200,8 @@ body {
     filter: blur(25px);
 
     animation: nevoa 12s ease-in-out infinite alternate;
+
+    z-index: 4;
 }
 
 @keyframes nevoa {
@@ -135,15 +217,15 @@ body {
 }
 
 
-/* =====================================================
+/* =========================
    LUA
-===================================================== */
+========================= */
 
 .lua {
     position: absolute;
 
-    top: 12%;
-    right: 12%;
+    top: 10%;
+    right: 10%;
 
     width: 180px;
     height: 180px;
@@ -152,80 +234,49 @@ body {
 
     background:
         radial-gradient(
-            circle at 30% 25%,
-            #fafafa 0%,
-            #e5e5e5 35%,
-            #c7c7c7 65%,
+            circle at 35% 30%,
+            #f5f5f5,
+            #d8d8d8 45%,
             #999999 100%
         );
 
     box-shadow:
-        0 0 20px rgba(255,255,255,0.35),
-        0 0 60px rgba(255,255,255,0.18);
+        0 0 20px rgba(255,255,255,0.3),
+        0 0 60px rgba(255,255,255,0.15);
 
-    opacity: 0.8;
-
-    z-index: 1;
-
-    overflow: hidden;
+    z-index: 5;
 }
-
-
-/* Crateras da lua */
 
 .lua::before {
-
     content: "";
 
     position: absolute;
-
-    width: 35px;
-    height: 35px;
-
-    top: 32px;
-    left: 42px;
+    inset: 0;
 
     border-radius: 50%;
 
-    background: rgba(120,120,120,0.20);
-
-    box-shadow:
-        60px 8px 0 rgba(120,120,120,0.14),
-        25px 65px 0 rgba(120,120,120,0.18),
-        82px 75px 0 rgba(120,120,120,0.13),
-        110px 38px 0 rgba(120,120,120,0.11),
-        65px 115px 0 rgba(120,120,120,0.12);
+    background:
+        radial-gradient(
+            circle at 30% 30%,
+            rgba(80,80,80,0.2) 0 15px,
+            transparent 16px
+        ),
+        radial-gradient(
+            circle at 65% 45%,
+            rgba(80,80,80,0.15) 0 20px,
+            transparent 21px
+        ),
+        radial-gradient(
+            circle at 40% 75%,
+            rgba(80,80,80,0.18) 0 14px,
+            transparent 15px
+        );
 }
 
 
-/* Pequenas crateras */
-
-.lua::after {
-
-    content: "";
-
-    position: absolute;
-
-    width: 18px;
-    height: 18px;
-
-    top: 90px;
-    left: 25px;
-
-    border-radius: 50%;
-
-    background: rgba(100,100,100,0.16);
-
-    box-shadow:
-        75px -50px 0 rgba(100,100,100,0.13),
-        105px 70px 0 rgba(100,100,100,0.12),
-        35px 55px 0 rgba(100,100,100,0.10);
-}
-
-
-/* =====================================================
-   ESTRELA VERMELHA
-===================================================== */
+/* =========================
+   ESTRELA
+========================= */
 
 .estrela {
     position: absolute;
@@ -257,7 +308,7 @@ body {
 
     animation: pulsar 4s ease-in-out infinite;
 
-    z-index: 2;
+    z-index: 6;
 }
 
 @keyframes pulsar {
@@ -275,42 +326,41 @@ body {
 }
 
 
-/* =====================================================
+/* =========================
    CORVO
-===================================================== */
+========================= */
 
 .corvo {
     position: absolute;
 
-    right: 10%;
-    top: 24%;
+    right: 12%;
+    top: 23%;
 
     width: 230px;
     height: 180px;
 
-    z-index: 3;
+    z-index: 7;
 
-    animation: voar 4s ease-in-out infinite;
+    animation: corvoFlutuar 4s ease-in-out infinite;
 }
 
-@keyframes voar {
+@keyframes corvoFlutuar {
 
     0%, 100% {
-        transform: translateY(0) rotate(-3deg);
+        transform: translateY(0) rotate(-5deg);
     }
 
     50% {
-        transform: translateY(-8px) rotate(2deg);
+        transform: translateY(-7px) rotate(-3deg);
     }
 
 }
 
 .corvo-corpo {
-
     position: absolute;
 
-    width: 100px;
-    height: 120px;
+    width: 105px;
+    height: 125px;
 
     right: 45px;
     top: 45px;
@@ -321,31 +371,31 @@ body {
 }
 
 .corvo-cabeca {
-
     position: absolute;
 
     width: 78px;
     height: 78px;
 
     right: 25px;
-    top: 15px;
+    top: 18px;
 
     background: #020202;
 
     border-radius: 50%;
+
+    z-index: 2;
 }
 
 .corvo-bico {
-
     position: absolute;
 
-    right: -58px;
-    top: 26px;
+    right: -65px;
+    top: 45px;
 
-    width: 70px;
-    height: 27px;
+    width: 75px;
+    height: 28px;
 
-    background: #010101;
+    background: #020202;
 
     clip-path: polygon(
         0 0,
@@ -354,31 +404,45 @@ body {
     );
 }
 
-.corvo-asa {
-
+.corvo-asa-esquerda {
     position: absolute;
 
-    width: 145px;
-    height: 75px;
+    width: 135px;
+    height: 70px;
 
-    left: 0;
+    left: 5px;
     top: 45px;
 
     background: #010101;
 
     border-radius: 80% 20% 80% 20%;
 
-    transform: rotate(15deg);
+    transform: rotate(18deg);
+}
+
+.corvo-asa-direita {
+    position: absolute;
+
+    width: 125px;
+    height: 65px;
+
+    right: 35px;
+    top: 95px;
+
+    background: #010101;
+
+    border-radius: 20% 80% 20% 80%;
+
+    transform: rotate(-25deg);
 }
 
 .corvo-cauda {
-
     position: absolute;
 
-    left: 25px;
-    bottom: 0;
+    left: 35px;
+    bottom: 5px;
 
-    width: 115px;
+    width: 105px;
     height: 60px;
 
     background: #010101;
@@ -393,31 +457,38 @@ body {
 }
 
 .corvo-olho {
-
     position: absolute;
 
-    right: 49px;
-    top: 41px;
-
-    width: 12px;
-    height: 12px;
+    width: 13px;
+    height: 13px;
 
     border-radius: 50%;
 
     background: #ff0000;
 
     box-shadow:
-        0 0 8px red,
+        0 0 6px #ff0000,
         0 0 18px rgba(255,0,0,0.9);
+
+    z-index: 5;
+}
+
+.olho-esquerdo {
+    right: 70px;
+    top: 48px;
+}
+
+.olho-direito {
+    right: 50px;
+    top: 49px;
 }
 
 
-/* =====================================================
-   INTERFACE PRINCIPAL
-===================================================== */
+/* =========================
+   PRIMEIRA INTERFACE
+========================= */
 
 .interface {
-
     position: absolute;
 
     left: 6%;
@@ -425,14 +496,10 @@ body {
 
     width: 390px;
 
-    z-index: 10;
+    z-index: 20;
 }
 
-
-/* Título */
-
 .titulo {
-
     position: relative;
 
     text-align: center;
@@ -474,9 +541,6 @@ body {
     bottom: -15px;
 }
 
-
-/* Boas-vindas */
-
 .boasvindas {
 
     margin-top: 35px;
@@ -488,9 +552,6 @@ body {
 
     text-shadow: 0 2px 5px black;
 }
-
-
-/* Menu */
 
 .menu {
 
@@ -504,9 +565,6 @@ body {
 
     width: 320px;
 }
-
-
-/* Botões */
 
 .botao {
 
@@ -562,23 +620,15 @@ body {
 }
 
 .botao:hover {
-
     color: white;
-
     transform: translateX(8px);
 }
 
 .botao:hover::before {
-
     background: #8b1515;
-
     opacity: 0.95;
-
     box-shadow: 0 0 20px #8b1515;
 }
-
-
-/* Jogar */
 
 .jogar {
 
@@ -598,8 +648,14 @@ body {
         0 0 12px rgba(150,0,0,0.5);
 }
 
+.jogar:hover::before {
 
-/* Desistir */
+    background: #9c1717;
+
+    box-shadow:
+        0 0 0 2px #b00000,
+        0 0 25px rgba(200,0,0,0.7);
+}
 
 .desistir {
 
@@ -613,17 +669,17 @@ body {
 }
 
 
-/* =====================================================
-   TELA DE ESCOLHA
-===================================================== */
+/* =========================
+   SEGUNDA TELA
+========================= */
 
-.tela-escolha {
+.escolha {
 
     position: fixed;
 
     inset: 0;
 
-    z-index: 100;
+    z-index: 50;
 
     display: flex;
 
@@ -633,11 +689,15 @@ body {
 
     align-items: center;
 
+    gap: 35px;
+
+    text-align: center;
+
     background:
         radial-gradient(
             circle at center,
             rgba(70,0,0,0.35),
-            #050505 75%
+            rgba(5,5,5,0.95) 70%
         );
 
     opacity: 0;
@@ -645,59 +705,63 @@ body {
     visibility: hidden;
 
     transition:
-        opacity 0.7s ease;
+        opacity 0.8s ease;
 }
 
-.tela-escolha.visivel {
+
+.escolha.aparecer {
 
     opacity: 1;
 
     visibility: visible;
 }
 
-.tela-escolha h2 {
 
-    font-size: clamp(30px, 6vw, 55px);
+.escolha-titulo {
 
-    letter-spacing: 4px;
+    font-size: clamp(30px, 6vw, 58px);
 
-    margin-bottom: 45px;
+    letter-spacing: 5px;
 
-    text-align: center;
+    color: #eeeeee;
 
     text-shadow:
-        0 0 10px black,
-        0 0 25px rgba(150,0,0,0.5);
+        0 0 8px #000,
+        0 0 25px rgba(150,0,0,0.7);
+
+    margin-bottom: 20px;
 }
 
 
 .opcoes {
-
-    width: min(85%, 650px);
 
     display: flex;
 
     flex-direction: column;
 
     gap: 25px;
+
+    width: min(80vw, 600px);
 }
 
 
 .opcao {
 
+    position: relative;
+
     width: 100%;
 
     min-height: 120px;
 
-    padding: 25px;
+    padding: 25px 30px;
 
-    border: 2px solid #650000;
+    border: 2px solid #5c0000;
 
     background:
         linear-gradient(
             90deg,
             #260000,
-            #550000,
+            #500000,
             #260000
         );
 
@@ -705,14 +769,19 @@ body {
 
     font-family: Georgia, serif;
 
+    cursor: pointer;
+
     font-size: clamp(22px, 4vw, 34px);
 
     letter-spacing: 2px;
 
-    cursor: pointer;
+    transition:
+        0.3s;
 
-    transition: 0.3s;
+    box-shadow:
+        0 0 15px rgba(100,0,0,0.25);
 }
+
 
 .opcao:hover {
 
@@ -723,17 +792,17 @@ body {
     background:
         linear-gradient(
             90deg,
-            #550000,
+            #500000,
             #900000,
-            #550000
+            #500000
         );
 
     box-shadow:
-        0 0 30px rgba(180,0,0,0.5);
+        0 0 30px rgba(180,0,0,0.55);
 }
 
 
-.descricao {
+.opcao-pequeno {
 
     display: block;
 
@@ -741,251 +810,54 @@ body {
 
     font-size: 15px;
 
-    color: #c0aaaa;
-
     letter-spacing: 1px;
+
+    color: #c5a5a5;
 }
 
 
-/* =====================================================
-   CRIAÇÃO DO PERSONAGEM
-===================================================== */
-
-.tela-criacao {
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 200;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    overflow-y: auto;
-
-    padding: 45px 20px 70px;
-
-    background:
-        radial-gradient(
-            circle at center,
-            rgba(70,0,0,0.3),
-            #060606 75%
-        );
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    pointer-events: none;
-
-    transition:
-        opacity 0.7s ease;
-}
-
-.tela-criacao.visivel {
-
-    opacity: 1;
-
-    visibility: visible;
-
-    pointer-events: auto;
-}
-
-
-.tela-criacao h2 {
-
-    font-size: clamp(30px, 6vw, 55px);
-
-    letter-spacing: 4px;
-
-    text-align: center;
-
-    text-shadow:
-        0 0 10px black,
-        0 0 25px rgba(150,0,0,0.5);
-
-    margin-bottom: 10px;
-}
-
-
-.subtitulo {
-
-    color: #bca5a5;
-
-    font-size: 18px;
-
-    margin-bottom: 35px;
-
-    text-align: center;
-}
-
-
-.formulario {
-
-    width: min(90vw, 700px);
-
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 12px;
-}
-
-
-.formulario label {
-
-    font-size: 20px;
-
-    margin-top: 10px;
-
-    color: #dddddd;
-}
-
-
-.campo {
-
-    width: 100%;
-
-    border: 1px solid #650000;
-
-    background: rgba(10,10,10,0.9);
-
-    color: white;
-
-    font-family: Georgia, serif;
-
-    font-size: 19px;
-
-    outline: none;
-
-    transition: 0.3s;
-}
-
-.campo:focus {
-
-    border-color: #c00000;
-
-    box-shadow:
-        0 0 15px rgba(180,0,0,0.35);
-}
-
-
-input.campo {
-
-    height: 55px;
-
-    padding: 12px 16px;
-}
-
-
-textarea.campo {
-
-    min-height: 300px;
-
-    padding: 16px;
-
-    resize: vertical;
-
-    line-height: 1.6;
-}
-
-
-.campo::placeholder {
-
-    color: #777;
-}
-
-
-.continuar {
-
-    align-self: center;
-
-    margin-top: 25px;
-
-    padding: 16px 55px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #420000,
-            #790000,
-            #420000
-        );
-
-    border: 1px solid #900000;
-
-    color: white;
-
-    font-family: Georgia, serif;
-
-    font-size: 22px;
-
-    letter-spacing: 3px;
-
-    cursor: pointer;
-
-    transition: 0.3s;
-}
-
-.continuar:hover {
-
-    transform: scale(1.05);
-
-    box-shadow:
-        0 0 25px rgba(190,0,0,0.5);
-}
-
-
-/* =====================================================
+/* =========================
    CORTINA
-===================================================== */
+========================= */
 
-#cortina {
+.cortina {
 
     position: fixed;
 
-    top: 0;
     left: 0;
+    top: 0;
 
     width: 100%;
     height: 100%;
-
-    z-index: 9999;
 
     background:
         linear-gradient(
             90deg,
             #350000,
-            #650000,
-            #9b0000,
-            #650000,
-            #a00000,
-            #650000,
-            #9b0000,
-            #650000,
+            #720000,
+            #a80000,
+            #680000,
+            #a80000,
+            #680000,
+            #a80000,
+            #720000,
             #350000
         );
 
-    transform: translateY(-100%);
+    z-index: 9999;
+
+    transform: translateY(-101%);
 
     transition:
-        transform 1s ease;
+        transform 1s ease-in-out;
 
     touch-action: none;
-
-    cursor: grab;
 
     pointer-events: none;
 }
 
 
-/* Textura da cortina */
-
-#cortina::after {
+.cortina::before {
 
     content: "";
 
@@ -996,40 +868,76 @@ textarea.campo {
     background:
         repeating-linear-gradient(
             90deg,
-            rgba(0,0,0,0.22) 0px,
-            rgba(255,255,255,0.07) 35px,
-            rgba(0,0,0,0.25) 70px
+            rgba(0,0,0,0.25) 0px,
+            rgba(255,255,255,0.08) 30px,
+            rgba(0,0,0,0.30) 60px
         );
 }
 
 
-/* =====================================================
+.cortina::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 0;
+
+    width: 25%;
+    height: 100%;
+
+    transform: translateX(-50%);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.08),
+            transparent
+        );
+}
+
+
+.cortina.fechada {
+
+    transform: translateY(0);
+
+    pointer-events: auto;
+
+    cursor: grab;
+}
+
+
+.cortina.arrastando {
+
+    transition: none;
+
+    cursor: grabbing;
+}
+
+
+/* =========================
    RESPONSIVO
-===================================================== */
+========================= */
 
 @media (max-width: 700px) {
 
     .interface {
 
         left: 5%;
-
         top: 8%;
 
         width: 55%;
     }
 
-
     .titulo {
-
         font-size: 28px;
     }
 
-
     .boasvindas {
-
         font-size: 20px;
     }
-
 
     .botao {
 
@@ -1038,45 +946,32 @@ textarea.campo {
         font-size: 20px;
     }
 
-
     .jogar {
-
         font-size: 28px;
     }
 
-
     .lua {
 
-        width: 120px;
-        height: 120px;
+        width: 110px;
+        height: 110px;
 
-        right: 8%;
+        top: 8%;
+        right: 5%;
     }
-
 
     .corvo {
 
-        right: -8%;
-
-        top: 25%;
+        right: 2%;
+        top: 24%;
 
         transform: scale(0.65);
     }
 
-
-    .tela-escolha h2 {
-
-        font-size: 32px;
-
-        padding: 0 20px;
-    }
-
-
     .opcao {
 
-        min-height: 105px;
+        min-height: 100px;
 
-        font-size: 22px;
+        padding: 20px;
     }
 
 }
@@ -1088,15 +983,17 @@ textarea.campo {
 <body>
 
 
-<!-- =====================================================
+<!-- =========================
      CENÁRIO
-===================================================== -->
+========================= -->
 
 <div class="cenario">
 
     <div class="estrelas"></div>
 
     <div class="arvores"></div>
+
+    <div class="cidade"></div>
 
     <div class="nevoa"></div>
 
@@ -1117,18 +1014,22 @@ textarea.campo {
 
         </div>
 
-        <div class="corvo-asa"></div>
+        <div class="corvo-asa-esquerda"></div>
+
+        <div class="corvo-asa-direita"></div>
 
         <div class="corvo-cauda"></div>
 
-        <div class="corvo-olho"></div>
+        <div class="corvo-olho olho-esquerdo"></div>
+
+        <div class="corvo-olho olho-direito"></div>
 
     </div>
 
 
-    <!-- =================================================
-         TELA INICIAL
-    ================================================= -->
+    <!-- =========================
+         PRIMEIRA TELA
+    ========================= -->
 
     <section class="interface">
 
@@ -1136,26 +1037,22 @@ textarea.campo {
             Nome da Cidade
         </h1>
 
-
         <div class="boasvindas">
             Bem-vindo
         </div>
-
 
         <div class="menu">
 
             <button
                 class="botao jogar"
-                id="botaoJogar"
+                onclick="abrirCortina()"
             >
                 JOGAR
             </button>
 
-
             <button class="botao">
                 CONTINUAR
             </button>
-
 
             <button class="botao desistir">
                 Desistir
@@ -1168,47 +1065,33 @@ textarea.campo {
 </div>
 
 
-<!-- =====================================================
-     TELA PLAYER / MESTRE
-===================================================== -->
+<!-- =========================
+     SEGUNDA TELA
+========================= -->
 
-<section
-    class="tela-escolha"
-    id="telaEscolha"
->
+<section class="escolha" id="escolha">
 
-    <h2>
+    <h2 class="escolha-titulo">
         ESCOLHA SEU CAMINHO
     </h2>
 
-
     <div class="opcoes">
 
-        <button
-            class="opcao"
-            id="botaoPlayer"
-        >
-
+        <button class="opcao">
             JOGAR COMO JOGADOR
 
-            <span class="descricao">
-                Viva a história através do seu personagem.
+            <span class="opcao-pequeno">
+                Entre na história e viva a aventura.
             </span>
-
         </button>
 
 
-        <button
-            class="opcao"
-            id="botaoMestre"
-        >
-
+        <button class="opcao">
             JOGAR COMO MESTRE
 
-            <span class="descricao">
+            <span class="opcao-pequeno">
                 Conduza a história e controle o mundo.
             </span>
-
         </button>
 
     </div>
@@ -1216,173 +1099,218 @@ textarea.campo {
 </section>
 
 
-<!-- =====================================================
-     TELA DE CRIAÇÃO
-===================================================== -->
-
-<section
-    class="tela-criacao"
-    id="telaCriacao"
->
-
-    <h2>
-        CRIAÇÃO DO PERSONAGEM
-    </h2>
-
-
-    <p class="subtitulo">
-        Sua história começa aqui.
-    </p>
-
-
-    <div class="formulario">
-
-        <label for="nomePersonagem">
-            Nome do personagem
-        </label>
-
-
-        <input
-            id="nomePersonagem"
-            class="campo"
-            type="text"
-            maxlength="60"
-            placeholder="Digite o nome do seu personagem..."
-        >
-
-
-        <label for="historiaPersonagem">
-            História
-        </label>
-
-
-        <textarea
-            id="historiaPersonagem"
-            class="campo"
-            placeholder="Escreva ou cole aqui a história do seu personagem..."
-        ></textarea>
-
-
-        <button
-            class="continuar"
-            id="botaoContinuar"
-        >
-            CONTINUAR
-        </button>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
+<!-- =========================
      CORTINA
-===================================================== -->
+========================= -->
 
-<div id="cortina"></div>
+<div
+    class="cortina"
+    id="cortina"
+></div>
 
 
 <script>
 
-/* =====================================================
-   ELEMENTOS
-===================================================== */
 
-const botaoJogar =
-    document.getElementById("botaoJogar");
+/* =========================
+   ELEMENTOS
+========================= */
 
 const cortina =
     document.getElementById("cortina");
 
-const telaEscolha =
-    document.getElementById("telaEscolha");
-
-const botaoPlayer =
-    document.getElementById("botaoPlayer");
-
-const telaCriacao =
-    document.getElementById("telaCriacao");
-
-const botaoContinuar =
-    document.getElementById("botaoContinuar");
+const escolha =
+    document.getElementById("escolha");
 
 
-/* =====================================================
-   ESTADO DA CORTINA
-===================================================== */
-
-let cortinaAberta = false;
-
-let arrastando = false;
-
-let inicioY = 0;
-
-let posicaoAtual = -100;
-
-
-/* =====================================================
+/* =========================
    JOGAR
-   A CORTINA DESCE
-===================================================== */
+========================= */
 
-botaoJogar.addEventListener("click", function() {
+function abrirCortina() {
 
-    cortinaAberta = true;
+    cortina.classList.add("fechada");
 
-    cortina.style.pointerEvents = "auto";
-
-    cortina.style.transition =
-        "transform 1s ease";
-
-    cortina.style.transform =
-        "translateY(0%)";
-
-});
-
-
-/* =====================================================
-   COMEÇAR ARRASTO
-===================================================== */
-
-function comecarArrasto(y) {
-
-    if (!cortinaAberta) {
-        return;
-    }
-
-    arrastando = true;
-
-    inicioY = y;
-
-    cortina.style.transition = "none";
-
-    cortina.style.cursor = "grabbing";
 }
 
 
-/* =====================================================
+/* =========================
    ARRASTAR
-===================================================== */
+========================= */
 
-function arrastar(y) {
+let inicioY = 0;
+
+let arrastando = false;
+
+let posicao = 0;
+
+
+function comecarArrasto(y) {
+
+    if (!cortina.classList.contains("fechada")) {
+        return;
+    }
+
+    inicioY = y;
+
+    arrastando = true;
+
+    cortina.classList.add("arrastando");
+
+}
+
+
+function moverArrasto(y) {
 
     if (!arrastando) {
         return;
     }
 
-    let movimento =
+    const movimento =
         y - inicioY;
 
+    const altura =
+        window.innerHeight;
 
-    let novaPosicao =
-        (movimento / window.innerHeight) * 100;
+    let porcentagem =
+        (movimento / altura) * 100;
 
-
-    novaPosicao =
+    porcentagem =
         Math.max(
             -100,
-            Math.min(0, novaPosicao)
+            Math.min(0, porcentagem)
         );
 
+    cortina.style.transform =
+        "translateY(" + porcentagem + "%)";
 
-    posicaoAtua
+    posicao = porcentagem;
+
+}
+
+
+function terminarArrasto() {
+
+    if (!arrastando) {
+        return;
+    }
+
+    arrastando = false;
+
+    cortina.classList.remove("arrastando");
+
+
+    if (posicao <= -35) {
+
+        cortina.style.transform =
+            "translateY(-101%)";
+
+        cortina.classList.remove("fechada");
+
+        posicao = -101;
+
+
+        /*
+           MOSTRA A SEGUNDA TELA
+        */
+
+        setTimeout(function() {
+
+            escolha.classList.add("aparecer");
+
+        }, 300);
+
+    }
+
+    else {
+
+        cortina.style.transform =
+            "translateY(0%)";
+
+        posicao = 0;
+
+    }
+
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+cortina.addEventListener(
+    "touchstart",
+    function(evento) {
+
+        comecarArrasto(
+            evento.touches[0].clientY
+        );
+
+    }
+);
+
+
+cortina.addEventListener(
+    "touchmove",
+    function(evento) {
+
+        moverArrasto(
+            evento.touches[0].clientY
+        );
+
+    }
+);
+
+
+cortina.addEventListener(
+    "touchend",
+    function() {
+
+        terminarArrasto();
+
+    }
+);
+
+
+/* =========================
+   MOUSE
+========================= */
+
+cortina.addEventListener(
+    "mousedown",
+    function(evento) {
+
+        comecarArrasto(
+            evento.clientY
+        );
+
+    }
+);
+
+
+window.addEventListener(
+    "mousemove",
+    function(evento) {
+
+        moverArrasto(
+            evento.clientY
+        );
+
+    }
+);
+
+
+window.addEventListener(
+    "mouseup",
+    function() {
+
+        terminarArrasto();
+
+    }
+);
+
+</script>
+
+</body>
+
+   </html>

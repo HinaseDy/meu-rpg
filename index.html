@@ -57,19 +57,15 @@ body {
     inset: 0;
 
     background-image:
-        radial-gradient(circle at 12% 18%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 25% 8%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 38% 22%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 52% 10%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 68% 18%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 82% 7%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 91% 28%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 7% 38%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 31% 35%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 74% 34%, white 0 1px, transparent 2px);
+        radial-gradient(circle at 10% 15%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 22% 8%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 35% 20%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 48% 9%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 65% 17%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 80% 8%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 92% 25%, white 0 1px, transparent 2px);
 
-    opacity: 0.65;
-    z-index: 1;
+    opacity: 0.6;
 }
 
 
@@ -96,81 +92,6 @@ body {
         );
 
     opacity: 0.8;
-    z-index: 2;
-}
-
-
-/* =========================
-   CIDADE
-========================= */
-
-.cidade {
-    position: absolute;
-
-    left: 0;
-    bottom: 0;
-
-    width: 100%;
-    height: 38%;
-
-    background: #050505;
-
-    z-index: 3;
-
-    clip-path: polygon(
-        0 65%,
-        5% 62%,
-        5% 48%,
-        10% 48%,
-        10% 58%,
-        15% 58%,
-        15% 35%,
-        20% 35%,
-        20% 55%,
-        25% 55%,
-        25% 42%,
-        30% 42%,
-        30% 53%,
-        36% 53%,
-        36% 30%,
-        41% 30%,
-        41% 50%,
-        47% 50%,
-        47% 40%,
-        52% 40%,
-        52% 55%,
-        58% 55%,
-        58% 32%,
-        64% 32%,
-        64% 50%,
-        70% 50%,
-        70% 38%,
-        76% 38%,
-        76% 54%,
-        82% 54%,
-        82% 43%,
-        88% 43%,
-        88% 55%,
-        94% 55%,
-        94% 46%,
-        100% 46%,
-        100% 100%,
-        0 100%
-    );
-}
-
-.cidade::after {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    background:
-        radial-gradient(circle at 18% 65%, #a00000 0 2px, transparent 4px),
-        radial-gradient(circle at 42% 67%, #a00000 0 2px, transparent 4px),
-        radial-gradient(circle at 60% 60%, #a00000 0 2px, transparent 4px),
-        radial-gradient(circle at 72% 67%, #a00000 0 2px, transparent 4px),
-        radial-gradient(circle at 86% 61%, #a00000 0 2px, transparent 4px);
 }
 
 
@@ -197,8 +118,6 @@ body {
     filter: blur(25px);
 
     animation: nevoa 12s ease-in-out infinite alternate;
-
-    z-index: 4;
 }
 
 @keyframes nevoa {
@@ -241,38 +160,12 @@ body {
         0 0 20px rgba(255,255,255,0.3),
         0 0 60px rgba(255,255,255,0.15);
 
-    z-index: 5;
-}
-
-.lua::before {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle at 30% 30%,
-            rgba(80,80,80,0.2) 0 15px,
-            transparent 16px
-        ),
-        radial-gradient(
-            circle at 65% 45%,
-            rgba(80,80,80,0.15) 0 20px,
-            transparent 21px
-        ),
-        radial-gradient(
-            circle at 40% 75%,
-            rgba(80,80,80,0.18) 0 14px,
-            transparent 15px
-        );
+    opacity: 0.8;
 }
 
 
 /* =========================
-   ESTRELA
+   ESTRELA VERMELHA
 ========================= */
 
 .estrela {
@@ -304,8 +197,6 @@ body {
         drop-shadow(0 0 20px rgba(255,0,0,0.3));
 
     animation: pulsar 4s ease-in-out infinite;
-
-    z-index: 6;
 }
 
 @keyframes pulsar {
@@ -333,22 +224,22 @@ body {
     right: 12%;
     top: 23%;
 
-    width: 230px;
-    height: 180px;
+    width: 220px;
+    height: 170px;
 
-    z-index: 7;
+    z-index: 3;
 
-    animation: corvoFlutuar 4s ease-in-out infinite;
+    animation: voar 4s ease-in-out infinite;
 }
 
-@keyframes corvoFlutuar {
+@keyframes voar {
 
-    0%, 100% {
-        transform: translateY(0) rotate(-5deg);
+    0%,100% {
+        transform: translateY(0) rotate(-3deg);
     }
 
     50% {
-        transform: translateY(-7px) rotate(-3deg);
+        transform: translateY(-8px) rotate(2deg);
     }
 
 }
@@ -356,8 +247,8 @@ body {
 .corvo-corpo {
     position: absolute;
 
-    width: 105px;
-    height: 125px;
+    width: 100px;
+    height: 120px;
 
     right: 45px;
     top: 45px;
@@ -370,29 +261,27 @@ body {
 .corvo-cabeca {
     position: absolute;
 
-    width: 78px;
-    height: 78px;
+    width: 75px;
+    height: 75px;
 
     right: 25px;
-    top: 18px;
+    top: 15px;
 
     background: #020202;
 
     border-radius: 50%;
-
-    z-index: 2;
 }
 
 .corvo-bico {
     position: absolute;
 
-    right: -65px;
-    top: 45px;
+    right: -60px;
+    top: 25px;
 
-    width: 75px;
-    height: 28px;
+    width: 70px;
+    height: 25px;
 
-    background: #020202;
+    background: #010101;
 
     clip-path: polygon(
         0 0,
@@ -401,46 +290,30 @@ body {
     );
 }
 
-.corvo-asa-esquerda {
+.corvo-asa {
     position: absolute;
 
-    width: 135px;
+    width: 140px;
     height: 70px;
 
-    left: 5px;
+    left: 0;
     top: 45px;
 
     background: #010101;
 
     border-radius: 80% 20% 80% 20%;
 
-    transform: rotate(18deg);
-}
-
-.corvo-asa-direita {
-    position: absolute;
-
-    width: 125px;
-    height: 65px;
-
-    right: 35px;
-    top: 95px;
-
-    background: #010101;
-
-    border-radius: 20% 80% 20% 80%;
-
-    transform: rotate(-25deg);
+    transform: rotate(15deg);
 }
 
 .corvo-cauda {
     position: absolute;
 
-    left: 35px;
-    bottom: 5px;
+    left: 30px;
+    bottom: 0;
 
-    width: 105px;
-    height: 60px;
+    width: 110px;
+    height: 55px;
 
     background: #010101;
 
@@ -456,28 +329,21 @@ body {
 .corvo-olho {
     position: absolute;
 
-    width: 13px;
-    height: 13px;
+    right: 48px;
+    top: 40px;
+
+    width: 12px;
+    height: 12px;
 
     border-radius: 50%;
 
-    background: #ff0000;
+    background: red;
 
     box-shadow:
-        0 0 6px #ff0000,
-        0 0 18px rgba(255,0,0,0.9);
+        0 0 8px red,
+        0 0 18px rgba(255,0,0,0.8);
 
-    z-index: 5;
-}
-
-.olho-esquerdo {
-    right: 70px;
-    top: 48px;
-}
-
-.olho-direito {
-    right: 50px;
-    top: 49px;
+    z-index: 10;
 }
 
 
@@ -493,7 +359,7 @@ body {
 
     width: 390px;
 
-    z-index: 20;
+    z-index: 10;
 }
 
 .titulo {
@@ -650,15 +516,6 @@ body {
         0 0 12px rgba(150,0,0,0.5);
 }
 
-.jogar:hover::before {
-
-    background: #9c1717;
-
-    box-shadow:
-        0 0 0 2px #b00000,
-        0 0 25px rgba(200,0,0,0.7);
-}
-
 .desistir {
 
     width: 170px;
@@ -672,16 +529,16 @@ body {
 
 
 /* =========================
-   ESCOLHA JOGADOR / MESTRE
+   ESCOLHA PLAYER / MESTRE
 ========================= */
 
-.escolha {
+.tela-escolha {
 
     position: fixed;
 
     inset: 0;
 
-    z-index: 50;
+    z-index: 100;
 
     display: flex;
 
@@ -691,92 +548,80 @@ body {
 
     align-items: center;
 
-    gap: 35px;
-
-    text-align: center;
-
     background:
         radial-gradient(
-            circle at center,
+            circle,
             rgba(70,0,0,0.35),
-            rgba(5,5,5,0.95) 70%
+            #050505 75%
         );
 
     opacity: 0;
 
     visibility: hidden;
 
-    transition:
-        opacity 0.8s ease;
+    transition: opacity 0.7s ease;
 }
 
-.escolha.aparecer {
+.tela-escolha.visivel {
 
     opacity: 1;
 
     visibility: visible;
 }
 
-.escolha-titulo {
+.tela-escolha h2 {
 
-    font-size: clamp(30px, 6vw, 58px);
+    font-size: clamp(30px, 6vw, 55px);
 
-    letter-spacing: 5px;
+    letter-spacing: 4px;
 
-    color: #eeeeee;
+    margin-bottom: 45px;
 
     text-shadow:
-        0 0 8px #000,
-        0 0 25px rgba(150,0,0,0.7);
-
-    margin-bottom: 20px;
+        0 0 10px black,
+        0 0 25px rgba(150,0,0,0.5);
 }
 
 .opcoes {
+
+    width: min(85%, 650px);
 
     display: flex;
 
     flex-direction: column;
 
     gap: 25px;
-
-    width: min(80vw, 600px);
 }
 
 .opcao {
-
-    position: relative;
 
     width: 100%;
 
     min-height: 120px;
 
-    padding: 25px 30px;
+    padding: 25px;
 
-    border: 2px solid #5c0000;
+    border: 2px solid #650000;
 
     background:
         linear-gradient(
             90deg,
             #260000,
-            #500000,
+            #550000,
             #260000
         );
 
-    color: #eeeeee;
+    color: #eee;
 
     font-family: Georgia, serif;
-
-    cursor: pointer;
 
     font-size: clamp(22px, 4vw, 34px);
 
     letter-spacing: 2px;
 
-    transition: 0.3s;
+    cursor: pointer;
 
-    box-shadow:
-        0 0 15px rgba(100,0,0,0.25);
+    transition: 0.3s;
 }
 
 .opcao:hover {
@@ -788,16 +633,16 @@ body {
     background:
         linear-gradient(
             90deg,
-            #500000,
+            #550000,
             #900000,
-            #500000
+            #550000
         );
 
     box-shadow:
-        0 0 30px rgba(180,0,0,0.55);
+        0 0 30px rgba(180,0,0,0.5);
 }
 
-.opcao-pequeno {
+.descricao {
 
     display: block;
 
@@ -805,23 +650,23 @@ body {
 
     font-size: 15px;
 
-    letter-spacing: 1px;
+    color: #c0aaaa;
 
-    color: #c5a5a5;
+    letter-spacing: 1px;
 }
 
 
 /* =========================
-   CRIAÇÃO DO PERSONAGEM
+   CRIAÇÃO
 ========================= */
 
-.criacao {
+.tela-criacao {
 
     position: fixed;
 
     inset: 0;
 
-    z-index: 60;
+    z-index: 200;
 
     display: flex;
 
@@ -831,13 +676,13 @@ body {
 
     overflow-y: auto;
 
-    padding: 45px 20px 60px;
+    padding: 45px 20px 70px;
 
     background:
         radial-gradient(
-            circle at 50% 30%,
-            rgba(80,0,0,0.28),
-            #080808 72%
+            circle at center,
+            rgba(70,0,0,0.3),
+            #060606 75%
         );
 
     opacity: 0;
@@ -846,11 +691,10 @@ body {
 
     pointer-events: none;
 
-    transition:
-        opacity 0.7s ease;
+    transition: opacity 0.7s ease;
 }
 
-.criacao.aparecer {
+.tela-criacao.visivel {
 
     opacity: 1;
 
@@ -859,26 +703,22 @@ body {
     pointer-events: auto;
 }
 
-
-.criacao-titulo {
+.tela-criacao h2 {
 
     font-size: clamp(30px, 6vw, 55px);
 
     letter-spacing: 4px;
 
-    color: #eeeeee;
-
     text-shadow:
         0 0 10px black,
-        0 0 25px rgba(160,0,0,0.5);
+        0 0 25px rgba(150,0,0,0.5);
 
     margin-bottom: 10px;
 
     text-align: center;
 }
 
-
-.criacao-subtitulo {
+.subtitulo {
 
     color: #bca5a5;
 
@@ -888,7 +728,6 @@ body {
 
     text-align: center;
 }
-
 
 .formulario {
 
@@ -901,29 +740,24 @@ body {
     gap: 12px;
 }
 
-
 .formulario label {
 
     font-size: 20px;
 
-    color: #dddddd;
-
-    letter-spacing: 1px;
-
     margin-top: 10px;
-}
 
+    color: #ddd;
+}
 
 .campo {
 
     width: 100%;
 
-    background:
-        rgba(10,10,10,0.85);
-
     border: 1px solid #650000;
 
-    color: #eeeeee;
+    background: rgba(10,10,10,0.9);
+
+    color: white;
 
     font-family: Georgia, serif;
 
@@ -934,15 +768,13 @@ body {
     transition: 0.3s;
 }
 
-
 .campo:focus {
 
     border-color: #c00000;
 
     box-shadow:
-        0 0 15px rgba(170,0,0,0.3);
+        0 0 15px rgba(180,0,0,0.35);
 }
-
 
 input.campo {
 
@@ -951,25 +783,21 @@ input.campo {
     padding: 12px 16px;
 }
 
-
 textarea.campo {
 
     min-height: 300px;
 
-    resize: vertical;
-
     padding: 16px;
+
+    resize: vertical;
 
     line-height: 1.6;
 }
 
-
-textarea.campo::placeholder,
-input.campo::placeholder {
+.campo::placeholder {
 
     color: #777;
 }
-
 
 .continuar {
 
@@ -977,9 +805,7 @@ input.campo::placeholder {
 
     margin-top: 25px;
 
-    padding: 17px 55px;
-
-    border: 1px solid #8b0000;
+    padding: 16px 55px;
 
     background:
         linear-gradient(
@@ -988,6 +814,8 @@ input.campo::placeholder {
             #790000,
             #420000
         );
+
+    border: 1px solid #900000;
 
     color: white;
 
@@ -1002,18 +830,9 @@ input.campo::placeholder {
     transition: 0.3s;
 }
 
-
 .continuar:hover {
 
     transform: scale(1.05);
-
-    background:
-        linear-gradient(
-            90deg,
-            #700000,
-            #a00000,
-            #700000
-        );
 
     box-shadow:
         0 0 25px rgba(190,0,0,0.5);
@@ -1034,6 +853,8 @@ input.campo::placeholder {
     width: 100%;
     height: 100%;
 
+    z-index: 9999;
+
     background:
         linear-gradient(
             90deg,
@@ -1047,8 +868,6 @@ input.campo::placeholder {
             #720000,
             #350000
         );
-
-    z-index: 9999;
 
     transform: translateY(-101%);
 
@@ -1077,29 +896,6 @@ input.campo::placeholder {
         );
 }
 
-.cortina::after {
-
-    content: "";
-
-    position: absolute;
-
-    left: 50%;
-    top: 0;
-
-    width: 25%;
-    height: 100%;
-
-    transform: translateX(-50%);
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(255,255,255,0.08),
-            transparent
-        );
-}
-
 .cortina.fechada {
 
     transform: translateY(0);
@@ -1118,7 +914,7 @@ input.campo::placeholder {
 
 
 /* =========================
-   RESPONSIVO
+   CELULAR
 ========================= */
 
 @media (max-width: 700px) {
@@ -1132,10 +928,12 @@ input.campo::placeholder {
     }
 
     .titulo {
+
         font-size: 28px;
     }
 
     .boasvindas {
+
         font-size: 20px;
     }
 
@@ -1147,6 +945,7 @@ input.campo::placeholder {
     }
 
     .jogar {
+
         font-size: 28px;
     }
 
@@ -1154,34 +953,21 @@ input.campo::placeholder {
 
         width: 110px;
         height: 110px;
-
-        top: 8%;
-        right: 5%;
     }
 
     .corvo {
 
-        right: 2%;
-        top: 24%;
+        right: -5%;
+        top: 25%;
 
         transform: scale(0.65);
     }
 
-    .opcao {
+    .tela-escolha h2 {
 
-        min-height: 100px;
+        text-align: center;
 
-        padding: 20px;
-    }
-
-    .criacao {
-
-        padding-top: 30px;
-    }
-
-    textarea.campo {
-
-        min-height: 250px;
+        font-size: 32px;
     }
 
 }
@@ -1203,8 +989,6 @@ input.campo::placeholder {
 
     <div class="arvores"></div>
 
-    <div class="cidade"></div>
-
     <div class="nevoa"></div>
 
     <div class="lua"></div>
@@ -1224,15 +1008,11 @@ input.campo::placeholder {
 
         </div>
 
-        <div class="corvo-asa-esquerda"></div>
-
-        <div class="corvo-asa-direita"></div>
+        <div class="corvo-asa"></div>
 
         <div class="corvo-cauda"></div>
 
-        <div class="corvo-olho olho-esquerdo"></div>
-
-        <div class="corvo-olho olho-direito"></div>
+        <div class="corvo-olho"></div>
 
     </div>
 
@@ -1255,7 +1035,7 @@ input.campo::placeholder {
 
             <button
                 class="botao jogar"
-                onclick="abrirCortina()"
+                id="botaoJogar"
             >
                 JOGAR
             </button>
@@ -1276,15 +1056,15 @@ input.campo::placeholder {
 
 
 <!-- =========================
-     ESCOLHA JOGADOR / MESTRE
+     ESCOLHA
 ========================= -->
 
 <section
-    class="escolha"
-    id="escolha"
+    class="tela-escolha"
+    id="telaEscolha"
 >
 
-    <h2 class="escolha-titulo">
+    <h2>
         ESCOLHA SEU CAMINHO
     </h2>
 
@@ -1292,13 +1072,13 @@ input.campo::placeholder {
 
         <button
             class="opcao"
-            onclick="abrirCriacao()"
+            id="botaoPlayer"
         >
 
             JOGAR COMO JOGADOR
 
-            <span class="opcao-pequeno">
-                Entre na história e viva a aventura.
+            <span class="descricao">
+                Viva a história através do seu personagem.
             </span>
 
         </button>
@@ -1308,7 +1088,7 @@ input.campo::placeholder {
 
             JOGAR COMO MESTRE
 
-            <span class="opcao-pequeno">
+            <span class="descricao">
                 Conduza a história e controle o mundo.
             </span>
 
@@ -1320,19 +1100,19 @@ input.campo::placeholder {
 
 
 <!-- =========================
-     CRIAÇÃO DO PERSONAGEM
+     CRIAÇÃO
 ========================= -->
 
 <section
-    class="criacao"
-    id="criacao"
+    class="tela-criacao"
+    id="telaCriacao"
 >
 
-    <h2 class="criacao-titulo">
+    <h2>
         CRIAÇÃO DO PERSONAGEM
     </h2>
 
-    <p class="criacao-subtitulo">
+    <p class="subtitulo">
         Sua história começa aqui.
     </p>
 
@@ -1365,7 +1145,7 @@ input.campo::placeholder {
 
         <button
             class="continuar"
-            onclick="continuarCriacao()"
+            id="botaoContinuar"
         >
             CONTINUAR
         </button>
@@ -1387,31 +1167,293 @@ input.campo::placeholder {
 
 <script>
 
-
 /* =========================
    ELEMENTOS
 ========================= */
 
+const botaoJogar =
+    document.getElementById("botaoJogar");
+
 const cortina =
     document.getElementById("cortina");
 
-const escolha =
-    document.getElementById("escolha");
+const telaEscolha =
+    document.getElementById("telaEscolha");
 
-const criacao =
-    document.getElementById("criacao");
+const botaoPlayer =
+    document.getElementById("botaoPlayer");
+
+const telaCriacao =
+    document.getElementById("telaCriacao");
+
+const botaoContinuar =
+    document.getElementById("botaoContinuar");
 
 
 /* =========================
    ABRIR CORTINA
 ========================= */
 
-function abrirCortina() {
+botaoJogar.addEventListener(
+    "click",
+    function() {
 
-    cortina.classList.add("fechada");
+        cortina.classList.add("fechada");
+
+    }
+);
+
+
+/* =========================
+   ARRASTAR CORTINA
+========================= */
+
+let arrastando = false;
+
+let inicioY = 0;
+
+let porcentagem = 0;
+
+
+/* COMEÇAR */
+
+function iniciarArrasto(y) {
+
+    if (!cortina.classList.contains("fechada")) {
+        return;
+    }
+
+    arrastando = true;
+
+    inicioY = y;
+
+    cortina.classList.add("arrastando");
+
+}
+
+
+/* MOVER */
+
+function moverArrasto(y) {
+
+    if (!arrastando) {
+        return;
+    }
+
+    const movimento =
+        y - inicioY;
+
+    porcentagem =
+        (movimento / window.innerHeight) * 100;
+
+    porcentagem =
+        Math.max(
+            -100,
+            Math.min(0, porcentagem)
+        );
+
+    cortina.style.transform =
+        "translateY(" + porcentagem + "%)";
+
+}
+
+
+/* TERMINAR */
+
+function terminarArrasto() {
+
+    if (!arrastando) {
+        return;
+    }
+
+    arrastando = false;
+
+    cortina.classList.remove("arrastando");
+
+
+    /* Se puxou o suficiente */
+
+    if (porcentagem <= -35) {
+
+        cortina.style.transform =
+            "translateY(-101%)";
+
+        cortina.classList.remove("fechada");
+
+        porcentagem = -101;
+
+
+        setTimeout(
+            function() {
+
+                telaEscolha.classList.add("visivel");
+
+            },
+            400
+        );
+
+    }
+
+    /* Se não puxou suficiente */
+
+    else {
+
+        cortina.style.transform =
+            "translateY(0%)";
+
+        porcentagem = 0;
+
+    }
 
 }
 
 
 /* =========================
+   TOUCH
+========================= */
+
+cortina.addEventListener(
+    "touchstart",
+    function(evento) {
+
+        iniciarArrasto(
+            evento.touches[0].clientY
+        );
+
+    }
+);
+
+
+cortina.addEventListener(
+    "touchmove",
+    function(evento) {
+
+        moverArrasto(
+            evento.touches[0].clientY
+        );
+
+        evento.preventDefault();
+
+    },
+    { passive: false }
+);
+
+
+cortina.addEventListener(
+    "touchend",
+    function() {
+
+        terminarArrasto();
+
+    }
+);
+
+
+/* =========================
+   MOUSE
+========================= */
+
+cortina.addEventListener(
+    "mousedown",
+    function(evento) {
+
+        iniciarArrasto(
+            evento.clientY
+        );
+
+    }
+);
+
+
+window.addEventListener(
+    "mousemove",
+    function(evento) {
+
+        moverArrasto(
+            evento.clientY
+        );
+
+    }
+);
+
+
+window.addEventListener(
+    "mouseup",
+    function() {
+
+        terminarArrasto();
+
+    }
+);
+
+
+/* =========================
+   JOGAR COMO JOGADOR
+========================= */
+
+botaoPlayer.addEventListener(
+    "click",
+    function() {
+
+        telaEscolha.classList.remove("visivel");
+
+        setTimeout(
+            function() {
+
+                telaCriacao.classList.add("visivel");
+
+            },
+            350
+        );
+
+    }
+);
+
+
+/* =========================
+   CONTINUAR
+========================= */
+
+botaoContinuar.addEventListener(
+    "click",
+    function() {
+
+        const nome =
+            document
+            .getElementById("nomePersonagem")
+            .value
+            .trim();
+
+        const historia =
+            document
+            .getElementById("historiaPersonagem")
+            .value
+            .trim();
+
+
+        if (nome === "") {
+
+            alert(
+                "Digite o nome do personagem."
+            );
+
+            return;
+        }
+
+
+        if (historia === "") {
+
+            alert(
+                "Escreva a história do personagem."
+            );
+
+            return;
+        }
+
+
+        /* Salva temporariamente */
+
+        localStorage.setItem(
+            "nomePersonagem",
+            nome
    

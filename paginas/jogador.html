@@ -1,1 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
 
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Jogar como Jogador</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            #3a0505 0%,
+            #160000 40%,
+            #050505 80%
+        );
+
+    color: #eeeeee;
+    font-family: Georgia, serif;
+}
+
+
+/* =========================
+   ESTRELAS
+========================= */
+
+.estrelas {
+    position: fixed;
+    inset: 0;
+
+    background-image:
+        radial-gradient(circle at 12% 18%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 25% 8%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 38% 22%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 52% 10%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 68% 18%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 82% 7%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 91% 28%, white 0 1px, transparent 2px);
+
+    opacity: 0.5;
+}
+
+
+/* =========================
+   CONTEÚDO
+========================= */
+
+.conteudo {
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    padding: 30px;
+
+    z-index: 2;
+}
+
+
+/* =========================
+   TÍTULO
+========================= */
+
+.titulo {
+    font-size: clamp(32px, 6vw, 60px);
+
+    letter-spacing: 5px;
+
+    margin-bottom: 15px;
+
+    text-shadow:
+        0 0 8px #000,
+        0 0 25px rgba(180,0,0,0.7);
+}
+
+
+.subtitulo {
+    color: #c9aaaa;
+
+    font-size: 20px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 50px;
+}
+
+
+/* =========================
+   CARTÃO
+========================= */
+
+.cartao {
+    width: min(90vw, 650px);
+
+    padding: 45px 35px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(70,0,0,0.85),
+            rgba(15,15,15,0.95)
+        );
+
+    border: 2px solid #650000;
+
+    box-shadow:
+        0 0 25px rgba(120,0,0,0.3);
+
+    border-radius: 4px;
+}
+
+
+/* =========================
+   TEXTO
+========================= */
+
+.cartao h2 {
+    font-size: 30px;
+
+    margin-bottom: 15px;
+
+    color: #eeeeee;
+}
+
+
+.cartao p {
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    color: #c9baba;
+}
+
+
+/* =========================
+   BOTÃO
+========================= */
+
+.botao {
+    margin-top: 35px;
+
+    padding: 16px 45px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4b0000,
+            #850000,
+            #4b0000
+        );
+
+    border: 1px solid #a00000;
+
+    color: white;
+
+    font-family: Georgia, serif;
+
+    font-size: 21px;
+
+    letter-spacing: 2px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.botao:hover {
+    transform: scale(1.05);
+
+    box-shadow:
+        0 0 25px rgba(200,0,0,0.6);
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+<div class="estrelas"></div>
+
+
+<div class="conteudo">
+
+    <h1 class="titulo">
+        CAMINHO DO JOGADOR
+    </h1>
+
+    <p class="subtitulo">
+        Sua história começa aqui.
+    </p>
+
+
+    <div class="cartao">
+
+        <h2>
+            Criar seu personagem
+        </h2>
+
+        <p>
+            Em breve você poderá criar seu personagem,
+            contar sua história e começar sua jornada
+            neste mundo.
+        </p>
+
+
+        <button class="botao">
+            COMEÇAR
+        </button>
+
+    </div>
+
+</div>
+
+
+</body>
+
+  </html>

@@ -2,1058 +2,1220 @@
 <html lang="pt-BR">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Nome da Cidade</title>
-
-    <style>
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nome da Cidade</title>
+
+<style>
+
+/* =========================
+   BASE
+========================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 65% 40%,
+            #353535 0%,
+            #171717 35%,
+            #050505 75%
+        );
+
+    color: #eeeeee;
+    font-family: Georgia, serif;
+}
+
+
+/* =========================
+   CENÁRIO
+========================= */
+
+.cenario {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+}
+
+
+/* =========================
+   ESTRELAS
+========================= */
+
+.estrelas {
+    position: absolute;
+    inset: 0;
+
+    background-image:
+        radial-gradient(circle at 12% 18%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 25% 8%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 38% 22%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 52% 10%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 68% 18%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 82% 7%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 91% 28%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 7% 38%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 31% 35%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 74% 34%, white 0 1px, transparent 2px);
+
+    opacity: 0.65;
+    z-index: 1;
+}
+
+
+/* =========================
+   ÁRVORES
+========================= */
+
+.arvores {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            110deg,
+            transparent 55%,
+            rgba(0,0,0,0.8) 56%,
+            transparent 57%
+        ),
+        linear-gradient(
+            70deg,
+            transparent 63%,
+            rgba(0,0,0,0.7) 64%,
+            transparent 65%
+        );
+
+    opacity: 0.8;
+    z-index: 2;
+}
+
+
+/* =========================
+   CIDADE
+========================= */
+
+.cidade {
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 38%;
+
+    background: #050505;
+
+    z-index: 3;
+
+    clip-path: polygon(
+        0 65%,
+        5% 62%,
+        5% 48%,
+        10% 48%,
+        10% 58%,
+        15% 58%,
+        15% 35%,
+        20% 35%,
+        20% 55%,
+        25% 55%,
+        25% 42%,
+        30% 42%,
+        30% 53%,
+        36% 53%,
+        36% 30%,
+        41% 30%,
+        41% 50%,
+        47% 50%,
+        47% 40%,
+        52% 40%,
+        52% 55%,
+        58% 55%,
+        58% 32%,
+        64% 32%,
+        64% 50%,
+        70% 50%,
+        70% 38%,
+        76% 38%,
+        76% 54%,
+        82% 54%,
+        82% 43%,
+        88% 43%,
+        88% 55%,
+        94% 55%,
+        94% 46%,
+        100% 46%,
+        100% 100%,
+        0 100%
+    );
+}
+
+
+/* Luzes da cidade */
+
+.cidade::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 18% 65%,
+            #a00000 0 2px,
+            transparent 4px
+        ),
+        radial-gradient(
+            circle at 42% 67%,
+            #a00000 0 2px,
+            transparent 4px
+        ),
+        radial-gradient(
+            circle at 60% 60%,
+            #a00000 0 2px,
+            transparent 4px
+        ),
+        radial-gradient(
+            circle at 72% 67%,
+            #a00000 0 2px,
+            transparent 4px
+        ),
+        radial-gradient(
+            circle at 86% 61%,
+            #a00000 0 2px,
+            transparent 4px
+        );
+}
+
+
+/* =========================
+   NÉVOA
+========================= */
+
+.nevoa {
+    position: absolute;
+
+    width: 150%;
+    height: 45%;
+
+    left: -25%;
+    bottom: 0;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(180,180,180,0.08),
+            transparent 70%
+        );
+
+    filter: blur(25px);
+
+    animation: nevoa 12s ease-in-out infinite alternate;
+
+    z-index: 4;
+}
+
+@keyframes nevoa {
+
+    from {
+        transform: translateX(-3%);
+    }
+
+    to {
+        transform: translateX(3%);
+    }
+
+}
+
+
+/* =========================
+   LUA
+========================= */
+
+.lua {
+    position: absolute;
+
+    top: 10%;
+    right: 10%;
+
+    width: 180px;
+    height: 180px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #f5f5f5,
+            #d8d8d8 45%,
+            #999999 100%
+        );
+
+    box-shadow:
+        0 0 20px rgba(255,255,255,0.3),
+        0 0 60px rgba(255,255,255,0.15);
+
+    z-index: 5;
+}
+
+
+/* Marcas da lua */
+
+.lua::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 30% 30%,
+            rgba(80,80,80,0.2) 0 15px,
+            transparent 16px
+        ),
+        radial-gradient(
+            circle at 65% 45%,
+            rgba(80,80,80,0.15) 0 20px,
+            transparent 21px
+        ),
+        radial-gradient(
+            circle at 40% 75%,
+            rgba(80,80,80,0.18) 0 14px,
+            transparent 15px
+        );
+}
+
+
+/* =========================
+   ESTRELA VERMELHA
+========================= */
 
-        body {
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-
-            background:
-                radial-gradient(
-                    circle at 65% 40%,
-                    #353535 0%,
-                    #171717 35%,
-                    #050505 75%
-                );
-
-            color: #eeeeee;
-            font-family: Georgia, serif;
-        }
-
-
-        /* =========================
-           CENÁRIO
-        ========================= */
-
-        .cenario {
-            position: fixed;
-            inset: 0;
-            overflow: hidden;
-        }
-
-
-        /* =========================
-           ESTRELAS
-        ========================= */
-
-        .estrelas {
-            position: absolute;
-            inset: 0;
-
-            background-image:
-                radial-gradient(circle at 12% 18%, white 0 1px, transparent 2px),
-                radial-gradient(circle at 25% 8%, white 0 1px, transparent 2px),
-                radial-gradient(circle at 38% 22%, white 0 1px, transparent 2px),
-                radial-gradient(circle at 52% 10%, white 0 1px, transparent 2px),
-                radial-gradient(circle at 68% 18%, white 0 1px, transparent 2px),
-                radial-gradient(circle at 82% 7%, white 0 1px, transparent 2px),
-                radial-gradient(circle at 91% 28%, white 0 1px, transparent 2px),
-                radial-gradient(circle at 7% 38%, white 0 1px, transparent 2px),
-                radial-gradient(circle at 31% 35%, white 0 1px, transparent 2px),
-                radial-gradient(circle at 74% 34%, white 0 1px, transparent 2px);
-
-            opacity: 0.65;
-            z-index: 0;
-        }
-
-
-        /* =========================
-           ÁRVORES
-        ========================= */
-
-        .arvores {
-            position: absolute;
-            inset: 0;
-
-            background:
-                linear-gradient(
-                    110deg,
-                    transparent 55%,
-                    rgba(0,0,0,0.8) 56%,
-                    transparent 57%
-                ),
-                linear-gradient(
-                    70deg,
-                    transparent 63%,
-                    rgba(0,0,0,0.7) 64%,
-                    transparent 65%
-                );
-
-            opacity: 0.8;
-
-            z-index: 1;
-        }
-
-
-        /* =========================
-           CIDADE
-        ========================= */
-
-        .cidade {
-            position: absolute;
-
-            left: 0;
-            bottom: 0;
-
-            width: 100%;
-            height: 38%;
-
-            background: #050505;
-
-            z-index: 2;
-
-            clip-path: polygon(
-                0 65%,
-                5% 62%,
-                5% 48%,
-                10% 48%,
-                10% 58%,
-                15% 58%,
-                15% 35%,
-                20% 35%,
-                20% 55%,
-                25% 55%,
-                25% 42%,
-                30% 42%,
-                30% 53%,
-                36% 53%,
-                36% 30%,
-                41% 30%,
-                41% 50%,
-                47% 50%,
-                47% 40%,
-                52% 40%,
-                52% 55%,
-                58% 55%,
-                58% 32%,
-                64% 32%,
-                64% 50%,
-                70% 50%,
-                70% 38%,
-                76% 38%,
-                76% 54%,
-                82% 54%,
-                82% 43%,
-                88% 43%,
-                88% 55%,
-                94% 55%,
-                94% 46%,
-                100% 46%,
-                100% 100%,
-                0 100%
-            );
-        }
-
-
-        .cidade::after {
-            content: "";
-
-            position: absolute;
-            inset: 0;
-
-            background:
-                radial-gradient(
-                    circle at 18% 65%,
-                    #a00000 0 2px,
-                    transparent 4px
-                ),
-                radial-gradient(
-                    circle at 42% 67%,
-                    #a00000 0 2px,
-                    transparent 4px
-                ),
-                radial-gradient(
-                    circle at 60% 60%,
-                    #a00000 0 2px,
-                    transparent 4px
-                ),
-                radial-gradient(
-                    circle at 72% 67%,
-                    #a00000 0 2px,
-                    transparent 4px
-                ),
-                radial-gradient(
-                    circle at 86% 61%,
-                    #a00000 0 2px,
-                    transparent 4px
-                );
-        }
-
-
-        /* =========================
-           NÉVOA
-        ========================= */
-
-        .nevoa {
-            position: absolute;
-
-            width: 150%;
-            height: 45%;
-
-            left: -25%;
-            bottom: 0;
-
-            background:
-                radial-gradient(
-                    ellipse,
-                    rgba(180,180,180,0.08),
-                    transparent 70%
-                );
-
-            filter: blur(25px);
-
-            animation: nevoa 12s ease-in-out infinite alternate;
-
-            z-index: 3;
-        }
-
-
-        @keyframes nevoa {
-
-            from {
-                transform: translateX(-3%);
-            }
-
-            to {
-                transform: translateX(3%);
-            }
-
-        }
-
-
-        /* =========================
-           LUA
-        ========================= */
-
-        .lua {
-            position: absolute;
-
-            top: 10%;
-            right: 10%;
-
-            width: 180px;
-            height: 180px;
-
-            border-radius: 50%;
-
-            background:
-                radial-gradient(
-                    circle at 35% 30%,
-                    #f5f5f5,
-                    #d8d8d8 45%,
-                    #999999 100%
-                );
-
-            box-shadow:
-                0 0 20px rgba(255,255,255,0.3),
-                0 0 60px rgba(255,255,255,0.15);
-
-            z-index: 4;
-        }
-
-
-        .lua::before {
-            content: "";
-
-            position: absolute;
-            inset: 0;
-
-            border-radius: 50%;
-
-            background:
-                radial-gradient(
-                    circle at 30% 30%,
-                    rgba(80,80,80,0.2) 0 15px,
-                    transparent 16px
-                ),
-                radial-gradient(
-                    circle at 65% 45%,
-                    rgba(80,80,80,0.15) 0 20px,
-                    transparent 21px
-                ),
-                radial-gradient(
-                    circle at 40% 75%,
-                    rgba(80,80,80,0.18) 0 14px,
-                    transparent 15px
-                );
-        }
+.estrela {
+    position: absolute;
 
+    top: 30%;
+    left: 42%;
 
-        /* =========================
-           ESTRELA VERMELHA
-        ========================= */
+    width: 80px;
+    height: 80px;
 
-        .estrela {
-            position: absolute;
+    transform: rotate(45deg);
 
-            top: 30%;
-            left: 42%;
+    background: #d40000;
 
-            width: 80px;
-            height: 80px;
+    clip-path: polygon(
+        50% 0%,
+        60% 40%,
+        100% 50%,
+        60% 60%,
+        50% 100%,
+        40% 60%,
+        0% 50%,
+        40% 40%
+    );
 
-            transform: rotate(45deg);
+    filter:
+        drop-shadow(0 0 8px rgba(255,0,0,0.8))
+        drop-shadow(0 0 20px rgba(255,0,0,0.3));
 
-            background: #d40000;
+    animation: pulsar 4s ease-in-out infinite;
 
-            clip-path: polygon(
-                50% 0%,
-                60% 40%,
-                100% 50%,
-                60% 60%,
-                50% 100%,
-                40% 60%,
-                0% 50%,
-                40% 40%
-            );
+    z-index: 6;
+}
 
-            filter:
-                drop-shadow(0 0 8px rgba(255,0,0,0.8))
-                drop-shadow(0 0 20px rgba(255,0,0,0.3));
+@keyframes pulsar {
 
-            animation: pulsar 4s ease-in-out infinite;
+    0%, 100% {
+        opacity: 0.75;
+        transform: rotate(45deg) scale(0.95);
+    }
 
-            z-index: 5;
-        }
+    50% {
+        opacity: 1;
+        transform: rotate(45deg) scale(1.08);
+    }
 
+}
 
-        @keyframes pulsar {
 
-            0%, 100% {
-                opacity: 0.75;
-                transform: rotate(45deg) scale(0.95);
-            }
+/* =========================
+   CORVO
+========================= */
 
-            50% {
-                opacity: 1;
-                transform: rotate(45deg) scale(1.08);
-            }
+.corvo {
+    position: absolute;
 
-        }
+    right: 12%;
+    top: 23%;
 
+    width: 230px;
+    height: 180px;
 
-        /* =========================
-           CORVO
-        ========================= */
+    z-index: 7;
 
-        .corvo {
-            position: absolute;
+    animation: corvoFlutuar 4s ease-in-out infinite;
+}
 
-            right: 12%;
-            top: 23%;
+@keyframes corvoFlutuar {
 
-            width: 230px;
-            height: 180px;
+    0%, 100% {
+        transform: translateY(0) rotate(-5deg);
+    }
 
-            z-index: 6;
+    50% {
+        transform: translateY(-7px) rotate(-3deg);
+    }
 
-            animation: corvoFlutuar 4s ease-in-out infinite;
-        }
+}
 
 
-        @keyframes corvoFlutuar {
+/* Corpo */
 
-            0%, 100% {
-                transform: translateY(0) rotate(-5deg);
-            }
+.corvo-corpo {
+    position: absolute;
 
-            50% {
-                transform: translateY(-7px) rotate(-3deg);
-            }
+    width: 105px;
+    height: 125px;
 
-        }
+    right: 45px;
+    top: 45px;
 
+    background: #030303;
 
-        .corvo-corpo {
-            position: absolute;
+    border-radius: 50%;
 
-            width: 105px;
-            height: 125px;
+    box-shadow:
+        0 10px 20px rgba(0,0,0,0.8);
+}
 
-            right: 45px;
-            top: 45px;
 
-            background: #030303;
+/* Cabeça */
 
-            border-radius: 50%;
+.corvo-cabeca {
+    position: absolute;
 
-            box-shadow:
-                0 10px 20px rgba(0,0,0,0.8);
-        }
+    width: 78px;
+    height: 78px;
 
+    right: 25px;
+    top: 18px;
 
-        .corvo-cabeca {
-            position: absolute;
+    background: #020202;
 
-            width: 78px;
-            height: 78px;
+    border-radius: 50%;
 
-            right: 25px;
-            top: 18px;
+    z-index: 2;
+}
 
-            background: #020202;
 
-            border-radius: 50%;
+/* Bico */
 
-            z-index: 2;
-        }
+.corvo-bico {
+    position: absolute;
 
+    right: -65px;
+    top: 45px;
 
-        .corvo-bico {
-            position: absolute;
+    width: 75px;
+    height: 28px;
 
-            right: -65px;
-            top: 45px;
+    background: #020202;
 
-            width: 75px;
-            height: 28px;
+    clip-path: polygon(
+        0 0,
+        100% 50%,
+        0 100%
+    );
+}
 
-            background: #020202;
 
-            clip-path: polygon(
-                0 0,
-                100% 50%,
-                0 100%
-            );
-        }
+/* Asas */
 
+.corvo-asa-esquerda {
+    position: absolute;
 
-        .corvo-asa-esquerda {
-            position: absolute;
+    width: 135px;
+    height: 70px;
 
-            width: 135px;
-            height: 70px;
+    left: 5px;
+    top: 45px;
 
-            left: 5px;
-            top: 45px;
+    background: #010101;
 
-            background: #010101;
+    border-radius: 80% 20% 80% 20%;
 
-            border-radius: 80% 20% 80% 20%;
+    transform: rotate(18deg);
+}
 
-            transform: rotate(18deg);
-        }
+.corvo-asa-direita {
+    position: absolute;
 
+    width: 125px;
+    height: 65px;
 
-        .corvo-asa-direita {
-            position: absolute;
+    right: 35px;
+    top: 95px;
 
-            width: 125px;
-            height: 65px;
+    background: #010101;
 
-            right: 35px;
-            top: 95px;
+    border-radius: 20% 80% 20% 80%;
 
-            background: #010101;
+    transform: rotate(-25deg);
+}
 
-            border-radius: 20% 80% 20% 80%;
 
-            transform: rotate(-25deg);
-        }
+/* Cauda */
 
+.corvo-cauda {
+    position: absolute;
 
-        .corvo-cauda {
-            position: absolute;
+    left: 35px;
+    bottom: 5px;
 
-            left: 35px;
-            bottom: 5px;
+    width: 105px;
+    height: 60px;
 
-            width: 105px;
-            height: 60px;
+    background: #010101;
 
-            background: #010101;
+    clip-path: polygon(
+        100% 0,
+        0 20%,
+        35% 50%,
+        0 80%,
+        100% 100%
+    );
+}
 
-            clip-path: polygon(
-                100% 0,
-                0 20%,
-                35% 50%,
-                0 80%,
-                100% 100%
-            );
-        }
 
+/* Olhos */
 
-        .corvo-olho {
+.corvo-olho {
+    position: absolute;
 
-            position: absolute;
+    width: 13px;
+    height: 13px;
 
-            width: 13px;
-            height: 13px;
+    border-radius: 50%;
 
-            border-radius: 50%;
+    background: #ff0000;
 
-            background: #ff0000;
+    box-shadow:
+        0 0 6px #ff0000,
+        0 0 18px rgba(255,0,0,0.9);
 
-            box-shadow:
-                0 0 6px #ff0000,
-                0 0 18px rgba(255,0,0,0.9);
+    z-index: 5;
+}
 
-            z-index: 5;
-        }
+.olho-esquerdo {
+    right: 70px;
+    top: 48px;
+}
 
+.olho-direito {
+    right: 50px;
+    top: 49px;
+}
 
-        .olho-esquerdo {
-            right: 70px;
-            top: 48px;
-        }
 
+/* =========================
+   INTERFACE
+========================= */
 
-        .olho-direito {
-            right: 50px;
-            top: 49px;
-        }
+.interface {
+    position: absolute;
 
+    left: 6%;
+    top: 12%;
 
-        /* =========================
-           INTERFACE
-        ========================= */
+    width: 390px;
 
-        .interface {
-            position: absolute;
+    z-index: 20;
+}
 
-            left: 6%;
-            top: 12%;
 
-            width: 390px;
+/* Título */
 
-            z-index: 10;
-        }
+.titulo {
+    position: relative;
 
+    text-align: center;
 
-        .titulo {
+    padding: 30px 10px;
 
-            position: relative;
+    font-size: clamp(30px, 4vw, 52px);
 
-            text-align: center;
+    letter-spacing: 2px;
 
-            padding: 30px 10px;
+    color: #e5e5e5;
 
-            font-size: clamp(30px, 4vw, 52px);
+    text-shadow:
+        0 0 5px #000,
+        0 0 15px #000;
+}
 
-            letter-spacing: 2px;
 
-            color: #e5e5e5;
+.titulo::before,
+.titulo::after {
 
-            text-shadow:
-                0 0 5px #000,
-                0 0 15px #000;
-        }
+    content: "❦";
 
+    position: absolute;
 
-        .titulo::before,
-        .titulo::after {
+    left: 50%;
 
-            content: "❦";
+    transform: translateX(-50%);
 
-            position: absolute;
+    color: #cfcfcf;
 
-            left: 50%;
+    font-size: 45px;
+}
 
-            transform: translateX(-50%);
+.titulo::before {
+    top: -15px;
+}
 
-            color: #cfcfcf;
+.titulo::after {
+    bottom: -15px;
+}
 
-            font-size: 45px;
-        }
 
+/* Bem-vindo */
 
-        .titulo::before {
-            top: -15px;
-        }
+.boasvindas {
 
+    margin-top: 35px;
+    margin-left: 20px;
 
-        .titulo::after {
-            bottom: -15px;
-        }
+    font-size: 26px;
 
+    color: #dddddd;
 
-        .boasvindas {
+    text-shadow: 0 2px 5px black;
+}
 
-            margin-top: 35px;
-            margin-left: 20px;
 
-            font-size: 26px;
+/* Menu */
 
-            color: #dddddd;
+.menu {
 
-            text-shadow: 0 2px 5px black;
-        }
+    margin-top: 25px;
 
+    display: flex;
 
-        .menu {
+    flex-direction: column;
 
-            margin-top: 25px;
+    gap: 14px;
 
-            display: flex;
+    width: 320px;
+}
 
-            flex-direction: column;
 
-            gap: 14px;
+/* Botões */
 
-            width: 320px;
-        }
+.botao {
 
+    position: relative;
 
-        .botao {
+    width: 280px;
 
-            position: relative;
+    padding: 13px 28px;
 
-            width: 280px;
+    background: transparent;
 
-            padding: 13px 28px;
+    border: none;
 
-            background: transparent;
+    color: #dddddd;
 
-            border: none;
+    text-align: left;
 
-            color: #dddddd;
+    font-family: Georgia, serif;
 
-            text-align: left;
+    font-size: 25px;
 
-            font-family: Georgia, serif;
+    cursor: pointer;
 
-            font-size: 25px;
+    transition: 0.3s;
 
-            cursor: pointer;
+    text-shadow: 0 2px 4px black;
+}
 
-            transition: 0.3s;
 
-            text-shadow: 0 2px 4px black;
-        }
+.botao::before {
 
+    content: "";
 
-        .botao::before {
+    position: absolute;
 
-            content: "";
+    inset: 0;
 
-            position: absolute;
+    z-index: -1;
 
-            inset: 0;
+    background: #777;
 
-            z-index: -1;
+    clip-path: polygon(
+        0 0,
+        88% 0,
+        100% 50%,
+        88% 100%,
+        0 100%,
+        8% 50%
+    );
 
-            background: #777;
+    opacity: 0.75;
 
-            clip-path: polygon(
-                0 0,
-                88% 0,
-                100% 50%,
-                88% 100%,
-                0 100%,
-                8% 50%
-            );
+    transition: 0.3s;
+}
 
-            opacity: 0.75;
 
-            transition: 0.3s;
-        }
+.botao:hover {
 
+    color: white;
 
-        .botao:hover {
+    transform: translateX(8px);
+}
 
-            color: white;
 
-            transform: translateX(8px);
-        }
+.botao:hover::before {
 
+    background: #8b1515;
 
-        .botao:hover::before {
+    opacity: 0.95;
 
-            background: #8b1515;
+    box-shadow: 0 0 20px #8b1515;
+}
 
-            opacity: 0.95;
 
-            box-shadow: 0 0 20px #8b1515;
-        }
+/* Jogar */
 
+.jogar {
 
-        .jogar {
+    font-size: 34px;
 
-            font-size: 34px;
+    letter-spacing: 3px;
 
-            letter-spacing: 3px;
+    border: 1px solid rgba(160,20,20,0.7);
+}
 
-            border: 1px solid rgba(160,20,20,0.7);
-        }
 
+.jogar::before {
 
-        .jogar::before {
+    background: #777;
 
-            background: #777;
+    box-shadow:
+        0 0 0 2px #530000,
+        0 0 12px rgba(150,0,0,0.5);
+}
 
-            box-shadow:
-                0 0 0 2px #530000,
-                0 0 12px rgba(150,0,0,0.5);
-        }
 
+.jogar:hover::before {
 
-        .jogar:hover::before {
+    background: #9c1717;
 
-            background: #9c1717;
+    box-shadow:
+        0 0 0 2px #b00000,
+        0 0 25px rgba(200,0,0,0.7);
+}
 
-            box-shadow:
-                0 0 0 2px #b00000,
-                0 0 25px rgba(200,0,0,0.7);
-        }
 
+/* Desistir */
 
-        .desistir {
+.desistir {
 
-            width: 170px;
+    width: 170px;
 
-            margin-top: 20px;
+    margin-top: 20px;
 
-            font-size: 18px;
+    font-size: 18px;
 
-            opacity: 0.75;
-        }
+    opacity: 0.75;
+}
 
 
-        /* =========================
-           CORTINA
-        ========================= */
+/* =========================
+   CORTINA
+========================= */
 
-        .cortina {
+.cortina {
 
-            position: fixed;
+    position: fixed;
 
-            top: 0;
-            left: 0;
+    left: 0;
+    top: 0;
 
-            width: 100%;
-            height: 100%;
+    width: 100%;
+    height: 100%;
 
-            background:
-                linear-gradient(
-                    90deg,
-                    #350000 0%,
-                    #760000 12%,
-                    #a00000 25%,
-                    #700000 38%,
-                    #a80000 50%,
-                    #700000 62%,
-                    #a00000 75%,
-                    #760000 88%,
-                    #350000 100%
-                );
+    background:
+        linear-gradient(
+            90deg,
+            #350000,
+            #720000,
+            #a80000,
+            #680000,
+            #a80000,
+            #680000,
+            #a80000,
+            #720000,
+            #350000
+        );
 
-            z-index: 9999;
+    z-index: 9999;
 
-            transform: translateY(-101%);
+    /*
+       IMPORTANTE:
+       A cortina começa FORA da tela.
+       Por isso ela não deixa a tela preta.
+    */
 
-            transition:
-                transform 0.9s ease-in-out;
+    transform: translateY(-101%);
 
-            touch-action: none;
+    transition:
+        transform 1s ease-in-out;
 
-            pointer-events: none;
-        }
+    touch-action: none;
 
+    pointer-events: none;
+}
 
-        /* Dobras da cortina */
 
-        .cortina::before {
+/* Dobras da cortina */
 
-            content: "";
+.cortina::before {
 
-            position: absolute;
+    content: "";
 
-            inset: 0;
+    position: absolute;
 
-            background:
-                repeating-linear-gradient(
-                    90deg,
-                    rgba(0,0,0,0.25) 0px,
-                    rgba(255,255,255,0.08) 30px,
-                    rgba(0,0,0,0.3) 60px
-                );
-        }
+    inset: 0;
 
+    background:
+        repeating-linear-gradient(
+            90deg,
+            rgba(0,0,0,0.25) 0px,
+            rgba(255,255,255,0.08) 30px,
+            rgba(0,0,0,0.30) 60px
+        );
+}
 
-        /* Brilho */
 
-        .cortina::after {
+/* Brilho */
 
-            content: "";
+.cortina::after {
 
-            position: absolute;
+    content: "";
 
-            left: 50%;
-            top: 0;
+    position: absolute;
 
-            width: 25%;
-            height: 100%;
+    left: 50%;
+    top: 0;
 
-            transform: translateX(-50%);
+    width: 25%;
+    height: 100%;
 
-            background:
-                linear-gradient(
-                    90deg,
-                    transparent,
-                    rgba(255,255,255,0.08),
-                    transparent
-                );
-        }
+    transform: translateX(-50%);
 
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.08),
+            transparent
+        );
+}
 
-        /* Quando a cortina fecha */
 
-        .cortina.fechada {
+/* Cortina fechada */
 
-            transform: translateY(0);
+.cortina.fechada {
 
-            pointer-events: auto;
+    transform: translateY(0);
 
-            cursor: grab;
-        }
+    pointer-events: auto;
 
+    cursor: grab;
+}
 
-        .cortina.arrastando {
 
-            transition: none;
+/* Durante o arrasto */
 
-            cursor: grabbing;
-        }
+.cortina.arrastando {
 
+    transition: none;
 
-        /* =========================
-           RESPONSIVO
-        ========================= */
+    cursor: grabbing;
+}
 
-        @media (max-width: 700px) {
 
-            .interface {
+/* =========================
+   RESPONSIVO
+========================= */
 
-                left: 5%;
-                top: 8%;
+@media (max-width: 700px) {
 
-                width: 55%;
-            }
+    .interface {
 
+        left: 5%;
+        top: 8%;
 
-            .titulo {
-                font-size: 28px;
-            }
+        width: 55%;
+    }
 
 
-            .boasvindas {
-                font-size: 20px;
-            }
+    .titulo {
+        font-size: 28px;
+    }
 
 
-            .botao {
+    .boasvindas {
+        font-size: 20px;
+    }
 
-                width: 220px;
 
-                font-size: 20px;
-            }
+    .botao {
 
+        width: 220px;
 
-            .jogar {
-                font-size: 28px;
-            }
+        font-size: 20px;
+    }
 
 
-            .lua {
+    .jogar {
+        font-size: 28px;
+    }
 
-                width: 110px;
-                height: 110px;
 
-                top: 8%;
-                right: 5%;
-            }
+    .lua {
 
+        width: 110px;
+        height: 110px;
 
-            .corvo {
+        top: 8%;
+        right: 5%;
+    }
 
-                right: 2%;
-                top: 24%;
 
-                transform: scale(0.65);
-            }
+    .corvo {
 
-        }
+        right: 2%;
+        top: 24%;
 
-    </style>
+        transform: scale(0.65);
+    }
+
+}
+
+</style>
 </head>
 
 
 <body>
 
 
-    <!-- =========================
-         CENÁRIO
-    ========================= -->
+<!-- =========================
+     CENÁRIO
+========================= -->
 
-    <div class="cenario">
+<div class="cenario">
 
-        <div class="estrelas"></div>
+    <div class="estrelas"></div>
 
-        <div class="arvores"></div>
+    <div class="arvores"></div>
 
-        <div class="cidade"></div>
+    <div class="cidade"></div>
 
-        <div class="nevoa"></div>
+    <div class="nevoa"></div>
 
-        <div class="lua"></div>
+    <div class="lua"></div>
 
-        <div class="estrela"></div>
+    <div class="estrela"></div>
 
 
-        <!-- CORVO -->
+    <!-- CORVO -->
 
-        <div class="corvo">
+    <div class="corvo">
 
-            <div class="corvo-corpo"></div>
+        <div class="corvo-corpo"></div>
 
-            <div class="corvo-cabeca">
+        <div class="corvo-cabeca">
 
-                <div class="corvo-bico"></div>
-
-            </div>
-
-            <div class="corvo-asa-esquerda"></div>
-
-            <div class="corvo-asa-direita"></div>
-
-            <div class="corvo-cauda"></div>
-
-            <div class="corvo-olho olho-esquerdo"></div>
-
-            <div class="corvo-olho olho-direito"></div>
+            <div class="corvo-bico"></div>
 
         </div>
 
+        <div class="corvo-asa-esquerda"></div>
 
-        <!-- INTERFACE -->
+        <div class="corvo-asa-direita"></div>
 
-        <section class="interface">
+        <div class="corvo-cauda"></div>
 
-            <h1 class="titulo">
-                Nome da Cidade
-            </h1>
+        <div class="corvo-olho olho-esquerdo"></div>
 
-            <div class="boasvindas">
-                Bem-vindo
-            </div>
-
-            <div class="menu">
-
-                <button class="botao jogar">
-                    JOGAR
-                </button>
-
-                <button class="botao">
-                    CONTINUAR
-                </button>
-
-                <button class="botao desistir">
-                    Desistir
-                </button>
-
-            </div>
-
-        </section>
+        <div class="corvo-olho olho-direito"></div>
 
     </div>
 
 
     <!-- =========================
-         CORTINA
+         INTERFACE
     ========================= -->
 
-    <div class="cortina" id="cortina"></div>
+    <section class="interface">
+
+        <h1 class="titulo">
+            Nome da Cidade
+        </h1>
+
+        <div class="boasvindas">
+            Bem-vindo
+        </div>
+
+        <div class="menu">
+
+            <button
+                class="botao jogar"
+                onclick="abrirCortina()"
+            >
+                JOGAR
+            </button>
+
+            <button class="botao">
+                CONTINUAR
+            </button>
+
+            <button class="botao desistir">
+                Desistir
+            </button>
+
+        </div>
+
+    </section>
+
+</div>
 
 
-    <script>
+<!-- =========================
+     CORTINA
+========================= -->
 
-        const cortina = document.getElementById("cortina");
-
-        const jogar = document.querySelector(".jogar");
-
-
-        /* =========================
-           ABRIR CORTINA
-        ========================= */
-
-        jogar.addEventListener("click", function () {
-
-            cortina.classList.add("fechada");
-
-        });
+<div
+    class="cortina"
+    id="cortina"
+></div>
 
 
-        /* =========================
-           ARRASTAR
-        ========================= */
+<script>
 
-        let inicioY = 0;
+/* =========================
+   ABRIR CORTINA
+========================= */
 
-        let arrastando = false;
+function abrirCortina() {
 
-        let posicao = 0;
+    const cortina =
+        document.getElementById("cortina");
 
+    cortina.classList.add("fechada");
 
-        function comecar(y) {
-
-            if (!cortina.classList.contains("fechada")) {
-                return;
-            }
-
-            inicioY = y;
-
-            arrastando = true;
-
-            cortina.classList.add("arrastando");
-        }
+}
 
 
-        function mover(y) {
+/* =========================
+   ARRASTAR CORTINA
+========================= */
 
-            if (!arrastando) {
-                return;
-            }
+const cortina =
+    document.getElementById("cortina");
 
-            const movimento = y - inicioY;
+let inicioY = 0;
 
-            const altura = window.innerHeight;
+let arrastando = false;
 
-            let porcentagem =
-                (movimento / altura) * 100;
-
-            porcentagem =
-                Math.max(-100, Math.min(0, porcentagem));
-
-            cortina.style.transform =
-                "translateY(" + porcentagem + "%)";
-
-            posicao = porcentagem;
-        }
+let posicao = 0;
 
 
-        function terminar() {
+/* Começar */
 
-            if (!arrastando) {
-                return;
-            }
+function comecarArrasto(y) {
 
-            arrastando = false;
+    if (!cortina.classList.contains("fechada")) {
+        return;
+    }
 
-            cortina.classList.remove("arrastando");
+    inicioY = y;
+
+    arrastando = true;
+
+    cortina.classList.add("arrastando");
+
+}
 
 
-            if (posicao <= -40) {
+/* Mover */
 
-       
+function moverArrasto(y) {
+
+    if (!arrastando) {
+        return;
+    }
+
+    const movimento =
+        y - inicioY;
+
+    const altura =
+        window.innerHeight;
+
+    let porcentagem =
+        (movimento / altura) * 100;
+
+    porcentagem =
+        Math.max(
+            -100,
+            Math.min(0, porcentagem)
+        );
+
+    cortina.style.transform =
+        "translateY(" + porcentagem + "%)";
+
+    posicao = porcentagem;
+
+}
+
+
+/* Soltar */
+
+function terminarArrasto() {
+
+    if (!arrastando) {
+        return;
+    }
+
+    arrastando = false;
+
+    cortina.classList.remove("arrastando");
+
+
+    /*
+       Se puxou bastante para cima,
+       a cortina sai completamente.
+    */
+
+    if (posicao <= -35) {
+
+        cortina.style.transform =
+            "translateY(-101%)";
+
+        cortina.classList.remove("fechada");
+
+        posicao = -101;
+
+    }
+
+    /*
+       Se puxou pouco,
+       ela volta para baixo.
+    */
+
+    else {
+
+        cortina.style.transform =
+            "translateY(0%)";
+
+        posicao = 0;
+
+    }
+
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+cortina.addEventListener(
+    "touchstart",
+    function(evento) {
+
+        comecarArrasto(
+            evento.touches[0].clientY
+        );
+
+    }
+);
+
+
+cortina.addEventListener(
+    "touchmove",
+    function(evento) {
+
+        moverArrasto(
+            evento.touches[0].clientY
+        );
+
+    }
+);
+
+
+cortina.addEventListener(
+    "touchend",
+    function() {
+
+        terminarArrasto();
+
+    }
+);
+
+
+/* =========================
+   MOUSE
+========================= */
+
+cortina.addEventListener(
+    "mousedown",
+    function(evento) {
+
+        comecarArrasto(
+            evento.clientY
+        );
+
+    }
+);
+
+
+window.addEventListener(
+    "mousemove",
+    function(evento) {
+
+        moverArrasto(
+            evento.clientY
+        );
+
+    }
+);
+
+
+window.addEventListener(
+    "mouseup",
+    function() {
+
+        terminarArrasto();
+
+    }
+);
+
+</script>
+
+
+</body>
+
+    </html>

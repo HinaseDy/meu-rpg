@@ -162,27 +162,95 @@
         ========================= */
 
         .lua {
-            position: absolute;
+    position: absolute;
 
-            top: 10%;
-            right: 10%;
+    top: 10%;
+    right: 10%;
 
-            width: 180px;
-            height: 180px;
+    width: 180px;
+    height: 180px;
 
-            border-radius: 50%;
+    border-radius: 50%;
 
-            background: #d8d8d8;
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #f4f4f4 0%,
+            #d8d8d8 45%,
+            #a8a8a8 75%,
+            #777777 100%
+        );
 
-            box-shadow:
-                0 0 20px rgba(255,255,255,0.3),
-                0 0 50px rgba(255,255,255,0.15);
+    box-shadow:
+        0 0 15px rgba(255,255,255,0.35),
+        0 0 40px rgba(255,255,255,0.18),
+        0 0 90px rgba(150,0,0,0.12);
 
-            opacity: 0.75;
+    opacity: 0.9;
 
-            z-index: 2;
-        }
+    z-index: 2;
 
+    overflow: hidden;
+}
+
+
+/* Crateras da lua */
+
+.lua::before {
+    content: "";
+
+    position: absolute;
+
+    width: 38px;
+    height: 38px;
+
+    top: 30px;
+    left: 35px;
+
+    border-radius: 50%;
+
+    background: rgba(90,90,90,0.22);
+
+    box-shadow:
+        55px 15px 0 8px rgba(90,90,90,0.16),
+        25px 70px 0 12px rgba(80,80,80,0.18),
+        90px 85px 0 6px rgba(70,70,70,0.18),
+        70px 115px 0 15px rgba(80,80,80,0.13);
+}
+
+
+/* Brilho vermelho sobrenatural */
+
+.lua::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 70% 60%,
+            rgba(130,0,0,0.18),
+            transparent 55%
+        );
+
+    animation: luaPulso 5s ease-in-out infinite;
+}
+
+@keyframes luaPulso {
+
+    0%, 100% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+}
 
         /* =========================
            INTERFACE

@@ -44,10 +44,13 @@
         }
 
 
-        /* Névoa */
+        /* =========================
+           NÉVOA
+        ========================= */
 
         .nevoa {
             position: absolute;
+
             width: 150%;
             height: 45%;
 
@@ -78,7 +81,9 @@
         }
 
 
-        /* Árvores */
+        /* =========================
+           ÁRVORES
+        ========================= */
 
         .arvores {
             position: absolute;
@@ -151,42 +156,34 @@
 
         }
 
-/* LUA */
 
-        
-.lua {
-    position: absolute;
+        /* =========================
+           LUA
+        ========================= */
 
-    top: 12%;
-    right: 12%;
+        .lua {
+            position: absolute;
 
-    width: 180px;
-    height: 180px;
+            top: 10%;
+            right: 10%;
 
-    border-radius: 50%;
+            width: 180px;
+            height: 180px;
 
-    background: #d8d8d8;
+            border-radius: 50%;
 
-    box-shadow:
-        0 0 20px rgba(255,255,255,0.25),
-        0 0 60px rgba(255,255,255,0.12);
+            background: #d8d8d8;
 
-    opacity: 0.75;
+            box-shadow:
+                0 0 20px rgba(255,255,255,0.3),
+                0 0 50px rgba(255,255,255,0.15);
 
-    z-index: 1;
+            opacity: 0.75;
+
+            z-index: 2;
         }
 
-    <div class="arvores"></div>
 
-<div class="nevoa"></div>
-
-<div class="estrela"></div>
-
-<div class="lua"></div>
-
-
-<!-- Interface -->
-        
         /* =========================
            INTERFACE
         ========================= */
@@ -203,7 +200,9 @@
         }
 
 
-        /* Título */
+        /* =========================
+           TÍTULO
+        ========================= */
 
         .titulo {
             position: relative;
@@ -251,7 +250,9 @@
         }
 
 
-        /* Bem-vindo */
+        /* =========================
+           BEM-VINDO
+        ========================= */
 
         .boasvindas {
 
@@ -266,7 +267,9 @@
         }
 
 
-        /* Menu */
+        /* =========================
+           MENU
+        ========================= */
 
         .menu {
 
@@ -281,6 +284,10 @@
             width: 320px;
         }
 
+
+        /* =========================
+           BOTÕES
+        ========================= */
 
         .botao {
 
@@ -355,7 +362,9 @@
         }
 
 
-        /* JOGAR */
+        /* =========================
+           JOGAR
+        ========================= */
 
         .jogar {
 
@@ -387,7 +396,9 @@
         }
 
 
-        /* Desistir */
+        /* =========================
+           DESISTIR
+        ========================= */
 
         .desistir {
 
@@ -398,141 +409,6 @@
             font-size: 18px;
 
             opacity: 0.75;
-        }
-
-
-        /* =========================
-           CRIATURA
-        ========================= */
-
-        .criatura {
-
-            position: absolute;
-
-            right: 2%;
-
-            bottom: -5%;
-
-            width: min(55vw, 650px);
-
-            height: 65%;
-
-            z-index: 3;
-
-            pointer-events: none;
-        }
-
-
-        .cabeca {
-
-            position: absolute;
-
-            width: 75%;
-
-            height: 50%;
-
-            right: 5%;
-
-            top: 10%;
-
-            background: #777;
-
-            border-radius: 55% 45% 45% 35%;
-
-            transform: rotate(-5deg);
-
-            box-shadow:
-                inset -20px -15px 30px rgba(0,0,0,0.5),
-                0 0 10px rgba(220,220,220,0.5);
-        }
-
-
-        .bico {
-
-            position: absolute;
-
-            left: -30%;
-
-            top: 35%;
-
-            width: 45%;
-
-            height: 25%;
-
-            background: #888;
-
-            clip-path: polygon(
-                0 50%,
-                100% 0,
-                80% 100%
-            );
-
-            transform: rotate(3deg);
-        }
-
-
-        .olho {
-
-            position: absolute;
-
-            right: 23%;
-
-            top: 40%;
-
-            width: 55px;
-
-            height: 75px;
-
-            background: #a40000;
-
-            border-radius: 50% 50% 45% 45%;
-
-            box-shadow:
-                0 0 10px red,
-                0 0 25px rgba(255,0,0,0.7);
-
-            animation: olho 3s infinite;
-        }
-
-
-        @keyframes olho {
-
-            0%, 90%, 100% {
-                opacity: 1;
-            }
-
-            94% {
-                opacity: 0.2;
-            }
-
-        }
-
-
-        /* Corpo */
-
-        .corpo {
-
-            position: absolute;
-
-            right: 0;
-
-            bottom: 0;
-
-            width: 90%;
-
-            height: 60%;
-
-            background:
-                linear-gradient(
-                    130deg,
-                    #444,
-                    #171717 70%
-                );
-
-            border-radius: 50% 50% 0 0;
-
-            box-shadow:
-                inset 0 10px 20px rgba(255,255,255,0.05);
         }
 
 
@@ -578,21 +454,13 @@
             }
 
 
-            .criatura {
+            .lua {
 
-                width: 65vw;
+                width: 110px;
+                height: 110px;
 
-                height: 55%;
-
-                right: -12%;
-            }
-
-
-            .olho {
-
-                width: 35px;
-
-                height: 50px;
+                top: 8%;
+                right: 5%;
             }
 
         }
@@ -605,14 +473,22 @@
 
     <div class="cenario">
 
+        <!-- Árvores -->
         <div class="arvores"></div>
 
+        <!-- Névoa -->
         <div class="nevoa"></div>
 
+        <!-- Estrela vermelha -->
         <div class="estrela"></div>
 
+        <!-- Lua -->
+        <div class="lua"></div>
 
-        <!-- Interface -->
+
+        <!-- =========================
+             INTERFACE
+        ========================= -->
 
         <section class="interface">
 
@@ -646,12 +522,12 @@
 
         </section>
 
-        
+    </div>
+
 
     <script>
 
-        // Por enquanto os botões são apenas visuais.
-        // Depois vamos colocar as funções deles.
+        // Por enquanto o botão JOGAR é apenas visual.
 
         const jogar = document.querySelector(".jogar");
 
@@ -665,4 +541,4 @@
 
 </body>
 
-</html>    
+    </html>

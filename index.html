@@ -5,73 +5,647 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Meu RPG</title>
+    <title>Nome da Cidade</title>
 
     <style>
-        body {
+
+        * {
+            box-sizing: border-box;
             margin: 0;
-            background: #111;
-            color: white;
-            font-family: Arial, sans-serif;
+            padding: 0;
         }
 
-        header {
-            padding: 25px;
-            background: #181818;
+        body {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 65% 40%,
+                    #353535 0%,
+                    #171717 35%,
+                    #050505 75%
+                );
+
+            color: #eeeeee;
+            font-family: Georgia, serif;
+        }
+
+
+        /* =========================
+           CENÁRIO
+        ========================= */
+
+        .cenario {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+        }
+
+
+        /* Névoa */
+
+        .nevoa {
+            position: absolute;
+            width: 150%;
+            height: 45%;
+
+            left: -25%;
+            bottom: 0;
+
+            background: radial-gradient(
+                ellipse,
+                rgba(180,180,180,0.08),
+                transparent 70%
+            );
+
+            filter: blur(25px);
+
+            animation: nevoa 12s ease-in-out infinite alternate;
+        }
+
+        @keyframes nevoa {
+
+            from {
+                transform: translateX(-3%);
+            }
+
+            to {
+                transform: translateX(3%);
+            }
+
+        }
+
+
+        /* Árvores */
+
+        .arvores {
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    110deg,
+                    transparent 55%,
+                    rgba(0,0,0,0.8) 56%,
+                    transparent 57%
+                ),
+                linear-gradient(
+                    70deg,
+                    transparent 63%,
+                    rgba(0,0,0,0.7) 64%,
+                    transparent 65%
+                );
+
+            opacity: 0.8;
+        }
+
+
+        /* =========================
+           ESTRELA VERMELHA
+        ========================= */
+
+        .estrela {
+            position: absolute;
+
+            top: 30%;
+            left: 42%;
+
+            width: 80px;
+            height: 80px;
+
+            transform: rotate(45deg);
+
+            background: #d40000;
+
+            clip-path: polygon(
+                50% 0%,
+                60% 40%,
+                100% 50%,
+                60% 60%,
+                50% 100%,
+                40% 60%,
+                0% 50%,
+                40% 40%
+            );
+
+            filter:
+                drop-shadow(0 0 8px rgba(255,0,0,0.8))
+                drop-shadow(0 0 20px rgba(255,0,0,0.3));
+
+            animation: pulsar 4s ease-in-out infinite;
+        }
+
+        @keyframes pulsar {
+
+            0%, 100% {
+                opacity: 0.75;
+                transform: rotate(45deg) scale(0.95);
+            }
+
+            50% {
+                opacity: 1;
+                transform: rotate(45deg) scale(1.08);
+            }
+
+        }
+
+
+        /* =========================
+           INTERFACE
+        ========================= */
+
+        .interface {
+            position: absolute;
+
+            left: 6%;
+            top: 12%;
+
+            width: 390px;
+
+            z-index: 5;
+        }
+
+
+        /* Título */
+
+        .titulo {
+            position: relative;
+
             text-align: center;
+
+            padding: 30px 10px;
+
+            font-family: Georgia, serif;
+
+            font-size: clamp(30px, 4vw, 52px);
+
+            letter-spacing: 2px;
+
+            color: #e5e5e5;
+
+            text-shadow:
+                0 0 5px #000,
+                0 0 15px #000;
         }
 
-        nav {
-            margin-top: 20px;
-        }
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 15px;
-        }
+        .titulo::before,
+        .titulo::after {
 
-        main {
-            padding: 80px 20px;
-            text-align: center;
-        }
+            content: "❦";
 
-        h1 {
+            position: absolute;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            color: #cfcfcf;
+
             font-size: 45px;
         }
 
-        h2 {
-            font-size: 30px;
+        .titulo::before {
+            top: -15px;
         }
+
+        .titulo::after {
+            bottom: -15px;
+        }
+
+
+        /* Bem-vindo */
+
+        .boasvindas {
+
+            margin-top: 35px;
+            margin-left: 20px;
+
+            font-size: 26px;
+
+            color: #dddddd;
+
+            text-shadow: 0 2px 5px black;
+        }
+
+
+        /* Menu */
+
+        .menu {
+
+            margin-top: 25px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 14px;
+
+            width: 320px;
+        }
+
+
+        .botao {
+
+            position: relative;
+
+            width: 280px;
+
+            padding: 13px 28px;
+
+            background: transparent;
+
+            border: none;
+
+            color: #dddddd;
+
+            text-align: left;
+
+            font-family: Georgia, serif;
+
+            font-size: 25px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+
+            text-shadow: 0 2px 4px black;
+        }
+
+
+        .botao::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            z-index: -1;
+
+            background: #777;
+
+            clip-path: polygon(
+                0 0,
+                88% 0,
+                100% 50%,
+                88% 100%,
+                0 100%,
+                8% 50%
+            );
+
+            opacity: 0.75;
+
+            transition: 0.3s;
+        }
+
+
+        .botao:hover {
+
+            color: white;
+
+            transform: translateX(8px);
+        }
+
+
+        .botao:hover::before {
+
+            background: #8b1515;
+
+            opacity: 0.95;
+
+            box-shadow: 0 0 20px #8b1515;
+        }
+
+
+        /* JOGAR */
+
+        .jogar {
+
+            font-size: 34px;
+
+            letter-spacing: 3px;
+
+            border: 1px solid rgba(160,20,20,0.7);
+        }
+
+
+        .jogar::before {
+
+            background: #777;
+
+            box-shadow:
+                0 0 0 2px #530000,
+                0 0 12px rgba(150,0,0,0.5);
+        }
+
+
+        .jogar:hover::before {
+
+            background: #9c1717;
+
+            box-shadow:
+                0 0 0 2px #b00000,
+                0 0 25px rgba(200,0,0,0.7);
+        }
+
+
+        /* Desistir */
+
+        .desistir {
+
+            width: 170px;
+
+            margin-top: 20px;
+
+            font-size: 18px;
+
+            opacity: 0.75;
+        }
+
+
+        /* =========================
+           CRIATURA
+        ========================= */
+
+        .criatura {
+
+            position: absolute;
+
+            right: 2%;
+
+            bottom: -5%;
+
+            width: min(55vw, 650px);
+
+            height: 65%;
+
+            z-index: 3;
+
+            pointer-events: none;
+        }
+
+
+        .cabeca {
+
+            position: absolute;
+
+            width: 75%;
+
+            height: 50%;
+
+            right: 5%;
+
+            top: 10%;
+
+            background: #777;
+
+            border-radius: 55% 45% 45% 35%;
+
+            transform: rotate(-5deg);
+
+            box-shadow:
+                inset -20px -15px 30px rgba(0,0,0,0.5),
+                0 0 10px rgba(220,220,220,0.5);
+        }
+
+
+        .bico {
+
+            position: absolute;
+
+            left: -30%;
+
+            top: 35%;
+
+            width: 45%;
+
+            height: 25%;
+
+            background: #888;
+
+            clip-path: polygon(
+                0 50%,
+                100% 0,
+                80% 100%
+            );
+
+            transform: rotate(3deg);
+        }
+
+
+        .olho {
+
+            position: absolute;
+
+            right: 23%;
+
+            top: 40%;
+
+            width: 55px;
+
+            height: 75px;
+
+            background: #a40000;
+
+            border-radius: 50% 50% 45% 45%;
+
+            box-shadow:
+                0 0 10px red,
+                0 0 25px rgba(255,0,0,0.7);
+
+            animation: olho 3s infinite;
+        }
+
+
+        @keyframes olho {
+
+            0%, 90%, 100% {
+                opacity: 1;
+            }
+
+            94% {
+                opacity: 0.2;
+            }
+
+        }
+
+
+        /* Corpo */
+
+        .corpo {
+
+            position: absolute;
+
+            right: 0;
+
+            bottom: 0;
+
+            width: 90%;
+
+            height: 60%;
+
+            background:
+                linear-gradient(
+                    130deg,
+                    #444,
+                    #171717 70%
+                );
+
+            border-radius: 50% 50% 0 0;
+
+            box-shadow:
+                inset 0 10px 20px rgba(255,255,255,0.05);
+        }
+
+
+        /* =========================
+           RESPONSIVO
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .interface {
+
+                left: 5%;
+
+                top: 8%;
+
+                width: 55%;
+            }
+
+
+            .titulo {
+
+                font-size: 28px;
+            }
+
+
+            .boasvindas {
+
+                font-size: 20px;
+            }
+
+
+            .botao {
+
+                width: 220px;
+
+                font-size: 20px;
+            }
+
+
+            .jogar {
+
+                font-size: 28px;
+            }
+
+
+            .criatura {
+
+                width: 65vw;
+
+                height: 55%;
+
+                right: -12%;
+            }
+
+
+            .olho {
+
+                width: 35px;
+
+                height: 50px;
+            }
+
+        }
+
     </style>
 </head>
 
+
 <body>
 
-    <header>
+    <div class="cenario">
 
-        <h1>MEU RPG</h1>
+        <div class="arvores"></div>
 
-        <nav>
-            <a href="#">Início</a>
-            <a href="#">Sistema</a>
-            <a href="#">Personagens</a>
-            <a href="#">Criaturas</a>
-            <a href="#">Mundo</a>
-        </nav>
+        <div class="nevoa"></div>
 
-    </header>
+        <div class="estrela"></div>
 
-    <main>
 
-        <h2>Bem-vindo ao nosso mundo</h2>
+        <!-- Interface -->
 
-        <p>
-            Aqui começa a história do seu RPG.
-        </p>
+        <section class="interface">
 
-    </main>
+            <h1 class="titulo">
+                Nome da Cidade
+            </h1>
+
+
+            <div class="boasvindas">
+                Bem-vindo
+            </div>
+
+
+            <div class="menu">
+
+                <button class="botao jogar">
+                    JOGAR
+                </button>
+
+
+                <button class="botao">
+                    CONTINUAR
+                </button>
+
+
+                <button class="botao desistir">
+                    Desistir
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Criatura -->
+
+        <div class="criatura">
+
+            <div class="corpo"></div>
+
+            <div class="cabeca">
+
+                <div class="bico"></div>
+
+                <div class="olho"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        // Por enquanto os botões são apenas visuais.
+        // Depois vamos colocar as funções deles.
+
+        const jogar = document.querySelector(".jogar");
+
+        jogar.addEventListener("click", () => {
+
+            alert("A cortina será adicionada aqui.");
+
+        });
+
+    </script>
 
 </body>
 
-</html>
+</html>    

@@ -174,7 +174,7 @@
         }
 
 
-        /* Luzes da cidade */
+        /* Luzes vermelhas */
 
         .cidade::before {
             content: "";
@@ -190,14 +190,10 @@
                 radial-gradient(circle at 72% 67%, rgba(180,0,0,0.65) 0 2px, transparent 4px),
                 radial-gradient(circle at 86% 61%, rgba(220,0,0,0.5) 0 2px, transparent 4px);
 
-            opacity: 0.9;
-
             animation: luzesCidade 4s ease-in-out infinite alternate;
         }
 
-
         @keyframes luzesCidade {
-
             from {
                 opacity: 0.55;
             }
@@ -205,13 +201,10 @@
             to {
                 opacity: 1;
             }
-
         }
 
 
-        /* =========================
-           BRILHO VERMELHO NO HORIZONTE
-        ========================= */
+        /* Brilho vermelho no horizonte */
 
         .cidade::after {
             content: "";
@@ -234,9 +227,7 @@
             animation: horizonteVermelho 6s ease-in-out infinite alternate;
         }
 
-
         @keyframes horizonteVermelho {
-
             from {
                 opacity: 0.35;
             }
@@ -244,7 +235,6 @@
             to {
                 opacity: 0.8;
             }
-
         }
 
 
@@ -276,7 +266,6 @@
             z-index: 3;
         }
 
-
         @keyframes nevoa {
 
             from {
@@ -290,7 +279,7 @@
         }
 
 
-        /* Névoa vermelha distante */
+        /* Névoa vermelha */
 
         .nevoa::after {
             content: "";
@@ -310,7 +299,6 @@
             animation: nevoaVermelha 7s ease-in-out infinite alternate;
         }
 
-
         @keyframes nevoaVermelha {
 
             from {
@@ -319,59 +307,6 @@
 
             to {
                 opacity: 0.7;
-            }
-
-        }
-
-
-        /* =========================
-           ESTRELA VERMELHA
-        ========================= */
-
-        .estrela {
-            position: absolute;
-
-            top: 30%;
-            left: 42%;
-
-            width: 80px;
-            height: 80px;
-
-            transform: rotate(45deg);
-
-            background: #d40000;
-
-            clip-path: polygon(
-                50% 0%,
-                60% 40%,
-                100% 50%,
-                60% 60%,
-                50% 100%,
-                40% 60%,
-                0% 50%,
-                40% 40%
-            );
-
-            filter:
-                drop-shadow(0 0 8px rgba(255,0,0,0.8))
-                drop-shadow(0 0 20px rgba(255,0,0,0.3));
-
-            animation: pulsar 4s ease-in-out infinite;
-
-            z-index: 4;
-        }
-
-
-        @keyframes pulsar {
-
-            0%, 100% {
-                opacity: 0.75;
-                transform: rotate(45deg) scale(0.95);
-            }
-
-            50% {
-                opacity: 1;
-                transform: rotate(45deg) scale(1.08);
             }
 
         }
@@ -460,7 +395,6 @@
             animation: luaPulso 5s ease-in-out infinite;
         }
 
-
         @keyframes luaPulso {
 
             0%, 100% {
@@ -469,6 +403,227 @@
 
             50% {
                 opacity: 0.8;
+            }
+
+        }
+
+
+        /* =========================
+           CORVO
+        ========================= */
+
+        .corvo {
+            position: absolute;
+
+            right: 13%;
+            top: 22%;
+
+            width: 230px;
+            height: 180px;
+
+            z-index: 6;
+
+            transform: rotate(-6deg);
+
+            animation: corvoFlutuar 4s ease-in-out infinite;
+        }
+
+
+        @keyframes corvoFlutuar {
+
+            0%, 100% {
+                transform: translateY(0) rotate(-6deg);
+            }
+
+            50% {
+                transform: translateY(-7px) rotate(-4deg);
+            }
+
+        }
+
+
+        /* Corpo */
+
+        .corvo-corpo {
+            position: absolute;
+
+            width: 105px;
+            height: 125px;
+
+            right: 45px;
+            top: 45px;
+
+            background: #050505;
+
+            border-radius: 50% 45% 40% 45%;
+
+            transform: rotate(-10deg);
+
+            box-shadow:
+                -12px 10px 20px rgba(0,0,0,0.7),
+                inset 12px -10px 20px rgba(60,60,60,0.12);
+        }
+
+
+        /* Cabeça */
+
+        .corvo-cabeca {
+            position: absolute;
+
+            width: 78px;
+            height: 78px;
+
+            right: 25px;
+            top: 18px;
+
+            background: #030303;
+
+            border-radius: 55% 50% 45% 50%;
+
+            z-index: 2;
+        }
+
+
+        /* Bico */
+
+        .corvo-bico {
+            position: absolute;
+
+            right: -65px;
+            top: 45px;
+
+            width: 75px;
+            height: 28px;
+
+            background: #050505;
+
+            clip-path: polygon(
+                0 0,
+                100% 50%,
+                0 100%
+            );
+
+            transform: rotate(-5deg);
+        }
+
+
+        /* Asa esquerda */
+
+        .corvo-asa-esquerda {
+            position: absolute;
+
+            width: 135px;
+            height: 70px;
+
+            left: 5px;
+            top: 45px;
+
+            background: #020202;
+
+            border-radius: 80% 20% 80% 20%;
+
+            transform: rotate(18deg);
+
+            box-shadow:
+                inset 15px 5px 15px rgba(60,60,60,0.12);
+        }
+
+
+        /* Asa direita */
+
+        .corvo-asa-direita {
+            position: absolute;
+
+            width: 125px;
+            height: 65px;
+
+            right: 35px;
+            top: 95px;
+
+            background: #020202;
+
+            border-radius: 20% 80% 20% 80%;
+
+            transform: rotate(-25deg);
+        }
+
+
+        /* Cauda */
+
+        .corvo-cauda {
+            position: absolute;
+
+            left: 35px;
+            bottom: 5px;
+
+            width: 105px;
+            height: 60px;
+
+            background: #020202;
+
+            clip-path: polygon(
+                100% 0,
+                0 20%,
+                35% 50%,
+                0 80%,
+                100% 100%
+            );
+
+            transform: rotate(8deg);
+        }
+
+
+        /* Olhos */
+
+        .corvo-olho {
+
+            position: absolute;
+
+            width: 13px;
+            height: 13px;
+
+            border-radius: 50%;
+
+            background: #ff0000;
+
+            box-shadow:
+                0 0 5px #ff0000,
+                0 0 15px rgba(255,0,0,0.9),
+                0 0 28px rgba(255,0,0,0.5);
+
+            z-index: 5;
+
+            animation: olhosCorvo 2.5s ease-in-out infinite;
+        }
+
+
+        .olho-esquerdo {
+            right: 70px;
+            top: 48px;
+        }
+
+
+        .olho-direito {
+            right: 50px;
+            top: 49px;
+        }
+
+
+        @keyframes olhosCorvo {
+
+            0%, 100% {
+                opacity: 0.75;
+                box-shadow:
+                    0 0 5px #ff0000,
+                    0 0 15px rgba(255,0,0,0.8);
+            }
+
+            50% {
+                opacity: 1;
+                box-shadow:
+                    0 0 8px #ff0000,
+                    0 0 22px rgba(255,0,0,1),
+                    0 0 35px rgba(255,0,0,0.5);
             }
 
         }
@@ -486,11 +641,9 @@
 
             width: 390px;
 
-            z-index: 5;
+            z-index: 10;
         }
 
-
-        /* Título */
 
         .titulo {
             position: relative;
@@ -538,8 +691,6 @@
         }
 
 
-        /* Bem-vindo */
-
         .boasvindas {
 
             margin-top: 35px;
@@ -552,8 +703,6 @@
             text-shadow: 0 2px 5px black;
         }
 
-
-        /* Menu */
 
         .menu {
 
@@ -568,8 +717,6 @@
             width: 320px;
         }
 
-
-        /* Botões */
 
         .botao {
 
@@ -644,8 +791,6 @@
         }
 
 
-        /* JOGAR */
-
         .jogar {
 
             font-size: 34px;
@@ -675,8 +820,6 @@
                 0 0 25px rgba(200,0,0,0.7);
         }
 
-
-        /* Desistir */
 
         .desistir {
 
@@ -737,6 +880,16 @@
                 right: 5%;
             }
 
+
+            .corvo {
+
+                right: 2%;
+                top: 24%;
+
+                transform: scale(0.65);
+                transform-origin: center;
+            }
+
         }
 
     </style>
@@ -747,26 +900,49 @@
 
     <div class="cenario">
 
-        <!-- Estrelas -->
         <div class="estrelas"></div>
 
-        <!-- Árvores -->
         <div class="arvores"></div>
 
-        <!-- Cidade -->
         <div class="cidade"></div>
 
-        <!-- Névoa -->
         <div class="nevoa"></div>
 
-        <!-- Estrela vermelha -->
         <div class="estrela"></div>
 
-        <!-- Lua -->
         <div class="lua"></div>
 
 
-        <!-- Interface -->
+        <!-- =========================
+             CORVO
+        ========================= -->
+
+        <div class="corvo">
+
+            <div class="corvo-corpo"></div>
+
+            <div class="corvo-cabeca">
+
+                <div class="corvo-bico"></div>
+
+            </div>
+
+            <div class="corvo-asa-esquerda"></div>
+
+            <div class="corvo-asa-direita"></div>
+
+            <div class="corvo-cauda"></div>
+
+            <div class="corvo-olho olho-esquerdo"></div>
+
+            <div class="corvo-olho olho-direito"></div>
+
+        </div>
+
+
+        <!-- =========================
+             INTERFACE
+        ========================= -->
 
         <section class="interface">
 
@@ -774,11 +950,9 @@
                 Nome da Cidade
             </h1>
 
-
             <div class="boasvindas">
                 Bem-vindo
             </div>
-
 
             <div class="menu">
 
@@ -786,11 +960,9 @@
                     JOGAR
                 </button>
 
-
                 <button class="botao">
                     CONTINUAR
                 </button>
-
 
                 <button class="botao desistir">
                     Desistir
@@ -817,4 +989,4 @@
 
 </body>
 
-</html>
+    </html>

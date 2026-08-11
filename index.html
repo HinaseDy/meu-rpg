@@ -69,6 +69,7 @@
         }
 
         @keyframes estrelasPiscando {
+
             from {
                 opacity: 0.45;
             }
@@ -76,6 +77,7 @@
             to {
                 opacity: 0.9;
             }
+
         }
 
 
@@ -174,8 +176,6 @@
         }
 
 
-        /* Luzes vermelhas */
-
         .cidade::before {
             content: "";
 
@@ -194,6 +194,7 @@
         }
 
         @keyframes luzesCidade {
+
             from {
                 opacity: 0.55;
             }
@@ -201,10 +202,9 @@
             to {
                 opacity: 1;
             }
+
         }
 
-
-        /* Brilho vermelho no horizonte */
 
         .cidade::after {
             content: "";
@@ -228,6 +228,7 @@
         }
 
         @keyframes horizonteVermelho {
+
             from {
                 opacity: 0.35;
             }
@@ -235,6 +236,7 @@
             to {
                 opacity: 0.8;
             }
+
         }
 
 
@@ -278,8 +280,6 @@
 
         }
 
-
-        /* Névoa vermelha */
 
         .nevoa::after {
             content: "";
@@ -349,8 +349,6 @@
         }
 
 
-        /* Crateras */
-
         .lua::before {
             content: "";
 
@@ -373,8 +371,6 @@
                 70px 115px 0 15px rgba(80,80,80,0.13);
         }
 
-
-        /* Brilho vermelho da lua */
 
         .lua::after {
             content: "";
@@ -409,6 +405,58 @@
 
 
         /* =========================
+           ESTRELA VERMELHA
+        ========================= */
+
+        .estrela {
+            position: absolute;
+
+            top: 30%;
+            left: 42%;
+
+            width: 80px;
+            height: 80px;
+
+            transform: rotate(45deg);
+
+            background: #d40000;
+
+            clip-path: polygon(
+                50% 0%,
+                60% 40%,
+                100% 50%,
+                60% 60%,
+                50% 100%,
+                40% 60%,
+                0% 50%,
+                40% 40%
+            );
+
+            filter:
+                drop-shadow(0 0 8px rgba(255,0,0,0.8))
+                drop-shadow(0 0 20px rgba(255,0,0,0.3));
+
+            animation: pulsar 4s ease-in-out infinite;
+
+            z-index: 4;
+        }
+
+        @keyframes pulsar {
+
+            0%, 100% {
+                opacity: 0.75;
+                transform: rotate(45deg) scale(0.95);
+            }
+
+            50% {
+                opacity: 1;
+                transform: rotate(45deg) scale(1.08);
+            }
+
+        }
+
+
+        /* =========================
            CORVO
         ========================= */
 
@@ -428,7 +476,6 @@
             animation: corvoFlutuar 4s ease-in-out infinite;
         }
 
-
         @keyframes corvoFlutuar {
 
             0%, 100% {
@@ -441,8 +488,6 @@
 
         }
 
-
-        /* Corpo */
 
         .corvo-corpo {
             position: absolute;
@@ -465,8 +510,6 @@
         }
 
 
-        /* Cabeça */
-
         .corvo-cabeca {
             position: absolute;
 
@@ -483,8 +526,6 @@
             z-index: 2;
         }
 
-
-        /* Bico */
 
         .corvo-bico {
             position: absolute;
@@ -507,8 +548,6 @@
         }
 
 
-        /* Asa esquerda */
-
         .corvo-asa-esquerda {
             position: absolute;
 
@@ -523,13 +562,8 @@
             border-radius: 80% 20% 80% 20%;
 
             transform: rotate(18deg);
-
-            box-shadow:
-                inset 15px 5px 15px rgba(60,60,60,0.12);
         }
 
-
-        /* Asa direita */
 
         .corvo-asa-direita {
             position: absolute;
@@ -547,8 +581,6 @@
             transform: rotate(-25deg);
         }
 
-
-        /* Cauda */
 
         .corvo-cauda {
             position: absolute;
@@ -572,8 +604,6 @@
             transform: rotate(8deg);
         }
 
-
-        /* Olhos */
 
         .corvo-olho {
 
@@ -613,17 +643,10 @@
 
             0%, 100% {
                 opacity: 0.75;
-                box-shadow:
-                    0 0 5px #ff0000,
-                    0 0 15px rgba(255,0,0,0.8);
             }
 
             50% {
                 opacity: 1;
-                box-shadow:
-                    0 0 8px #ff0000,
-                    0 0 22px rgba(255,0,0,1),
-                    0 0 35px rgba(255,0,0,0.5);
             }
 
         }
@@ -651,8 +674,6 @@
             text-align: center;
 
             padding: 30px 10px;
-
-            font-family: Georgia, serif;
 
             font-size: clamp(30px, 4vw, 52px);
 
@@ -834,6 +855,120 @@
 
 
         /* =========================
+           CORTINA
+        ========================= */
+
+        .cortina {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 100;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #3b0000 0%,
+                    #8d0000 12%,
+                    #b00000 25%,
+                    #760000 38%,
+                    #a80000 50%,
+                    #760000 62%,
+                    #b00000 75%,
+                    #8d0000 88%,
+                    #3b0000 100%
+                );
+
+            transform: translateY(-100%);
+
+            transition:
+                transform 0.9s cubic-bezier(0.77,0,0.18,1);
+
+            touch-action: none;
+
+            cursor: grab;
+
+            box-shadow:
+                inset 0 0 80px rgba(0,0,0,0.55),
+                0 10px 40px rgba(0,0,0,0.7);
+        }
+
+
+        /* Dobras da cortina */
+
+        .cortina::before {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                repeating-linear-gradient(
+                    90deg,
+                    rgba(0,0,0,0.25) 0px,
+                    rgba(255,255,255,0.08) 35px,
+                    rgba(0,0,0,0.3) 70px
+                );
+
+            opacity: 0.7;
+
+            pointer-events: none;
+        }
+
+
+        /* Brilho central */
+
+        .cortina::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 50%;
+            top: 0;
+
+            width: 30%;
+            height: 100%;
+
+            transform: translateX(-50%);
+
+            background:
+                linear-gradient(
+                    90deg,
+                    transparent,
+                    rgba(255,255,255,0.08),
+                    transparent
+                );
+
+            pointer-events: none;
+        }
+
+
+        /* Cortina fechada */
+
+        .cortina.fechada {
+
+            transform: translateY(0);
+
+            transition:
+                transform 0.9s cubic-bezier(0.77,0,0.18,1);
+        }
+
+
+        /* Cortina sendo arrastada */
+
+        .cortina.arrastando {
+
+            transition: none;
+
+            cursor: grabbing;
+        }
+
+
+        /* =========================
            RESPONSIVO
         ========================= */
 
@@ -886,107 +1021,4 @@
                 right: 2%;
                 top: 24%;
 
-                transform: scale(0.65);
-                transform-origin: center;
-            }
-
-        }
-
-    </style>
-</head>
-
-
-<body>
-
-    <div class="cenario">
-
-        <div class="estrelas"></div>
-
-        <div class="arvores"></div>
-
-        <div class="cidade"></div>
-
-        <div class="nevoa"></div>
-
-        <div class="estrela"></div>
-
-        <div class="lua"></div>
-
-
-        <!-- =========================
-             CORVO
-        ========================= -->
-
-        <div class="corvo">
-
-            <div class="corvo-corpo"></div>
-
-            <div class="corvo-cabeca">
-
-                <div class="corvo-bico"></div>
-
-            </div>
-
-            <div class="corvo-asa-esquerda"></div>
-
-            <div class="corvo-asa-direita"></div>
-
-            <div class="corvo-cauda"></div>
-
-            <div class="corvo-olho olho-esquerdo"></div>
-
-            <div class="corvo-olho olho-direito"></div>
-
-        </div>
-
-
-        <!-- =========================
-             INTERFACE
-        ========================= -->
-
-        <section class="interface">
-
-            <h1 class="titulo">
-                Nome da Cidade
-            </h1>
-
-            <div class="boasvindas">
-                Bem-vindo
-            </div>
-
-            <div class="menu">
-
-                <button class="botao jogar">
-                    JOGAR
-                </button>
-
-                <button class="botao">
-                    CONTINUAR
-                </button>
-
-                <button class="botao desistir">
-                    Desistir
-                </button>
-
-            </div>
-
-        </section>
-
-    </div>
-
-
-    <script>
-
-        const jogar = document.querySelector(".jogar");
-
-        jogar.addEventListener("click", () => {
-
-            alert("A cortina será adicionada aqui.");
-
-        });
-
-    </script>
-
-</body>
-
-    </html>
+            

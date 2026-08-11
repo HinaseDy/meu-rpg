@@ -160,7 +160,7 @@ body {
 }
 
 
-/* Luzes da cidade */
+/* Luzes */
 
 .cidade::after {
     content: "";
@@ -169,31 +169,11 @@ body {
     inset: 0;
 
     background:
-        radial-gradient(
-            circle at 18% 65%,
-            #a00000 0 2px,
-            transparent 4px
-        ),
-        radial-gradient(
-            circle at 42% 67%,
-            #a00000 0 2px,
-            transparent 4px
-        ),
-        radial-gradient(
-            circle at 60% 60%,
-            #a00000 0 2px,
-            transparent 4px
-        ),
-        radial-gradient(
-            circle at 72% 67%,
-            #a00000 0 2px,
-            transparent 4px
-        ),
-        radial-gradient(
-            circle at 86% 61%,
-            #a00000 0 2px,
-            transparent 4px
-        );
+        radial-gradient(circle at 18% 65%, #a00000 0 2px, transparent 4px),
+        radial-gradient(circle at 42% 67%, #a00000 0 2px, transparent 4px),
+        radial-gradient(circle at 60% 60%, #a00000 0 2px, transparent 4px),
+        radial-gradient(circle at 72% 67%, #a00000 0 2px, transparent 4px),
+        radial-gradient(circle at 86% 61%, #a00000 0 2px, transparent 4px);
 }
 
 
@@ -267,9 +247,6 @@ body {
     z-index: 5;
 }
 
-
-/* Marcas da lua */
-
 .lua::before {
     content: "";
 
@@ -298,7 +275,7 @@ body {
 
 
 /* =========================
-   ESTRELA VERMELHA
+   ESTRELA
 ========================= */
 
 .estrela {
@@ -379,9 +356,6 @@ body {
 
 }
 
-
-/* Corpo */
-
 .corvo-corpo {
     position: absolute;
 
@@ -394,13 +368,7 @@ body {
     background: #030303;
 
     border-radius: 50%;
-
-    box-shadow:
-        0 10px 20px rgba(0,0,0,0.8);
 }
-
-
-/* Cabeça */
 
 .corvo-cabeca {
     position: absolute;
@@ -417,9 +385,6 @@ body {
 
     z-index: 2;
 }
-
-
-/* Bico */
 
 .corvo-bico {
     position: absolute;
@@ -438,9 +403,6 @@ body {
         0 100%
     );
 }
-
-
-/* Asas */
 
 .corvo-asa-esquerda {
     position: absolute;
@@ -474,9 +436,6 @@ body {
     transform: rotate(-25deg);
 }
 
-
-/* Cauda */
-
 .corvo-cauda {
     position: absolute;
 
@@ -496,9 +455,6 @@ body {
         100% 100%
     );
 }
-
-
-/* Olhos */
 
 .corvo-olho {
     position: absolute;
@@ -529,7 +485,7 @@ body {
 
 
 /* =========================
-   INTERFACE
+   PRIMEIRA INTERFACE
 ========================= */
 
 .interface {
@@ -542,9 +498,6 @@ body {
 
     z-index: 20;
 }
-
-
-/* Título */
 
 .titulo {
     position: relative;
@@ -563,7 +516,6 @@ body {
         0 0 5px #000,
         0 0 15px #000;
 }
-
 
 .titulo::before,
 .titulo::after {
@@ -589,9 +541,6 @@ body {
     bottom: -15px;
 }
 
-
-/* Bem-vindo */
-
 .boasvindas {
 
     margin-top: 35px;
@@ -603,9 +552,6 @@ body {
 
     text-shadow: 0 2px 5px black;
 }
-
-
-/* Menu */
 
 .menu {
 
@@ -619,9 +565,6 @@ body {
 
     width: 320px;
 }
-
-
-/* Botões */
 
 .botao {
 
@@ -650,7 +593,6 @@ body {
     text-shadow: 0 2px 4px black;
 }
 
-
 .botao::before {
 
     content: "";
@@ -677,26 +619,16 @@ body {
     transition: 0.3s;
 }
 
-
 .botao:hover {
-
     color: white;
-
     transform: translateX(8px);
 }
 
-
 .botao:hover::before {
-
     background: #8b1515;
-
     opacity: 0.95;
-
     box-shadow: 0 0 20px #8b1515;
 }
-
-
-/* Jogar */
 
 .jogar {
 
@@ -707,7 +639,6 @@ body {
     border: 1px solid rgba(160,20,20,0.7);
 }
 
-
 .jogar::before {
 
     background: #777;
@@ -716,7 +647,6 @@ body {
         0 0 0 2px #530000,
         0 0 12px rgba(150,0,0,0.5);
 }
-
 
 .jogar:hover::before {
 
@@ -727,9 +657,6 @@ body {
         0 0 25px rgba(200,0,0,0.7);
 }
 
-
-/* Desistir */
-
 .desistir {
 
     width: 170px;
@@ -739,6 +666,153 @@ body {
     font-size: 18px;
 
     opacity: 0.75;
+}
+
+
+/* =========================
+   SEGUNDA TELA
+========================= */
+
+.escolha {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 50;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 35px;
+
+    text-align: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(70,0,0,0.35),
+            rgba(5,5,5,0.95) 70%
+        );
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition:
+        opacity 0.8s ease;
+}
+
+
+.escolha.aparecer {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+.escolha-titulo {
+
+    font-size: clamp(30px, 6vw, 58px);
+
+    letter-spacing: 5px;
+
+    color: #eeeeee;
+
+    text-shadow:
+        0 0 8px #000,
+        0 0 25px rgba(150,0,0,0.7);
+
+    margin-bottom: 20px;
+}
+
+
+.opcoes {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 25px;
+
+    width: min(80vw, 600px);
+}
+
+
+.opcao {
+
+    position: relative;
+
+    width: 100%;
+
+    min-height: 120px;
+
+    padding: 25px 30px;
+
+    border: 2px solid #5c0000;
+
+    background:
+        linear-gradient(
+            90deg,
+            #260000,
+            #500000,
+            #260000
+        );
+
+    color: #eeeeee;
+
+    font-family: Georgia, serif;
+
+    cursor: pointer;
+
+    font-size: clamp(22px, 4vw, 34px);
+
+    letter-spacing: 2px;
+
+    transition:
+        0.3s;
+
+    box-shadow:
+        0 0 15px rgba(100,0,0,0.25);
+}
+
+
+.opcao:hover {
+
+    transform: scale(1.03);
+
+    border-color: #d00000;
+
+    background:
+        linear-gradient(
+            90deg,
+            #500000,
+            #900000,
+            #500000
+        );
+
+    box-shadow:
+        0 0 30px rgba(180,0,0,0.55);
+}
+
+
+.opcao-pequeno {
+
+    display: block;
+
+    margin-top: 8px;
+
+    font-size: 15px;
+
+    letter-spacing: 1px;
+
+    color: #c5a5a5;
 }
 
 
@@ -772,12 +846,6 @@ body {
 
     z-index: 9999;
 
-    /*
-       IMPORTANTE:
-       A cortina começa FORA da tela.
-       Por isso ela não deixa a tela preta.
-    */
-
     transform: translateY(-101%);
 
     transition:
@@ -788,8 +856,6 @@ body {
     pointer-events: none;
 }
 
-
-/* Dobras da cortina */
 
 .cortina::before {
 
@@ -808,8 +874,6 @@ body {
         );
 }
 
-
-/* Brilho */
 
 .cortina::after {
 
@@ -835,8 +899,6 @@ body {
 }
 
 
-/* Cortina fechada */
-
 .cortina.fechada {
 
     transform: translateY(0);
@@ -846,8 +908,6 @@ body {
     cursor: grab;
 }
 
-
-/* Durante o arrasto */
 
 .cortina.arrastando {
 
@@ -871,16 +931,13 @@ body {
         width: 55%;
     }
 
-
     .titulo {
         font-size: 28px;
     }
 
-
     .boasvindas {
         font-size: 20px;
     }
-
 
     .botao {
 
@@ -889,11 +946,9 @@ body {
         font-size: 20px;
     }
 
-
     .jogar {
         font-size: 28px;
     }
-
 
     .lua {
 
@@ -904,13 +959,19 @@ body {
         right: 5%;
     }
 
-
     .corvo {
 
         right: 2%;
         top: 24%;
 
         transform: scale(0.65);
+    }
+
+    .opcao {
+
+        min-height: 100px;
+
+        padding: 20px;
     }
 
 }
@@ -967,7 +1028,7 @@ body {
 
 
     <!-- =========================
-         INTERFACE
+         PRIMEIRA TELA
     ========================= -->
 
     <section class="interface">
@@ -1005,6 +1066,40 @@ body {
 
 
 <!-- =========================
+     SEGUNDA TELA
+========================= -->
+
+<section class="escolha" id="escolha">
+
+    <h2 class="escolha-titulo">
+        ESCOLHA SEU CAMINHO
+    </h2>
+
+    <div class="opcoes">
+
+        <button class="opcao">
+            JOGAR COMO JOGADOR
+
+            <span class="opcao-pequeno">
+                Entre na história e viva a aventura.
+            </span>
+        </button>
+
+
+        <button class="opcao">
+            JOGAR COMO MESTRE
+
+            <span class="opcao-pequeno">
+                Conduza a história e controle o mundo.
+            </span>
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
      CORTINA
 ========================= -->
 
@@ -1016,14 +1111,23 @@ body {
 
 <script>
 
+
 /* =========================
-   ABRIR CORTINA
+   ELEMENTOS
+========================= */
+
+const cortina =
+    document.getElementById("cortina");
+
+const escolha =
+    document.getElementById("escolha");
+
+
+/* =========================
+   JOGAR
 ========================= */
 
 function abrirCortina() {
-
-    const cortina =
-        document.getElementById("cortina");
 
     cortina.classList.add("fechada");
 
@@ -1031,11 +1135,8 @@ function abrirCortina() {
 
 
 /* =========================
-   ARRASTAR CORTINA
+   ARRASTAR
 ========================= */
-
-const cortina =
-    document.getElementById("cortina");
 
 let inicioY = 0;
 
@@ -1043,8 +1144,6 @@ let arrastando = false;
 
 let posicao = 0;
 
-
-/* Começar */
 
 function comecarArrasto(y) {
 
@@ -1060,8 +1159,6 @@ function comecarArrasto(y) {
 
 }
 
-
-/* Mover */
 
 function moverArrasto(y) {
 
@@ -1092,8 +1189,6 @@ function moverArrasto(y) {
 }
 
 
-/* Soltar */
-
 function terminarArrasto() {
 
     if (!arrastando) {
@@ -1105,11 +1200,6 @@ function terminarArrasto() {
     cortina.classList.remove("arrastando");
 
 
-    /*
-       Se puxou bastante para cima,
-       a cortina sai completamente.
-    */
-
     if (posicao <= -35) {
 
         cortina.style.transform =
@@ -1119,12 +1209,18 @@ function terminarArrasto() {
 
         posicao = -101;
 
-    }
 
-    /*
-       Se puxou pouco,
-       ela volta para baixo.
-    */
+        /*
+           MOSTRA A SEGUNDA TELA
+        */
+
+        setTimeout(function() {
+
+            escolha.classList.add("aparecer");
+
+        }, 300);
+
+    }
 
     else {
 
@@ -1215,7 +1311,6 @@ window.addEventListener(
 
 </script>
 
-
 </body>
 
-    </html>
+</html>

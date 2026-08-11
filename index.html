@@ -45,6 +45,45 @@
 
 
         /* =========================
+           ESTRELAS DO CÉU
+        ========================= */
+
+        .estrelas {
+            position: absolute;
+
+            inset: 0;
+
+            z-index: 0;
+
+            background-image:
+                radial-gradient(circle at 12% 18%, rgba(255,255,255,0.8) 0 1px, transparent 2px),
+                radial-gradient(circle at 25% 8%, rgba(255,255,255,0.6) 0 1px, transparent 2px),
+                radial-gradient(circle at 38% 22%, rgba(255,255,255,0.7) 0 1px, transparent 2px),
+                radial-gradient(circle at 52% 10%, rgba(255,255,255,0.5) 0 1px, transparent 2px),
+                radial-gradient(circle at 68% 18%, rgba(255,255,255,0.7) 0 1px, transparent 2px),
+                radial-gradient(circle at 82% 7%, rgba(255,255,255,0.6) 0 1px, transparent 2px),
+                radial-gradient(circle at 91% 28%, rgba(255,255,255,0.5) 0 1px, transparent 2px),
+                radial-gradient(circle at 7% 38%, rgba(255,255,255,0.5) 0 1px, transparent 2px),
+                radial-gradient(circle at 31% 35%, rgba(255,255,255,0.4) 0 1px, transparent 2px),
+                radial-gradient(circle at 74% 34%, rgba(255,255,255,0.5) 0 1px, transparent 2px);
+
+            animation: estrelasPiscando 5s ease-in-out infinite alternate;
+        }
+
+        @keyframes estrelasPiscando {
+
+            from {
+                opacity: 0.45;
+            }
+
+            to {
+                opacity: 0.9;
+            }
+
+        }
+
+
+        /* =========================
            NÉVOA
         ========================= */
 
@@ -162,95 +201,96 @@
         ========================= */
 
         .lua {
-    position: absolute;
+            position: absolute;
 
-    top: 10%;
-    right: 10%;
+            top: 10%;
+            right: 10%;
 
-    width: 180px;
-    height: 180px;
+            width: 180px;
+            height: 180px;
 
-    border-radius: 50%;
+            border-radius: 50%;
 
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            #f4f4f4 0%,
-            #d8d8d8 45%,
-            #a8a8a8 75%,
-            #777777 100%
-        );
+            background:
+                radial-gradient(
+                    circle at 35% 30%,
+                    #f4f4f4 0%,
+                    #d8d8d8 45%,
+                    #a8a8a8 75%,
+                    #777777 100%
+                );
 
-    box-shadow:
-        0 0 15px rgba(255,255,255,0.35),
-        0 0 40px rgba(255,255,255,0.18),
-        0 0 90px rgba(150,0,0,0.12);
+            box-shadow:
+                0 0 15px rgba(255,255,255,0.35),
+                0 0 40px rgba(255,255,255,0.18),
+                0 0 90px rgba(150,0,0,0.12);
 
-    opacity: 0.9;
+            opacity: 0.9;
 
-    z-index: 2;
+            z-index: 2;
 
-    overflow: hidden;
-}
-
-
-/* Crateras da lua */
-
-.lua::before {
-    content: "";
-
-    position: absolute;
-
-    width: 38px;
-    height: 38px;
-
-    top: 30px;
-    left: 35px;
-
-    border-radius: 50%;
-
-    background: rgba(90,90,90,0.22);
-
-    box-shadow:
-        55px 15px 0 8px rgba(90,90,90,0.16),
-        25px 70px 0 12px rgba(80,80,80,0.18),
-        90px 85px 0 6px rgba(70,70,70,0.18),
-        70px 115px 0 15px rgba(80,80,80,0.13);
-}
+            overflow: hidden;
+        }
 
 
-/* Brilho vermelho sobrenatural */
+        /* Crateras */
 
-.lua::after {
-    content: "";
+        .lua::before {
+            content: "";
 
-    position: absolute;
+            position: absolute;
 
-    inset: 0;
+            width: 38px;
+            height: 38px;
 
-    border-radius: 50%;
+            top: 30px;
+            left: 35px;
 
-    background:
-        radial-gradient(
-            circle at 70% 60%,
-            rgba(130,0,0,0.18),
-            transparent 55%
-        );
+            border-radius: 50%;
 
-    animation: luaPulso 5s ease-in-out infinite;
-}
+            background: rgba(90,90,90,0.22);
 
-@keyframes luaPulso {
+            box-shadow:
+                55px 15px 0 8px rgba(90,90,90,0.16),
+                25px 70px 0 12px rgba(80,80,80,0.18),
+                90px 85px 0 6px rgba(70,70,70,0.18),
+                70px 115px 0 15px rgba(80,80,80,0.13);
+        }
 
-    0%, 100% {
-        opacity: 0.4;
-    }
 
-    50% {
-        opacity: 0.8;
-    }
+        /* Brilho vermelho */
 
-}
+        .lua::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle at 70% 60%,
+                    rgba(130,0,0,0.18),
+                    transparent 55%
+                );
+
+            animation: luaPulso 5s ease-in-out infinite;
+        }
+
+        @keyframes luaPulso {
+
+            0%, 100% {
+                opacity: 0.4;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
+
+        }
+
 
         /* =========================
            INTERFACE
@@ -268,9 +308,7 @@
         }
 
 
-        /* =========================
-           TÍTULO
-        ========================= */
+        /* Título */
 
         .titulo {
             position: relative;
@@ -318,9 +356,7 @@
         }
 
 
-        /* =========================
-           BEM-VINDO
-        ========================= */
+        /* Bem-vindo */
 
         .boasvindas {
 
@@ -335,9 +371,7 @@
         }
 
 
-        /* =========================
-           MENU
-        ========================= */
+        /* Menu */
 
         .menu {
 
@@ -353,9 +387,7 @@
         }
 
 
-        /* =========================
-           BOTÕES
-        ========================= */
+        /* Botões */
 
         .botao {
 
@@ -430,9 +462,7 @@
         }
 
 
-        /* =========================
-           JOGAR
-        ========================= */
+        /* JOGAR */
 
         .jogar {
 
@@ -464,9 +494,7 @@
         }
 
 
-        /* =========================
-           DESISTIR
-        ========================= */
+        /* Desistir */
 
         .desistir {
 
@@ -541,6 +569,9 @@
 
     <div class="cenario">
 
+        <!-- Estrelas -->
+        <div class="estrelas"></div>
+
         <!-- Árvores -->
         <div class="arvores"></div>
 
@@ -554,9 +585,7 @@
         <div class="lua"></div>
 
 
-        <!-- =========================
-             INTERFACE
-        ========================= -->
+        <!-- Interface -->
 
         <section class="interface">
 
@@ -594,8 +623,6 @@
 
 
     <script>
-
-        // Por enquanto o botão JOGAR é apenas visual.
 
         const jogar = document.querySelector(".jogar");
 

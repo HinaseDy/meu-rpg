@@ -45,14 +45,12 @@
 
 
         /* =========================
-           ESTRELAS DO CÉU
+           ESTRELAS
         ========================= */
 
         .estrelas {
             position: absolute;
-
             inset: 0;
-
             z-index: 0;
 
             background-image:
@@ -71,7 +69,6 @@
         }
 
         @keyframes estrelasPiscando {
-
             from {
                 opacity: 0.45;
             }
@@ -79,7 +76,6 @@
             to {
                 opacity: 0.9;
             }
-
         }
 
 
@@ -106,13 +102,12 @@
                 );
 
             opacity: 0.8;
-
             z-index: 1;
         }
 
 
         /* =========================
-           CIDADE AO FUNDO
+           CIDADE
         ========================= */
 
         .cidade {
@@ -179,24 +174,77 @@
         }
 
 
-        /* Janelas da cidade */
+        /* Luzes da cidade */
 
         .cidade::before {
             content: "";
 
             position: absolute;
-
             inset: 0;
 
             background:
-                radial-gradient(circle at 18% 65%, rgba(150,0,0,0.55) 0 2px, transparent 3px),
-                radial-gradient(circle at 29% 58%, rgba(180,0,0,0.45) 0 2px, transparent 3px),
-                radial-gradient(circle at 42% 67%, rgba(150,0,0,0.5) 0 2px, transparent 3px),
-                radial-gradient(circle at 60% 60%, rgba(180,0,0,0.45) 0 2px, transparent 3px),
-                radial-gradient(circle at 72% 67%, rgba(150,0,0,0.5) 0 2px, transparent 3px),
-                radial-gradient(circle at 86% 61%, rgba(180,0,0,0.4) 0 2px, transparent 3px);
+                radial-gradient(circle at 18% 65%, rgba(180,0,0,0.7) 0 2px, transparent 4px),
+                radial-gradient(circle at 29% 58%, rgba(220,0,0,0.55) 0 2px, transparent 4px),
+                radial-gradient(circle at 42% 67%, rgba(180,0,0,0.65) 0 2px, transparent 4px),
+                radial-gradient(circle at 60% 60%, rgba(220,0,0,0.55) 0 2px, transparent 4px),
+                radial-gradient(circle at 72% 67%, rgba(180,0,0,0.65) 0 2px, transparent 4px),
+                radial-gradient(circle at 86% 61%, rgba(220,0,0,0.5) 0 2px, transparent 4px);
 
-            opacity: 0.8;
+            opacity: 0.9;
+
+            animation: luzesCidade 4s ease-in-out infinite alternate;
+        }
+
+
+        @keyframes luzesCidade {
+
+            from {
+                opacity: 0.55;
+            }
+
+            to {
+                opacity: 1;
+            }
+
+        }
+
+
+        /* =========================
+           BRILHO VERMELHO NO HORIZONTE
+        ========================= */
+
+        .cidade::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: 0;
+
+            width: 100%;
+            height: 70%;
+
+            background:
+                radial-gradient(
+                    ellipse at 50% 100%,
+                    rgba(120,0,0,0.28),
+                    transparent 65%
+                );
+
+            animation: horizonteVermelho 6s ease-in-out infinite alternate;
+        }
+
+
+        @keyframes horizonteVermelho {
+
+            from {
+                opacity: 0.35;
+            }
+
+            to {
+                opacity: 0.8;
+            }
+
         }
 
 
@@ -207,17 +255,18 @@
         .nevoa {
             position: absolute;
 
-            width: 150%;
-            height: 45%;
+            width: 160%;
+            height: 48%;
 
-            left: -25%;
-            bottom: 0;
+            left: -30%;
+            bottom: -5%;
 
             background:
                 radial-gradient(
-                    ellipse,
-                    rgba(180,180,180,0.08),
-                    transparent 70%
+                    ellipse at center,
+                    rgba(210,210,210,0.11),
+                    rgba(120,120,120,0.04) 45%,
+                    transparent 72%
                 );
 
             filter: blur(25px);
@@ -227,14 +276,49 @@
             z-index: 3;
         }
 
+
         @keyframes nevoa {
 
             from {
-                transform: translateX(-3%);
+                transform: translateX(-4%) scale(1);
             }
 
             to {
-                transform: translateX(3%);
+                transform: translateX(4%) scale(1.04);
+            }
+
+        }
+
+
+        /* Névoa vermelha distante */
+
+        .nevoa::after {
+            content: "";
+
+            position: absolute;
+
+            width: 100%;
+            height: 100%;
+
+            background:
+                radial-gradient(
+                    ellipse at 55% 90%,
+                    rgba(130,0,0,0.12),
+                    transparent 60%
+                );
+
+            animation: nevoaVermelha 7s ease-in-out infinite alternate;
+        }
+
+
+        @keyframes nevoaVermelha {
+
+            from {
+                opacity: 0.2;
+            }
+
+            to {
+                opacity: 0.7;
             }
 
         }
@@ -276,6 +360,7 @@
 
             z-index: 4;
         }
+
 
         @keyframes pulsar {
 
@@ -329,7 +414,7 @@
         }
 
 
-        /* Crateras da lua */
+        /* Crateras */
 
         .lua::before {
             content: "";
@@ -354,7 +439,7 @@
         }
 
 
-        /* Brilho vermelho sobrenatural */
+        /* Brilho vermelho da lua */
 
         .lua::after {
             content: "";
@@ -374,6 +459,7 @@
 
             animation: luaPulso 5s ease-in-out infinite;
         }
+
 
         @keyframes luaPulso {
 
@@ -455,6 +541,7 @@
         /* Bem-vindo */
 
         .boasvindas {
+
             margin-top: 35px;
             margin-left: 20px;
 
@@ -469,6 +556,7 @@
         /* Menu */
 
         .menu {
+
             margin-top: 25px;
 
             display: flex;
@@ -484,6 +572,7 @@
         /* Botões */
 
         .botao {
+
             position: relative;
 
             width: 280px;
@@ -511,6 +600,7 @@
 
 
         .botao::before {
+
             content: "";
 
             position: absolute;
@@ -537,6 +627,7 @@
 
 
         .botao:hover {
+
             color: white;
 
             transform: translateX(8px);
@@ -544,6 +635,7 @@
 
 
         .botao:hover::before {
+
             background: #8b1515;
 
             opacity: 0.95;
@@ -552,11 +644,10 @@
         }
 
 
-        /* =========================
-           JOGAR
-        ========================= */
+        /* JOGAR */
 
         .jogar {
+
             font-size: 34px;
 
             letter-spacing: 3px;
@@ -566,6 +657,7 @@
 
 
         .jogar::before {
+
             background: #777;
 
             box-shadow:
@@ -575,6 +667,7 @@
 
 
         .jogar:hover::before {
+
             background: #9c1717;
 
             box-shadow:
@@ -583,11 +676,10 @@
         }
 
 
-        /* =========================
-           DESISTIR
-        ========================= */
+        /* Desistir */
 
         .desistir {
+
             width: 170px;
 
             margin-top: 20px;
@@ -605,6 +697,7 @@
         @media (max-width: 700px) {
 
             .interface {
+
                 left: 5%;
                 top: 8%;
 
@@ -623,6 +716,7 @@
 
 
             .botao {
+
                 width: 220px;
 
                 font-size: 20px;
@@ -635,6 +729,7 @@
 
 
             .lua {
+
                 width: 110px;
                 height: 110px;
 
@@ -671,9 +766,7 @@
         <div class="lua"></div>
 
 
-        <!-- =========================
-             INTERFACE
-        ========================= -->
+        <!-- Interface -->
 
         <section class="interface">
 

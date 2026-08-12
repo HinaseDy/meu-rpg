@@ -1,1 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
 
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Criação de Personagem</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    padding: 30px 20px;
+
+    background:
+        radial-gradient(
+            circle at 50% 25%,
+            #3b0909,
+            #110000 55%,
+            #030303 100%
+        );
+
+    color: #eeeeee;
+    font-family: Georgia, serif;
+}
+
+.container {
+    width: min(900px, 95%);
+    margin: auto;
+}
+
+.titulo {
+    text-align: center;
+
+    font-size: clamp(32px, 6vw, 58px);
+    letter-spacing: 4px;
+
+    margin-bottom: 10px;
+
+    text-shadow:
+        0 0 10px #000,
+        0 0 25px rgba(180,0,0,.7);
+}
+
+.subtitulo {
+    text-align: center;
+
+    color: #bfa8a8;
+
+    margin-bottom: 35px;
+
+    font-size: 18px;
+}
+
+.painel {
+    padding: 30px;
+
+    background: rgba(10,0,0,.85);
+
+    border: 1px solid #650000;
+
+    box-shadow:
+        0 0 25px rgba(120,0,0,.35);
+}
+
+.campo {
+    margin-bottom: 25px;
+}
+
+label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #ddd;
+
+    font-size: 20px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+
+    padding: 13px;
+
+    background: #100909;
+
+    border: 1px solid #5d0000;
+
+    color: white;
+
+    font-family: Georgia, serif;
+
+    font-size: 17px;
+
+    outline: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #c00000;
+
+    box-shadow:
+        0 0 12px rgba(180,0,0,.4);
+}
+
+textarea {
+    min-height: 120px;
+
+    resize: vertical;
+}
+
+.botoes {
+    display: flex;
+
+    gap: 15px;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    margin-top: 30px;
+}
+
+button {
+    padding: 15px 35px;
+
+    background: #4d0000;
+
+    border: 1px solid #9b0000;
+
+    color: white;
+
+    font-family: Georgia, serif;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition: .3s;
+}
+
+button:hover {
+    background: #8b0000;
+
+    box-shadow:
+        0 0 20px rgba(200,0,0,.5);
+
+    transform: scale(1.03);
+}
+
+.voltar {
+    background: #222;
+
+    border-color: #555;
+}
+
+#resultado {
+    display: none;
+
+    margin-top: 30px;
+
+    padding: 25px;
+
+    background: rgba(40,0,0,.7);
+
+    border: 1px solid #700000;
+}
+
+#resultado h2 {
+    color: #d00000;
+
+    margin-bottom: 15px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1 class="titulo">
+        CRIAÇÃO DE PERSONAGEM
+    </h1>
+
+    <p class="subtitulo">
+        Antes de entrar na história, descubra quem você será.
+    </p>
+
+
+    <div class="painel">
+
+
+        <div class="campo">
+
+            <label for="nome">
+                Nome do personagem
+            </label>
+
+            <input
+                type="text"
+                id="nome"
+                placeholder="Digite o nome..."
+            >
+
+        </div>
+
+
+        <div class="campo">
+
+            <label for="idade">
+                Idade
+            </label>
+
+            <input
+                type="number"
+                id="idade"
+                placeholder="Digite a idade..."
+            >
+
+        </div>
+
+
+        <div class="campo">
+
+            <label for="origem">
+                Origem
+            </label>
+
+            <select id="origem">
+
+                <option value="">
+                    Escolha uma origem
+                </option>
+
+                <option>Humano</option>
+                <option>Vampiro</option>
+                <option>Lobisomem</option>
+                <option>Bruxo</option>
+                <option>Caçador</option>
+                <option>Anjo</option>
+                <option>Demônio</option>
+                <option>Elfo</option>
+                <option>Outra</option>
+
+            </select>
+
+        </div>
+
+
+        <div class="campo">
+
+            <label for="aparencia">
+                Aparência
+            </label>
+
+            <textarea
+                id="aparencia"
+                placeholder="Descreva a aparência do personagem..."
+            ></textarea>
+
+        </div>
+
+
+        <div class="campo">
+
+            <label for="historia">
+                História
+            </label>
+
+            <textarea
+                id="historia"
+                placeholder="Conte um pouco sobre o passado do personagem..."
+            ></textarea>
+
+        </div>
+
+
+        <div class="botoes">
+
+            <button
+                class="voltar"
+                onclick="voltar()"
+            >
+                VOLTAR
+            </button>
+
+
+            <button
+                onclick="criarPersonagem()"
+            >
+                CRIAR PERSONAGEM
+            </button>
+
+        </div>
+
+
+        <div id="resultado">
+
+            <h2>
+                PERSONAGEM CRIADO
+            </h2>
+
+            <p id="textoResultado"></p>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<script>
+
+function voltar() {
+
+    window.location.href = "jogador.html";
+
+}
+
+
+function criarPersonagem() {
+
+    const nome =
+        document.getElementById("nome").value;
+
+    const idade =
+        document.getElementById("idade").value;
+
+    const origem =
+        document.getElementById("origem").value;
+
+    const aparencia =
+        document.getElementById("aparencia").value;
+
+    const historia =
+        document.getElementById("historia").value;
+
+
+    if (!nome || !origem) {
+
+        alert(
+            "Preencha pelo menos o nome e a origem do personagem."
+        );
+
+        return;
+
+    }
+
+
+    document.getElementById(
+        "resultado"
+    ).style.display = "block";
+
+
+    document.getElementById(
+        "textoResultado"
+    ).innerHTML =
+
+        "<strong>Nome:</strong> " +
+        nome +
+
+        "<br><br>" +
+
+        "<strong>Idade:</strong> " +
+        (idade || "Não informada") +
+
+        "<br><br>" +
+
+        "<strong>Origem:</strong> " +
+        origem +
+
+        "<br><br>" +
+
+        "<strong>Aparência:</strong><br>" +
+        (aparencia || "Não informada") +
+
+        "<br><br>" +
+
+        "<strong>História:</strong><br>" +
+        (historia || "Não informada");
+
+}
+
+</script>
+
+</body>
+
+  </html>

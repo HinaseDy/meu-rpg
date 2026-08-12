@@ -488,10 +488,7 @@ body {
             </label>
 
             <span class="historia-info">
-                Conte livremente quem é seu personagem,
-                sua história, aparência, personalidade,
-                passado, habilidades ou qualquer outra coisa
-                que você queira.
+                Conte livremente a história do seu personagem.
             </span>
 
             <textarea
@@ -615,7 +612,7 @@ function salvarEFinalizar() {
 
     /* =========================
        SALVAR
-    ========================= */
+========================= */
 
     localStorage.setItem(
 
@@ -627,22 +624,11 @@ function salvarEFinalizar() {
 
 
     /* =========================
-       MENSAGEM
+       IR PARA A FICHA
     ========================= */
 
-    mostrarMensagem(
-        "Personagem salvo com sucesso!",
-        true
-    );
-
-
-    /*
-       Por enquanto não vamos
-       mandar para outra página.
-
-       Primeiro vamos garantir que
-       o personagem está salvo.
-    */
+    window.location.href =
+        "ficha.html";
 
 }
 
@@ -748,4 +734,4 @@ carregarPersonagem();
 
 </body>
 
-    </html>
+                </html>

@@ -5,7 +5,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Nome da Cidade</title>
+<title>Ravencove</title>
+
+<!-- FONTE GÓTICA -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap"
+    rel="stylesheet"
+>
 
 <style>
 
@@ -499,6 +508,11 @@ body {
     z-index: 20;
 }
 
+
+/* =========================
+   TÍTULO RAVENCOVE
+========================= */
+
 .titulo {
     position: relative;
 
@@ -506,15 +520,18 @@ body {
 
     padding: 30px 10px;
 
-    font-size: clamp(30px, 4vw, 52px);
+    font-family: "UnifrakturCook", cursive;
 
-    letter-spacing: 2px;
+    font-size: clamp(42px, 6vw, 72px);
+
+    letter-spacing: 3px;
 
     color: #e5e5e5;
 
     text-shadow:
         0 0 5px #000,
-        0 0 15px #000;
+        0 0 15px #000,
+        0 0 25px rgba(130,0,0,0.7);
 }
 
 .titulo::before,
@@ -541,6 +558,11 @@ body {
     bottom: -15px;
 }
 
+
+/* =========================
+   BOAS-VINDAS
+========================= */
+
 .boasvindas {
 
     margin-top: 35px;
@@ -552,6 +574,11 @@ body {
 
     text-shadow: 0 2px 5px black;
 }
+
+
+/* =========================
+   MENU
+========================= */
 
 .menu {
 
@@ -932,7 +959,7 @@ body {
     }
 
     .titulo {
-        font-size: 28px;
+        font-size: 42px;
     }
 
     .boasvindas {
@@ -1034,7 +1061,7 @@ body {
     <section class="interface">
 
         <h1 class="titulo">
-            Nome da Cidade
+            Ravencove
         </h1>
 
         <div class="boasvindas">

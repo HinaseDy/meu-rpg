@@ -159,6 +159,9 @@ body {
     );
 }
 
+
+/* Luzes */
+
 .cidade::after {
     content: "";
 
@@ -705,12 +708,14 @@ body {
         opacity 0.8s ease;
 }
 
+
 .escolha.aparecer {
 
     opacity: 1;
 
     visibility: visible;
 }
+
 
 .escolha-titulo {
 
@@ -727,6 +732,7 @@ body {
     margin-bottom: 20px;
 }
 
+
 .opcoes {
 
     display: flex;
@@ -737,6 +743,7 @@ body {
 
     width: min(80vw, 600px);
 }
+
 
 .opcao {
 
@@ -768,11 +775,13 @@ body {
 
     letter-spacing: 2px;
 
-    transition: 0.3s;
+    transition:
+        0.3s;
 
     box-shadow:
         0 0 15px rgba(100,0,0,0.25);
 }
+
 
 .opcao:hover {
 
@@ -791,6 +800,7 @@ body {
     box-shadow:
         0 0 30px rgba(180,0,0,0.55);
 }
+
 
 .opcao-pequeno {
 
@@ -846,6 +856,7 @@ body {
     pointer-events: none;
 }
 
+
 .cortina::before {
 
     content: "";
@@ -862,6 +873,7 @@ body {
             rgba(0,0,0,0.30) 60px
         );
 }
+
 
 .cortina::after {
 
@@ -886,6 +898,7 @@ body {
         );
 }
 
+
 .cortina.fechada {
 
     transform: translateY(0);
@@ -894,6 +907,7 @@ body {
 
     cursor: grab;
 }
+
 
 .cortina.arrastando {
 
@@ -1063,35 +1077,27 @@ body {
 
     <div class="opcoes">
 
-        <!-- JOGADOR -->
-
         <button
             class="opcao"
-            onclick="abrirJogador()"
+            onclick="window.location.href='paginas/jogador.html'"
         >
-
             JOGAR COMO JOGADOR
 
             <span class="opcao-pequeno">
                 Entre na história e viva a aventura.
             </span>
-
         </button>
 
 
-        <!-- MESTRE -->
-
         <button
             class="opcao"
-            onclick="abrirMestre()"
+            onclick="window.location.href='paginas/mestre.html'"
         >
-
             JOGAR COMO MESTRE
 
             <span class="opcao-pequeno">
                 Conduza a história e controle o mundo.
             </span>
-
         </button>
 
     </div>
@@ -1130,30 +1136,6 @@ const escolha =
 function abrirCortina() {
 
     cortina.classList.add("fechada");
-
-}
-
-
-/* =========================
-   ABRIR JOGADOR
-========================= */
-
-function abrirJogador() {
-
-    window.location.href =
-        "pages/jogador.html";
-
-}
-
-
-/* =========================
-   ABRIR MESTRE
-========================= */
-
-function abrirMestre() {
-
-    window.location.href =
-        "pages/mestre.html";
 
 }
 
@@ -1233,6 +1215,10 @@ function terminarArrasto() {
 
         posicao = -101;
 
+
+        /*
+           MOSTRA A SEGUNDA TELA
+        */
 
         setTimeout(function() {
 
@@ -1333,4 +1319,4 @@ window.addEventListener(
 
 </body>
 
-</html>
+   </html>

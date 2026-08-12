@@ -9,6 +9,10 @@
 
 <style>
 
+/* =========================
+   BASE
+========================= */
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -32,11 +36,21 @@ body {
     font-family: Georgia, serif;
 }
 
+
+/* =========================
+   CENÁRIO
+========================= */
+
 .cenario {
     position: fixed;
     inset: 0;
     overflow: hidden;
 }
+
+
+/* =========================
+   ESTRELAS
+========================= */
 
 .estrelas {
     position: absolute;
@@ -57,6 +71,11 @@ body {
     opacity: 0.65;
     z-index: 1;
 }
+
+
+/* =========================
+   ÁRVORES
+========================= */
 
 .arvores {
     position: absolute;
@@ -79,6 +98,11 @@ body {
     opacity: 0.8;
     z-index: 2;
 }
+
+
+/* =========================
+   CIDADE
+========================= */
 
 .cidade {
     position: absolute;
@@ -149,6 +173,11 @@ body {
         radial-gradient(circle at 86% 61%, #a00000 0 2px, transparent 4px);
 }
 
+
+/* =========================
+   NÉVOA
+========================= */
+
 .nevoa {
     position: absolute;
 
@@ -183,6 +212,11 @@ body {
     }
 
 }
+
+
+/* =========================
+   LUA
+========================= */
 
 .lua {
     position: absolute;
@@ -236,6 +270,11 @@ body {
         );
 }
 
+
+/* =========================
+   ESTRELA
+========================= */
+
 .estrela {
     position: absolute;
 
@@ -282,6 +321,11 @@ body {
     }
 
 }
+
+
+/* =========================
+   CORVO
+========================= */
 
 .corvo {
     position: absolute;
@@ -435,6 +479,11 @@ body {
     right: 50px;
     top: 49px;
 }
+
+
+/* =========================
+   PRIMEIRA INTERFACE
+========================= */
 
 .interface {
     position: absolute;
@@ -719,8 +768,7 @@ body {
 
     letter-spacing: 2px;
 
-    transition:
-        0.3s;
+    transition: 0.3s;
 
     box-shadow:
         0 0 15px rgba(100,0,0,0.25);
@@ -915,12 +963,15 @@ body {
 }
 
 </style>
-
 </head>
 
 
 <body>
 
+
+<!-- =========================
+     CENÁRIO
+========================= -->
 
 <div class="cenario">
 
@@ -936,6 +987,8 @@ body {
 
     <div class="estrela"></div>
 
+
+    <!-- CORVO -->
 
     <div class="corvo">
 
@@ -959,6 +1012,10 @@ body {
 
     </div>
 
+
+    <!-- =========================
+         PRIMEIRA TELA
+    ========================= -->
 
     <section class="interface">
 
@@ -994,6 +1051,10 @@ body {
 </div>
 
 
+<!-- =========================
+     SEGUNDA TELA
+========================= -->
+
 <section class="escolha" id="escolha">
 
     <h2 class="escolha-titulo">
@@ -1002,11 +1063,11 @@ body {
 
     <div class="opcoes">
 
-        <!-- AGORA ESTE BOTÃO ABRE A CRIAÇÃO -->
+        <!-- JOGADOR -->
 
         <button
             class="opcao"
-            onclick="abrirCriacaoPersonagem()"
+            onclick="abrirJogador()"
         >
 
             JOGAR COMO JOGADOR
@@ -1017,6 +1078,8 @@ body {
 
         </button>
 
+
+        <!-- MESTRE -->
 
         <button
             class="opcao"
@@ -1036,6 +1099,10 @@ body {
 </section>
 
 
+<!-- =========================
+     CORTINA
+========================= -->
+
 <div
     class="cortina"
     id="cortina"
@@ -1044,6 +1111,10 @@ body {
 
 <script>
 
+
+/* =========================
+   ELEMENTOS
+========================= */
 
 const cortina =
     document.getElementById("cortina");
@@ -1064,13 +1135,13 @@ function abrirCortina() {
 
 
 /* =========================
-   ABRIR CRIAÇÃO
+   ABRIR JOGADOR
 ========================= */
 
-function abrirCriacaoPersonagem() {
+function abrirJogador() {
 
     window.location.href =
-        "páginas/criacao.html";
+        "pages/jogador.html";
 
 }
 
@@ -1082,7 +1153,7 @@ function abrirCriacaoPersonagem() {
 function abrirMestre() {
 
     window.location.href =
-        "páginas/mestre.html";
+        "pages/mestre.html";
 
 }
 
@@ -1262,4 +1333,4 @@ window.addEventListener(
 
 </body>
 
-   </html>
+</html>

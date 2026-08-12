@@ -929,3 +929,361 @@ document.addEventListener(
 
     }
 );
+
+/* ==================================================
+   SISTEMA DE HABILIDADES
+================================================== */
+
+
+let habilidades = [];
+
+
+/* ==================================================
+   CARREGAR HABILIDADES
+================================================== */
+
+function carregarHabilidades() {
+
+    const salvas =
+        localStorage.getItem("habilidadesRPG");
+
+
+    if (!salvas) {
+
+        habilidades = [];
+
+        mostrarHabilidades();
+
+        return;
+    }
+
+
+    try {
+
+        habilidades = JSON.parse(salvas);
+
+    }
+
+    catch (erro) {
+
+        habilidades = [];
+
+        console.log(
+            "Não foi possível carregar as habilidades."
+        );
+
+    }
+
+
+    mostrarHabilidades();
+}
+
+
+/* ==================================================
+   SALVAR HABILIDADES
+================================================== */
+
+function salvarHabilidades() {
+
+    localStorage.setItem(
+        "habilidadesRPG",
+        JSON.stringify(habilidades)
+    );
+
+}
+
+
+/* ==================================================
+   ADICIONAR HABILIDADE
+================================================== */
+
+function adicionarHabilidade() {
+
+
+    const nome =
+        prompt(
+            "Nome da habilidade:"
+        );
+
+
+    if (!nome || nome.trim() === "") {
+
+        return;
+
+    }
+
+
+    const descricao =
+        prompt(
+            "Descrição da habilidade:"
+        );
+
+
+    if (
+        descricao === null ||
+        descricao.trim() === ""
+    ) {
+
+        return;
+
+    }
+
+
+    const habilidade = {
+
+        id:
+            Date.now(),
+
+        nome:
+            nome.trim(),
+
+        descricao:
+            descricao.trim()
+
+    };
+
+
+    habilidades.push(
+        habilidade
+    );
+
+
+    salvarHabilidades();
+
+    mostrarHabilidades();
+
+}
+
+
+/* ==================================================
+   MOSTRAR HABILIDADES
+================================================== */
+
+function mostrarHabilidades() {
+
+
+    const lista =
+        document.getElementById(
+            "listaHabilidades"
+        );
+
+
+    if (!lista) {
+
+        return;
+
+    }
+
+
+    lista.innerHTML = "";
+
+
+    if (habilidades.length === 0) {
+
+        lista.innerHTML = `
+
+            <div class="habilidades-vazia">
+
+                Nenhuma habilidade adquirida ainda.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    habilidades.forEach(
+        function(habilidade) {
+
+
+            const card =
+                document.createElement(
+                    "div"
+                );
+
+
+            card.className =
+                "habilidade";
+
+
+            card.innerHTML = `
+
+                <div
+                    class="habilidade-cabecalho"
+                    onclick="abrirHabilidade(${habilidade.id})"
+                >
+
+                    <span class="habilidade-nome">
+
+                        ${escaparHTML(habilidade.nome)}
+
+                    </span>
+
+
+                    <span
+                        class="habilidade-icone"
+                    >
+
+                        ▼
+
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="habilidade-descricao"
+                >
+
+                    ${escaparHTML(habilidade.descricao)}
+
+                </div>
+
+
+                <div class="habilidade-acoes">
+
+                    <button
+                        class="habilidade-remover"
+                        onclick="removerHabilidade(event, ${habilidade.id})"
+                    >
+
+                        🗑 Remover
+
+                    </button>
+
+                </div>
+
+            `;
+
+
+            lista.appendChild(
+                card
+            );
+
+        }
+    );
+
+}
+
+
+/* ==================================================
+   ABRIR / FECHAR HABILIDADE
+================================================== */
+
+function abrirHabilidade(id) {
+
+
+    const cards =
+        document.querySelectorAll(
+            ".habilidade"
+        );
+
+
+    cards.forEach(
+        function(card) {
+
+            const botao =
+                card.querySelector(
+                    ".habilidade-cabecalho"
+                );
+
+
+            if (
+                botao &&
+                botao.getAttribute(
+                    "onclick"
+                ) ===
+                `abrirHabilidade(${id})`
+            ) {
+
+                card.classList.toggle(
+                    "aberta"
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+/* ==================================================
+   REMOVER HABILIDADE
+================================================== */
+
+function removerHabilidade(
+    evento,
+    id
+) {
+
+
+    evento.stopPropagation();
+
+
+    const confirmar =
+        confirm(
+            "Deseja realmente remover esta habilidade?"
+        );
+
+
+    if (!confirmar) {
+
+        return;
+
+    }
+
+
+    habilidades =
+        habilidades.filter(
+            function(habilidade) {
+
+                return habilidade.id !== id;
+
+            }
+        );
+
+
+    salvarHabilidades();
+
+    mostrarHabilidades();
+
+}
+
+
+/* ==================================================
+   PROTEÇÃO CONTRA HTML
+================================================== */
+
+function escaparHTML(texto) {
+
+    const div =
+        document.createElement(
+            "div"
+        );
+
+
+    div.textContent =
+        texto;
+
+
+    return div.innerHTML;
+
+}
+
+
+/* ==================================================
+   INICIAR
+================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        carregarHabilidades();
+
+    }
+);

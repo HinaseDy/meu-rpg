@@ -2,12 +2,22 @@
 <html lang="pt-BR">
 
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>Criação de Personagem</title>
 
+
 <style>
+
+/* =========================
+   BASE
+========================= */
 
 * {
     box-sizing: border-box;
@@ -16,7 +26,9 @@
 }
 
 body {
+
     min-height: 100vh;
+
     background:
         radial-gradient(
             circle at 50% 30%,
@@ -26,35 +38,81 @@ body {
         );
 
     color: #eeeeee;
+
     font-family: Georgia, serif;
+
     overflow-x: hidden;
 }
 
 
-/* ESTRELAS */
+/* =========================
+   ESTRELAS
+========================= */
 
 .estrelas {
+
     position: fixed;
+
     inset: 0;
 
     background-image:
-        radial-gradient(circle at 12% 18%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 25% 8%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 38% 22%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 52% 10%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 68% 18%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 82% 7%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 91% 28%, white 0 1px, transparent 2px);
+
+        radial-gradient(
+            circle at 12% 18%,
+            white 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 25% 8%,
+            white 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 38% 22%,
+            white 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 52% 10%,
+            white 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 68% 18%,
+            white 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 82% 7%,
+            white 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 91% 28%,
+            white 0 1px,
+            transparent 2px
+        );
 
     opacity: 0.45;
+
     pointer-events: none;
 }
 
 
-/* CONTEÚDO */
+/* =========================
+   CONTEÚDO
+========================= */
 
 .conteudo {
+
     position: relative;
+
     z-index: 2;
 
     width: min(92%, 750px);
@@ -65,12 +123,16 @@ body {
 }
 
 
-/* TÍTULO */
+/* =========================
+   TÍTULO
+========================= */
 
 .titulo {
+
     text-align: center;
 
-    font-size: clamp(32px, 7vw, 58px);
+    font-size:
+        clamp(32px, 7vw, 58px);
 
     letter-spacing: 5px;
 
@@ -81,7 +143,9 @@ body {
     margin-bottom: 10px;
 }
 
+
 .subtitulo {
+
     text-align: center;
 
     color: #c9aaaa;
@@ -94,12 +158,16 @@ body {
 }
 
 
-/* CARTÃO */
+/* =========================
+   CARTÃO
+========================= */
 
 .cartao {
+
     padding: 35px;
 
     background:
+
         linear-gradient(
             135deg,
             rgba(70,0,0,0.85),
@@ -115,40 +183,27 @@ body {
 }
 
 
-/* SEÇÕES */
-
-.secao {
-    margin-bottom: 30px;
-}
-
-.secao h2 {
-    font-size: 25px;
-
-    color: #eeeeee;
-
-    margin-bottom: 18px;
-
-    border-bottom: 1px solid #650000;
-
-    padding-bottom: 8px;
-}
-
-
-/* CAMPOS */
+/* =========================
+   CAMPOS
+========================= */
 
 .campo {
-    margin-bottom: 18px;
+
+    margin-bottom: 25px;
 }
 
+
 .campo label {
+
     display: block;
 
-    margin-bottom: 7px;
+    margin-bottom: 8px;
 
     color: #d8c2c2;
 
-    font-size: 17px;
+    font-size: 18px;
 }
+
 
 .campo input,
 .campo select,
@@ -156,7 +211,7 @@ body {
 
     width: 100%;
 
-    padding: 13px;
+    padding: 14px;
 
     background: #090909;
 
@@ -166,7 +221,7 @@ body {
 
     font-family: Georgia, serif;
 
-    font-size: 16px;
+    font-size: 17px;
 
     outline: none;
 
@@ -175,11 +230,6 @@ body {
     transition: 0.3s;
 }
 
-.campo textarea {
-    min-height: 110px;
-
-    resize: vertical;
-}
 
 .campo input:focus,
 .campo select:focus,
@@ -192,28 +242,54 @@ body {
 }
 
 
-/* BOTÕES */
+/* =========================
+   HISTÓRIA
+========================= */
 
-.botoes {
+.historia-label {
 
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 15px;
-
-    margin-top: 30px;
+    margin-top: 10px;
 }
+
+
+.historia-info {
+
+    display: block;
+
+    margin-top: -3px;
+
+    margin-bottom: 10px;
+
+    color: #9e8585;
+
+    font-size: 14px;
+}
+
+
+.campo textarea {
+
+    min-height: 350px;
+
+    resize: vertical;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   BOTÃO
+========================= */
 
 .botao {
 
     width: 100%;
 
-    padding: 16px;
+    padding: 18px;
 
-    border: 1px solid #a00000;
+    margin-top: 10px;
 
     background:
+
         linear-gradient(
             90deg,
             #4b0000,
@@ -221,11 +297,13 @@ body {
             #4b0000
         );
 
+    border: 1px solid #a00000;
+
     color: white;
 
     font-family: Georgia, serif;
 
-    font-size: 20px;
+    font-size: 21px;
 
     letter-spacing: 2px;
 
@@ -233,6 +311,7 @@ body {
 
     transition: 0.3s;
 }
+
 
 .botao:hover {
 
@@ -242,21 +321,10 @@ body {
         0 0 25px rgba(200,0,0,0.6);
 }
 
-.voltar {
 
-    background:
-        linear-gradient(
-            90deg,
-            #222,
-            #444,
-            #222
-        );
-
-    border-color: #555;
-}
-
-
-/* MENSAGEM */
+/* =========================
+   MENSAGEM
+========================= */
 
 .mensagem {
 
@@ -271,26 +339,34 @@ body {
     font-size: 17px;
 }
 
+
 .mensagem.sucesso {
+
     color: #b8b8b8;
 }
 
 
-/* RESPONSIVO */
+/* =========================
+   RESPONSIVO
+========================= */
 
 @media (max-width: 600px) {
 
     .conteudo {
+
         width: 94%;
+
         padding-top: 30px;
     }
 
     .cartao {
+
         padding: 22px;
     }
 
-    .secao h2 {
-        font-size: 22px;
+    .campo textarea {
+
+        min-height: 300px;
     }
 
 }
@@ -302,14 +378,17 @@ body {
 
 <body>
 
+
 <div class="estrelas"></div>
 
 
 <div class="conteudo">
 
+
     <h1 class="titulo">
         CRIAÇÃO
     </h1>
+
 
     <p class="subtitulo">
         Dê vida ao seu personagem.
@@ -319,222 +398,120 @@ body {
     <div class="cartao">
 
 
-        <!-- IDENTIDADE -->
-
-        <div class="secao">
-
-            <h2>
-                Identidade
-            </h2>
-
-
-            <div class="campo">
-
-                <label for="nome">
-                    Nome do personagem
-                </label>
-
-                <input
-                    type="text"
-                    id="nome"
-                    placeholder="Digite o nome..."
-                >
-
-            </div>
-
-
-            <div class="campo">
-
-                <label for="idade">
-                    Idade
-                </label>
-
-                <input
-                    type="number"
-                    id="idade"
-                    min="1"
-                    max="999"
-                    placeholder="Digite a idade..."
-                >
-
-            </div>
-
-
-            <div class="campo">
-
-                <label for="genero">
-                    Gênero
-                </label>
-
-                <select id="genero">
-
-                    <option value="">
-                        Selecione...
-                    </option>
-
-                    <option value="Masculino">
-                        Masculino
-                    </option>
-
-                    <option value="Feminino">
-                        Feminino
-                    </option>
-
-                    <option value="Outro">
-                        Outro
-                    </option>
-
-                </select>
-
-            </div>
-
-        </div>
-
-
-        <!-- ORIGEM -->
-
-        <div class="secao">
-
-            <h2>
-                Origem
-            </h2>
-
-
-            <div class="campo">
-
-                <label for="especie">
-                    Espécie
-                </label>
-
-                <select id="especie">
-
-                    <option value="">
-                        Selecione sua espécie...
-                    </option>
-
-                    <option value="Humano">
-                        Humano
-                    </option>
-
-                    <option value="Vampiro">
-                        Vampiro
-                    </option>
-
-                    <option value="Lobisomem">
-                        Lobisomem
-                    </option>
-
-                    <option value="Bruxo">
-                        Bruxo
-                    </option>
-
-                    <option value="Anjo">
-                        Anjo
-                    </option>
-
-                    <option value="Demônio">
-                        Demônio
-                    </option>
-
-                    <option value="Elfo">
-                        Elfo
-                    </option>
-
-                    <option value="Outro">
-                        Outro
-                    </option>
-
-                </select>
-
-            </div>
-
-
-            <div class="campo">
-
-                <label for="origem">
-                    Conte um pouco sobre sua origem
-                </label>
-
-                <textarea
-                    id="origem"
-                    placeholder="De onde seu personagem veio?"
-                ></textarea>
-
-            </div>
-
-        </div>
-
-
-        <!-- PERSONALIDADE -->
-
-        <div class="secao">
-
-            <h2>
-                Personalidade
-            </h2>
-
-
-            <div class="campo">
-
-                <label for="personalidade">
-                    Personalidade
-                </label>
-
-                <textarea
-                    id="personalidade"
-                    placeholder="Como seu personagem é?"
-                ></textarea>
-
-            </div>
-
-        </div>
-
-
-        <!-- HISTÓRIA -->
-
-        <div class="secao">
-
-            <h2>
-                História
-            </h2>
-
-
-            <div class="campo">
-
-                <label for="historia">
-                    História do personagem
-                </label>
-
-                <textarea
-                    id="historia"
-                    placeholder="Conte a história do seu personagem..."
-                ></textarea>
-
-            </div>
-
-        </div>
-
-
-        <!-- BOTÕES -->
-
-        <div class="botoes">
-
-            <button
-                class="botao"
-                onclick="salvarPersonagem()"
+        <!-- =========================
+             NOME
+        ========================= -->
+
+        <div class="campo">
+
+            <label for="nome">
+                Nome do personagem
+            </label>
+
+            <input
+                type="text"
+                id="nome"
+                placeholder="Digite o nome..."
             >
-                SALVAR PERSONAGEM
-            </button>
-
-
-            <button
-                class="botao voltar"
-                onclick="voltar()"
-            >
-                VOLTAR
-            </button>
 
         </div>
+
+
+        <!-- =========================
+             IDADE
+        ========================= -->
+
+        <div class="campo">
+
+            <label for="idade">
+                Idade
+            </label>
+
+            <input
+                type="number"
+                id="idade"
+                min="1"
+                placeholder="Digite a idade..."
+            >
+
+        </div>
+
+
+        <!-- =========================
+             GÊNERO
+        ========================= -->
+
+        <div class="campo">
+
+            <label for="genero">
+                Gênero
+            </label>
+
+            <select id="genero">
+
+                <option value="">
+                    Selecione...
+                </option>
+
+                <option value="Masculino">
+                    Masculino
+                </option>
+
+                <option value="Feminino">
+                    Feminino
+                </option>
+
+                <option value="Outro">
+                    Outro
+                </option>
+
+                <option value="Prefiro não informar">
+                    Prefiro não informar
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- =========================
+             HISTÓRIA
+        ========================= -->
+
+        <div class="campo">
+
+            <label
+                for="historia"
+                class="historia-label"
+            >
+                História do personagem
+            </label>
+
+            <span class="historia-info">
+                Conte livremente quem é seu personagem,
+                sua história, aparência, personalidade,
+                passado, habilidades ou qualquer outra coisa
+                que você queira.
+            </span>
+
+            <textarea
+                id="historia"
+                placeholder="Escreva a história do seu personagem..."
+            ></textarea>
+
+        </div>
+
+
+        <!-- =========================
+             FINALIZAR
+        ========================= -->
+
+        <button
+            class="botao"
+            onclick="salvarEFinalizar()"
+        >
+            SALVAR E FINALIZAR
+        </button>
 
 
         <div
@@ -550,48 +527,75 @@ body {
 
 <script>
 
-
 /* =========================
-   SALVAR PERSONAGEM
+   SALVAR E FINALIZAR
 ========================= */
 
-function salvarPersonagem() {
+function salvarEFinalizar() {
+
 
     const nome =
-        document.getElementById("nome").value.trim();
+        document
+        .getElementById("nome")
+        .value
+        .trim();
+
 
     const idade =
-        document.getElementById("idade").value;
+        document
+        .getElementById("idade")
+        .value;
+
 
     const genero =
-        document.getElementById("genero").value;
+        document
+        .getElementById("genero")
+        .value;
 
-    const especie =
-        document.getElementById("especie").value;
-
-    const origem =
-        document.getElementById("origem").value.trim();
-
-    const personalidade =
-        document.getElementById("personalidade").value.trim();
 
     const historia =
-        document.getElementById("historia").value.trim();
+        document
+        .getElementById("historia")
+        .value;
 
 
-    /* Verifica o nome */
+    /* =========================
+       VERIFICAÇÃO
+    ========================= */
 
     if (nome === "") {
 
         mostrarMensagem(
-            "Digite um nome para o personagem."
+            "Digite o nome do personagem."
         );
 
         return;
     }
 
 
-    /* Cria o personagem */
+    if (idade === "") {
+
+        mostrarMensagem(
+            "Digite a idade do personagem."
+        );
+
+        return;
+    }
+
+
+    if (historia.trim() === "") {
+
+        mostrarMensagem(
+            "Escreva a história do personagem."
+        );
+
+        return;
+    }
+
+
+    /* =========================
+       PERSONAGEM
+    ========================= */
 
     const personagem = {
 
@@ -601,32 +605,44 @@ function salvarPersonagem() {
 
         genero: genero,
 
-        especie: especie,
-
-        origem: origem,
-
-        personalidade: personalidade,
-
         historia: historia,
 
-        dataCriacao:
+        criadoEm:
             new Date().toISOString()
 
     };
 
 
-    /* Salva no navegador */
+    /* =========================
+       SALVAR
+    ========================= */
 
     localStorage.setItem(
+
         "personagemRPG",
+
         JSON.stringify(personagem)
+
     );
 
+
+    /* =========================
+       MENSAGEM
+    ========================= */
 
     mostrarMensagem(
         "Personagem salvo com sucesso!",
         true
     );
+
+
+    /*
+       Por enquanto não vamos
+       mandar para outra página.
+
+       Primeiro vamos garantir que
+       o personagem está salvo.
+    */
 
 }
 
@@ -635,12 +651,20 @@ function salvarPersonagem() {
    MENSAGEM
 ========================= */
 
-function mostrarMensagem(texto, sucesso = false) {
+function mostrarMensagem(
+    texto,
+    sucesso = false
+) {
 
     const mensagem =
-        document.getElementById("mensagem");
+        document.getElementById(
+            "mensagem"
+        );
 
-    mensagem.textContent = texto;
+
+    mensagem.textContent =
+        texto;
+
 
     mensagem.className =
         sucesso
@@ -656,51 +680,59 @@ function mostrarMensagem(texto, sucesso = false) {
 
 function carregarPersonagem() {
 
+
     const salvo =
-        localStorage.getItem("personagemRPG");
+        localStorage.getItem(
+            "personagemRPG"
+        );
 
 
     if (!salvo) {
+
         return;
+
     }
 
 
-    const personagem =
-        JSON.parse(salvo);
+    try {
+
+        const personagem =
+            JSON.parse(salvo);
 
 
-    document.getElementById("nome").value =
-        personagem.nome || "";
-
-    document.getElementById("idade").value =
-        personagem.idade || "";
-
-    document.getElementById("genero").value =
-        personagem.genero || "";
-
-    document.getElementById("especie").value =
-        personagem.especie || "";
-
-    document.getElementById("origem").value =
-        personagem.origem || "";
-
-    document.getElementById("personalidade").value =
-        personagem.personalidade || "";
-
-    document.getElementById("historia").value =
-        personagem.historia || "";
-
-}
+        document
+            .getElementById("nome")
+            .value =
+            personagem.nome || "";
 
 
-/* =========================
-   VOLTAR
-========================= */
+        document
+            .getElementById("idade")
+            .value =
+            personagem.idade || "";
 
-function voltar() {
 
-    window.location.href =
-        "jogador.html";
+        document
+            .getElementById("genero")
+            .value =
+            personagem.genero || "";
+
+
+        document
+            .getElementById("historia")
+            .value =
+            personagem.historia || "";
+
+
+    }
+
+    catch (erro) {
+
+        console.log(
+            "Não foi possível carregar o personagem."
+        );
+
+    }
 
 }
 
@@ -713,6 +745,7 @@ carregarPersonagem();
 
 </script>
 
+
 </body>
 
-                        </html>
+    </html>

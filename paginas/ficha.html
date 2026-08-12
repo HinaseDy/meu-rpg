@@ -1008,9 +1008,8 @@ As habilidades serão desbloqueadas de acordo com o caminho escolhido pelo jogad
 
 </section>
 
-
 <!-- =========================
-     LORE
+     HABILIDADES
 ========================= -->
 
 <section
@@ -1021,17 +1020,30 @@ class="painel"
 <div class="cartao">
 
 <h2 class="secao-titulo">
-✦ Lore
+✦ Habilidades
 </h2>
 
-<textarea
-id="loreTexto"
-placeholder="Escreva aqui informações importantes sobre seu personagem..."
-></textarea>
+<p class="historia">
+Aqui ficarão as habilidades adquiridas pelo personagem.
+Toque em uma habilidade para ver sua descrição.
+</p>
+
+
+<div id="listaHabilidades"></div>
+
+
+<button
+class="botao-teste"
+onclick="adicionarHabilidade()"
+>
+＋ ADICIONAR HABILIDADE
+</button>
+
 
 </div>
 
 </section>
+
 
 
 <!-- =========================

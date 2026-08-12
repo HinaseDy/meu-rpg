@@ -2,10 +2,16 @@
 <html lang="pt-BR">
 
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>Ficha do Personagem</title>
+
 
 <style>
 
@@ -20,37 +26,81 @@
 }
 
 body {
+
     min-height: 100vh;
+
     background:
         radial-gradient(
-            circle at 50% 30%,
-            #350505,
-            #130000 45%,
+            circle at 50% 20%,
+            #3a0505 0%,
+            #160000 40%,
             #050505 85%
         );
 
     color: #eeeeee;
+
     font-family: Georgia, serif;
+
+    overflow-x: hidden;
 }
 
 
 /* =========================
-   FUNDO
+   ESTRELAS
 ========================= */
 
 .estrelas {
+
     position: fixed;
+
     inset: 0;
 
     background-image:
-        radial-gradient(circle at 10% 15%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 25% 8%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 42% 20%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 65% 10%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 82% 22%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 93% 8%, white 0 1px, transparent 2px);
 
-    opacity: 0.4;
+        radial-gradient(
+            circle at 12% 18%,
+            white 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 25% 8%,
+            white 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 38% 22%,
+            white 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 52% 10%,
+            white 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 68% 18%,
+            white 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 82% 7%,
+            white 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 91% 28%,
+            white 0 1px,
+            transparent 2px
+        );
+
+    opacity: 0.35;
+
     pointer-events: none;
 }
 
@@ -60,15 +110,16 @@ body {
 ========================= */
 
 .container {
+
     position: relative;
 
-    width: min(1100px, 94%);
+    z-index: 2;
+
+    width: min(95%, 1100px);
 
     margin: auto;
 
     padding: 30px 0 60px;
-
-    z-index: 2;
 }
 
 
@@ -77,13 +128,17 @@ body {
 ========================= */
 
 .cabecalho {
+
     text-align: center;
 
     margin-bottom: 25px;
 }
 
-.cabecalho h1 {
-    font-size: clamp(30px, 6vw, 55px);
+
+.nome-personagem {
+
+    font-size:
+        clamp(30px, 7vw, 55px);
 
     letter-spacing: 4px;
 
@@ -92,12 +147,16 @@ body {
         0 0 25px rgba(180,0,0,0.7);
 }
 
-.nome-personagem {
-    margin-top: 8px;
 
-    color: #c9aaaa;
+.info-personagem {
 
-    font-size: 20px;
+    margin-top: 10px;
+
+    color: #bdaaaa;
+
+    font-size: 17px;
+
+    letter-spacing: 1px;
 }
 
 
@@ -106,6 +165,7 @@ body {
 ========================= */
 
 .abas {
+
     display: flex;
 
     flex-wrap: wrap;
@@ -117,86 +177,96 @@ body {
     margin-bottom: 25px;
 }
 
+
 .aba {
+
     padding: 13px 20px;
 
-    background: #260000;
+    background: #170000;
 
     border: 1px solid #650000;
 
-    color: #ddd;
+    color: #cdbbbb;
 
     font-family: Georgia, serif;
 
+    font-size: 16px;
+
     cursor: pointer;
 
-    transition: 0.3s;
+    transition: 0.25s;
 }
 
-.aba:hover,
+
+.aba:hover {
+
+    background: #420000;
+
+    color: white;
+}
+
+
 .aba.ativa {
+
     background: #850000;
 
     border-color: #c00000;
 
+    color: white;
+
     box-shadow:
-        0 0 15px rgba(180,0,0,0.5);
+        0 0 15px rgba(180,0,0,0.45);
 }
 
 
 /* =========================
-   CONTEÚDO DAS ABAS
+   ABA CONTEÚDO
 ========================= */
 
 .pagina {
-    display: none;
 
-    animation: aparecer 0.3s ease;
+    display: none;
 }
+
 
 .pagina.ativa {
+
     display: block;
-}
-
-@keyframes aparecer {
-    from {
-        opacity: 0;
-        transform: translateY(8px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 
 /* =========================
-   PAINEL
+   CARTÃO
 ========================= */
 
-.painel {
+.cartao {
+
     background:
+
         linear-gradient(
             135deg,
-            rgba(60,0,0,0.8),
-            rgba(10,10,10,0.95)
+            rgba(55,0,0,0.88),
+            rgba(10,10,10,0.96)
         );
 
     border: 1px solid #650000;
 
     padding: 25px;
 
-    box-shadow:
-        0 0 20px rgba(100,0,0,0.25);
-
     margin-bottom: 20px;
+
+    box-shadow:
+        0 0 25px rgba(100,0,0,0.25);
 }
 
-.painel h2 {
+
+.titulo-secao {
+
+    font-size: 27px;
+
     margin-bottom: 20px;
 
-    color: #eee;
+    color: #eeeeee;
 
     letter-spacing: 2px;
 }
@@ -207,69 +277,107 @@ body {
 ========================= */
 
 .atributos {
+
     display: grid;
 
     grid-template-columns:
-        repeat(auto-fit, minmax(180px, 1fr));
+        repeat(auto-fit, minmax(150px, 1fr));
 
     gap: 15px;
 }
 
-.atributo {
-    background: rgba(0,0,0,0.35);
 
-    border: 1px solid #500000;
+.atributo {
+
+    background: #090909;
+
+    border: 1px solid #5c0000;
 
     padding: 18px;
 
     text-align: center;
 }
 
+
 .atributo-nome {
+
     display: block;
 
     font-size: 18px;
 
-    margin-bottom: 12px;
-
     color: #cdbbbb;
+
+    margin-bottom: 12px;
 }
 
-.controle {
+
+.valor-atributo {
+
     display: flex;
 
     justify-content: center;
 
     align-items: center;
 
-    gap: 15px;
+    gap: 12px;
 }
 
-.controle button {
+
+.valor {
+
+    font-size: 30px;
+
+    min-width: 35px;
+
+    color: white;
+}
+
+
+.controle {
+
     width: 35px;
+
     height: 35px;
 
-    background: #400000;
+    background: #420000;
 
-    border: 1px solid #800000;
+    border: 1px solid #850000;
 
     color: white;
 
-    font-size: 20px;
+    font-size: 22px;
 
     cursor: pointer;
 }
 
-.controle button:hover {
+
+.controle:hover {
+
     background: #900000;
 }
 
-.valor {
-    min-width: 35px;
 
-    font-size: 25px;
+/* =========================
+   PONTOS
+========================= */
+
+.pontos {
+
+    margin-top: 20px;
+
+    text-align: center;
+
+    color: #c9aaaa;
+
+    font-size: 18px;
+}
+
+
+.pontos span {
 
     color: white;
+
+    font-size: 23px;
 }
 
 
@@ -278,30 +386,67 @@ body {
 ========================= */
 
 .recursos {
+
     display: grid;
 
     grid-template-columns:
         repeat(auto-fit, minmax(200px, 1fr));
 
-    gap: 15px;
+    gap: 18px;
 }
 
+
 .recurso {
+
+    background: #090909;
+
+    border: 1px solid #5c0000;
+
     padding: 20px;
-
-    background: rgba(0,0,0,0.35);
-
-    border: 1px solid #500000;
 
     text-align: center;
 }
 
-.recurso h3 {
-    margin-bottom: 10px;
+
+.recurso-nome {
+
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-size: 20px;
+
+    color: #cdbbbb;
 }
 
-.recurso .valor {
-    font-size: 25px;
+
+.recurso-controle {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+}
+
+
+.recurso-valor {
+
+    width: 70px;
+
+    padding: 8px;
+
+    background: #050505;
+
+    border: 1px solid #650000;
+
+    color: white;
+
+    text-align: center;
+
+    font-size: 22px;
 }
 
 
@@ -310,38 +455,53 @@ body {
 ========================= */
 
 .pericias {
+
     display: grid;
 
     grid-template-columns:
         repeat(auto-fit, minmax(220px, 1fr));
 
-    gap: 10px;
+    gap: 12px;
 }
 
+
 .pericia {
-    padding: 15px;
-
-    background: rgba(0,0,0,0.3);
-
-    border: 1px solid #450000;
 
     display: flex;
 
     justify-content: space-between;
 
     align-items: center;
+
+    padding: 15px;
+
+    background: #090909;
+
+    border: 1px solid #4d0000;
 }
 
-.pericia button {
-    background: #400000;
 
-    border: 1px solid #700000;
+.pericia-nome {
 
-    color: white;
+    font-size: 17px;
+}
 
-    padding: 5px 10px;
 
-    cursor: pointer;
+.pericia-atributo {
+
+    color: #9f8585;
+
+    font-size: 13px;
+
+    margin-top: 4px;
+}
+
+
+.pericia-valor {
+
+    font-size: 22px;
+
+    color: #d00000;
 }
 
 
@@ -349,66 +509,145 @@ body {
    TEIA
 ========================= */
 
+.teia-intro {
+
+    color: #c8baba;
+
+    line-height: 1.6;
+
+    margin-bottom: 25px;
+}
+
+
 .teia {
-    min-height: 450px;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(150px, 1fr));
+
+    gap: 20px;
+}
+
+
+.habilidade {
+
+    min-height: 150px;
 
     display: flex;
 
     flex-direction: column;
 
+    justify-content: center;
+
     align-items: center;
+
+    text-align: center;
+
+    padding: 15px;
+
+    background: #120000;
+
+    border: 2px solid #650000;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.habilidade:hover {
+
+    transform: translateY(-5px);
+
+    border-color: #d00000;
+
+    box-shadow:
+        0 0 20px rgba(200,0,0,0.5);
+}
+
+
+.habilidade.bloqueada {
+
+    opacity: 0.45;
+
+    cursor: not-allowed;
+}
+
+
+.icone-habilidade {
+
+    width: 55px;
+
+    height: 55px;
+
+    display: flex;
 
     justify-content: center;
 
-    text-align: center;
+    align-items: center;
+
+    margin-bottom: 10px;
+
+    background: #350000;
+
+    border: 2px solid #850000;
+
+    transform: rotate(45deg);
 }
 
-.no-teia {
-    color: #bca7a7;
 
-    font-size: 18px;
+.icone-habilidade span {
 
-    max-width: 600px;
+    transform: rotate(-45deg);
 
-    line-height: 1.6;
+    font-size: 25px;
 }
 
-.no-teia strong {
-    color: #eee;
+
+.habilidade-nome {
+
+    margin-top: 8px;
+
+    font-size: 16px;
+}
+
+
+.habilidade-custo {
+
+    margin-top: 8px;
+
+    color: #d00000;
+
+    font-size: 14px;
 }
 
 
 /* =========================
-   LORE / INVENTÁRIO
+   LORE
 ========================= */
 
-.area-texto {
+textarea {
+
     width: 100%;
 
     min-height: 300px;
 
+    padding: 15px;
+
     resize: vertical;
 
-    padding: 18px;
-
-    background: #090909;
+    background: #070707;
 
     border: 1px solid #650000;
 
-    color: #eee;
+    color: white;
 
     font-family: Georgia, serif;
 
     font-size: 17px;
 
-    outline: none;
-}
-
-.area-texto:focus {
-    border-color: #b00000;
-
-    box-shadow:
-        0 0 15px rgba(180,0,0,0.3);
+    line-height: 1.6;
 }
 
 
@@ -417,6 +656,7 @@ body {
 ========================= */
 
 .inventario {
+
     display: flex;
 
     flex-direction: column;
@@ -424,52 +664,93 @@ body {
     gap: 10px;
 }
 
+
 .item {
+
     display: flex;
+
+    align-items: center;
 
     gap: 10px;
 }
 
+
 .item input {
+
     flex: 1;
 
-    padding: 12px;
+    padding: 13px;
 
-    background: #090909;
+    background: #070707;
 
-    border: 1px solid #500000;
+    border: 1px solid #650000;
 
     color: white;
 
     font-family: Georgia, serif;
 }
 
-.item button {
-    width: 45px;
 
-    background: #500000;
+.remover {
 
-    border: 1px solid #800000;
+    padding: 12px 15px;
+
+    background: #420000;
+
+    border: 1px solid #850000;
 
     color: white;
 
     cursor: pointer;
 }
 
-.adicionar {
+
+.botao {
+
+    padding: 14px 20px;
+
     margin-top: 15px;
 
-    padding: 12px 20px;
+    background:
+        linear-gradient(
+            90deg,
+            #4b0000,
+            #850000,
+            #4b0000
+        );
 
-    background: #600000;
-
-    border: 1px solid #900000;
+    border: 1px solid #a00000;
 
     color: white;
 
     font-family: Georgia, serif;
 
     cursor: pointer;
+
+    font-size: 16px;
+}
+
+
+.botao:hover {
+
+    box-shadow:
+        0 0 20px rgba(200,0,0,0.5);
+}
+
+
+/* =========================
+   HISTÓRIA
+========================= */
+
+.historia {
+
+    white-space: pre-wrap;
+
+    line-height: 1.7;
+
+    color: #cdbebe;
+
+    font-size: 17px;
 }
 
 
@@ -480,19 +761,26 @@ body {
 @media (max-width: 600px) {
 
     .container {
-        width: 92%;
+
+        width: 94%;
+
+        padding-top: 20px;
     }
 
-    .painel {
+
+    .cartao {
+
         padding: 18px;
     }
 
+
     .aba {
-        flex: 1;
 
-        min-width: 120px;
+        flex: 1 1 40%;
 
-        padding: 11px 8px;
+        padding: 12px 8px;
+
+        font-size: 14px;
     }
 
 }
@@ -504,29 +792,39 @@ body {
 
 <body>
 
+
 <div class="estrelas"></div>
 
 
 <div class="container">
 
 
-    <!-- CABEÇALHO -->
+    <!-- =========================
+         CABEÇALHO
+    ========================= -->
 
     <header class="cabecalho">
 
-        <h1>FICHA DO PERSONAGEM</h1>
-
-        <div
+        <h1
             class="nome-personagem"
             id="nomePersonagem"
         >
-            Personagem
-        </div>
+            PERSONAGEM
+        </h1>
+
+        <p
+            class="info-personagem"
+            id="infoPersonagem"
+        >
+            Ficha de personagem
+        </p>
 
     </header>
 
 
-    <!-- ABAS -->
+    <!-- =========================
+         ABAS
+    ========================= -->
 
     <nav class="abas">
 
@@ -534,35 +832,39 @@ body {
             class="aba ativa"
             onclick="abrirAba('ficha', this)"
         >
-            FICHA
+            Ficha
         </button>
+
 
         <button
             class="aba"
             onclick="abrirAba('pericias', this)"
         >
-            PERÍCIAS
+            Perícias
         </button>
+
 
         <button
             class="aba"
             onclick="abrirAba('teia', this)"
         >
-            🕸️ TEIA
+            🕸️ Teia
         </button>
+
 
         <button
             class="aba"
             onclick="abrirAba('lore', this)"
         >
-            LORE
+            Lore / Habilidades
         </button>
+
 
         <button
             class="aba"
             onclick="abrirAba('inventario', this)"
         >
-            🎒 INVENTÁRIO
+            🎒 Inventário
         </button>
 
     </nav>
@@ -573,26 +875,35 @@ body {
     ========================= -->
 
     <section
-        id="ficha"
         class="pagina ativa"
+        id="ficha"
     >
 
-        <div class="painel">
 
-            <h2>ATRIBUTOS</h2>
+        <div class="cartao">
+
+            <h2 class="titulo-secao">
+                ATRIBUTOS
+            </h2>
+
 
             <div class="atributos">
 
 
+                <!-- FORÇA -->
+
                 <div class="atributo">
 
                     <span class="atributo-nome">
-                        FORÇA
+                        Força
                     </span>
 
-                    <div class="controle">
+                    <div class="valor-atributo">
 
-                        <button onclick="alterarAtributo('forca', -1)">
+                        <button
+                            class="controle"
+                            onclick="alterarAtributo('forca', -1)"
+                        >
                             −
                         </button>
 
@@ -603,7 +914,10 @@ body {
                             0
                         </span>
 
-                        <button onclick="alterarAtributo('forca', 1)">
+                        <button
+                            class="controle"
+                            onclick="alterarAtributo('forca', 1)"
+                        >
                             +
                         </button>
 
@@ -612,15 +926,20 @@ body {
                 </div>
 
 
+                <!-- AGILIDADE -->
+
                 <div class="atributo">
 
                     <span class="atributo-nome">
-                        AGILIDADE
+                        Agilidade
                     </span>
 
-                    <div class="controle">
+                    <div class="valor-atributo">
 
-                        <button onclick="alterarAtributo('agilidade', -1)">
+                        <button
+                            class="controle"
+                            onclick="alterarAtributo('agilidade', -1)"
+                        >
                             −
                         </button>
 
@@ -631,7 +950,10 @@ body {
                             0
                         </span>
 
-                        <button onclick="alterarAtributo('agilidade', 1)">
+                        <button
+                            class="controle"
+                            onclick="alterarAtributo('agilidade', 1)"
+                        >
                             +
                         </button>
 
@@ -640,15 +962,20 @@ body {
                 </div>
 
 
+                <!-- CARISMA -->
+
                 <div class="atributo">
 
                     <span class="atributo-nome">
-                        CARISMA
+                        Carisma
                     </span>
 
-                    <div class="controle">
+                    <div class="valor-atributo">
 
-                        <button onclick="alterarAtributo('carisma', -1)">
+                        <button
+                            class="controle"
+                            onclick="alterarAtributo('carisma', -1)"
+                        >
                             −
                         </button>
 
@@ -659,7 +986,10 @@ body {
                             0
                         </span>
 
-                        <button onclick="alterarAtributo('carisma', 1)">
+                        <button
+                            class="controle"
+                            onclick="alterarAtributo('carisma', 1)"
+                        >
                             +
                         </button>
 
@@ -668,15 +998,20 @@ body {
                 </div>
 
 
+                <!-- VIGOR -->
+
                 <div class="atributo">
 
                     <span class="atributo-nome">
-                        VIGOR
+                        Vigor
                     </span>
 
-                    <div class="controle">
+                    <div class="valor-atributo">
 
-                        <button onclick="alterarAtributo('vigor', -1)">
+                        <button
+                            class="controle"
+                            onclick="alterarAtributo('vigor', -1)"
+                        >
                             −
                         </button>
 
@@ -687,7 +1022,10 @@ body {
                             0
                         </span>
 
-                        <button onclick="alterarAtributo('vigor', 1)">
+                        <button
+                            class="controle"
+                            onclick="alterarAtributo('vigor', 1)"
+                        >
                             +
                         </button>
 
@@ -696,15 +1034,20 @@ body {
                 </div>
 
 
+                <!-- INTELECTO -->
+
                 <div class="atributo">
 
                     <span class="atributo-nome">
-                        INTELECTO
+                        Intelecto
                     </span>
 
-                    <div class="controle">
+                    <div class="valor-atributo">
 
-                        <button onclick="alterarAtributo('intelecto', -1)">
+                        <button
+                            class="controle"
+                            onclick="alterarAtributo('intelecto', -1)"
+                        >
                             −
                         </button>
 
@@ -715,7 +1058,10 @@ body {
                             0
                         </span>
 
-                        <button onclick="alterarAtributo('intelecto', 1)">
+                        <button
+                            class="controle"
+                            onclick="alterarAtributo('intelecto', 1)"
+                        >
                             +
                         </button>
 
@@ -723,38 +1069,66 @@ body {
 
                 </div>
 
+
+            </div>
+
+
+            <div class="pontos">
+
+                Pontos de atributo restantes:
+
+                <span id="pontosAtributo">
+                    12
+                </span>
+
             </div>
 
         </div>
 
 
-        <!-- RECURSOS -->
+        <!-- =========================
+             RECURSOS
+        ========================= -->
 
-        <div class="painel">
+        <div class="cartao">
 
-            <h2>RECURSOS</h2>
+            <h2 class="titulo-secao">
+                RECURSOS
+            </h2>
+
 
             <div class="recursos">
 
 
+                <!-- PV -->
+
                 <div class="recurso">
 
-                    <h3>❤️ VIDA</h3>
+                    <span class="recurso-nome">
+                        ❤️ Vida (PV)
+                    </span>
 
-                    <div class="controle">
+                    <div class="recurso-controle">
 
-                        <button onclick="alterarRecurso('pv', -1)">
+                        <button
+                            class="controle"
+                            onclick="alterarRecurso('pv', -1)"
+                        >
                             −
                         </button>
 
-                        <span
-                            class="valor"
+                        <input
+                            class="recurso-valor"
                             id="pv"
+                            type="number"
+                            value="10"
+                            onchange="alterarRecursoDireto('pv')"
                         >
-                            10
-                        </span>
 
-                        <button onclick="alterarRecurso('pv', 1)">
+                        <button
+                            class="controle"
+                            onclick="alterarRecurso('pv', 1)"
+                        >
                             +
                         </button>
 
@@ -763,24 +1137,35 @@ body {
                 </div>
 
 
+                <!-- SANIDADE -->
+
                 <div class="recurso">
 
-                    <h3>🧠 SANIDADE</h3>
+                    <span class="recurso-nome">
+                        🧠 Sanidade
+                    </span>
 
-                    <div class="controle">
+                    <div class="recurso-controle">
 
-                        <button onclick="alterarRecurso('sanidade', -1)">
+                        <button
+                            class="controle"
+                            onclick="alterarRecurso('sanidade', -1)"
+                        >
                             −
                         </button>
 
-                        <span
-                            class="valor"
+                        <input
+                            class="recurso-valor"
                             id="sanidade"
+                            type="number"
+                            value="15"
+                            onchange="alterarRecursoDireto('sanidade')"
                         >
-                            15
-                        </span>
 
-                        <button onclick="alterarRecurso('sanidade', 1)">
+                        <button
+                            class="controle"
+                            onclick="alterarRecurso('sanidade', 1)"
+                        >
                             +
                         </button>
 
@@ -788,35 +1173,68 @@ body {
 
                 </div>
 
+
+                <!-- ESFORÇO -->
 
                 <div class="recurso">
 
-                    <h3>⚡ ESFORÇO</h3>
+                    <span class="recurso-nome">
+                        ⚡ Esforço
+                    </span>
 
-                    <div class="controle">
+                    <div class="recurso-controle">
 
-                        <button onclick="alterarRecurso('esforco', -1)">
+                        <button
+                            class="controle"
+                            onclick="alterarRecurso('esforco', -1)"
+                        >
                             −
                         </button>
 
-                        <span
-                            class="valor"
+                        <input
+                            class="recurso-valor"
                             id="esforco"
+                            type="number"
+                            value="10"
+                            onchange="alterarRecursoDireto('esforco')"
                         >
-                            10
-                        </span>
 
-                        <button onclick="alterarRecurso('esforco', 1)">
+                        <button
+                            class="controle"
+                            onclick="alterarRecurso('esforco', 1)"
+                        >
                             +
                         </button>
 
                     </div>
 
                 </div>
+
 
             </div>
 
         </div>
+
+
+        <!-- =========================
+             HISTÓRIA
+        ========================= -->
+
+        <div class="cartao">
+
+            <h2 class="titulo-secao">
+                HISTÓRIA
+            </h2>
+
+            <p
+                class="historia"
+                id="historiaPersonagem"
+            >
+                Nenhuma história encontrada.
+            </p>
+
+        </div>
+
 
     </section>
 
@@ -826,13 +1244,15 @@ body {
     ========================= -->
 
     <section
-        id="pericias"
         class="pagina"
+        id="pericias"
     >
 
-        <div class="painel">
+        <div class="cartao">
 
-            <h2>PERÍCIAS</h2>
+            <h2 class="titulo-secao">
+                PERÍCIAS
+            </h2>
 
             <div
                 class="pericias"
@@ -849,378 +1269,8 @@ body {
     ========================= -->
 
     <section
+        class="pagina"
         id="teia"
-        class="pagina"
     >
 
-        <div class="painel teia">
-
-            <h2>🕸️ TEIA DE HABILIDADES</h2>
-
-            <p class="no-teia">
-
-                Sua teia de habilidades ainda não foi definida.
-
-                <br><br>
-
-                Conforme sua história se desenvolver,
-                novos caminhos poderão aparecer aqui.
-
-                <br><br>
-
-                <strong>
-                    O caminho do personagem é construído
-                    através das escolhas e experiências.
-                </strong>
-
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         LORE
-    ========================= -->
-
-    <section
-        id="lore"
-        class="pagina"
-    >
-
-        <div class="painel">
-
-            <h2>📖 HABILIDADES DE LORE</h2>
-
-            <textarea
-                id="loreTexto"
-                class="area-texto"
-                placeholder="Escreva aqui habilidades, características especiais, conhecimentos, poderes ou informações importantes da história do personagem..."
-                oninput="salvarDados()"
-            ></textarea>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         INVENTÁRIO
-    ========================= -->
-
-    <section
-        id="inventario"
-        class="pagina"
-    >
-
-        <div class="painel">
-
-            <h2>🎒 INVENTÁRIO</h2>
-
-            <div
-                class="inventario"
-                id="listaInventario"
-            ></div>
-
-            <button
-                class="adicionar"
-                onclick="adicionarItem()"
-            >
-                + ADICIONAR ITEM
-            </button>
-
-        </div>
-
-    </section>
-
-
-</div>
-
-
-<script>
-
-/* =========================
-   DADOS
-========================= */
-
-let dados = {
-
-    atributos: {
-        forca: 0,
-        agilidade: 0,
-        carisma: 0,
-        vigor: 0,
-        intelecto: 0
-    },
-
-    recursos: {
-        pv: 10,
-        sanidade: 15,
-        esforco: 10
-    },
-
-    pericias: {},
-
-    inventario: [],
-
-    lore: ""
-
-};
-
-
-/* =========================
-   ABAS
-========================= */
-
-function abrirAba(nome, botao) {
-
-    document
-        .querySelectorAll(".pagina")
-        .forEach(function(pagina) {
-
-            pagina.classList.remove("ativa");
-
-        });
-
-
-    document
-        .querySelectorAll(".aba")
-        .forEach(function(aba) {
-
-            aba.classList.remove("ativa");
-
-        });
-
-
-    document
-        .getElementById(nome)
-        .classList.add("ativa");
-
-
-    botao.classList.add("ativa");
-
-}
-
-
-/* =========================
-   ATRIBUTOS
-========================= */
-
-function alterarAtributo(nome, quantidade) {
-
-    const total = Object.values(dados.atributos)
-        .reduce((a, b) => a + b, 0);
-
-
-    if (quantidade > 0 && total >= 12) {
-
-        return;
-
-    }
-
-
-    if (
-        quantidade < 0 &&
-        dados.atributos[nome] <= 0
-    ) {
-
-        return;
-
-    }
-
-
-    dados.atributos[nome] += quantidade;
-
-    document.getElementById(nome).textContent =
-        dados.atributos[nome];
-
-
-    salvarDados();
-
-}
-
-
-/* =========================
-   RECURSOS
-========================= */
-
-function alterarRecurso(nome, quantidade) {
-
-    dados.recursos[nome] += quantidade;
-
-
-    if (dados.recursos[nome] < 0) {
-
-        dados.recursos[nome] = 0;
-
-    }
-
-
-    document.getElementById(nome).textContent =
-        dados.recursos[nome];
-
-
-    salvarDados();
-
-}
-
-
-/* =========================
-   PERÍCIAS
-========================= */
-
-const nomesPericias = [
-
-    "Acrobacia",
-    "Crime",
-    "Investigação",
-    "Resistência",
-    "Percepção",
-    "Intuição",
-    "Diplomacia",
-    "Furtividade",
-    "Enganação",
-    "Iniciativa",
-    "Luta",
-    "Pontaria",
-    "Reflexo",
-    "Medicina",
-    "Profissão",
-    "Intimidação",
-    "Atletismo",
-    "Religião"
-
-];
-
-
-function criarPericias() {
-
-    const lista =
-        document.getElementById("listaPericias");
-
-
-    lista.innerHTML = "";
-
-
-    nomesPericias.forEach(function(nome) {
-
-        const div =
-            document.createElement("div");
-
-        div.className = "pericia";
-
-
-        const span =
-            document.createElement("span");
-
-        span.textContent = nome;
-
-
-        const botao =
-            document.createElement("button");
-
-        botao.textContent =
-            dados.pericias[nome] || 0;
-
-
-        botao.onclick = function() {
-
-            dados.pericias[nome] =
-                (dados.pericias[nome] || 0) + 1;
-
-            botao.textContent =
-                dados.pericias[nome];
-
-            salvarDados();
-
-        };
-
-
-        div.appendChild(span);
-
-        div.appendChild(botao);
-
-        lista.appendChild(div);
-
-    });
-
-}
-
-
-/* =========================
-   INVENTÁRIO
-========================= */
-
-function adicionarItem() {
-
-    dados.inventario.push("");
-
-    criarInventario();
-
-    salvarDados();
-
-}
-
-
-function removerItem(index) {
-
-    dados.inventario.splice(index, 1);
-
-    criarInventario();
-
-    salvarDados();
-
-}
-
-
-function criarInventario() {
-
-    const lista =
-        document.getElementById("listaInventario");
-
-
-    lista.innerHTML = "";
-
-
-    dados.inventario.forEach(function(item, index) {
-
-        const div =
-            document.createElement("div");
-
-        div.className = "item";
-
-
-        const input =
-            document.createElement("input");
-
-        input.value = item;
-
-        input.placeholder =
-            "Nome do item";
-
-
-        input.oninput = function() {
-
-            dados.inventario[index] =
-                input.value;
-
-            salvarDados();
-
-        };
-
-
-        const botao =
-            document.createElement("button");
-
-        botao.textContent = "X";
-
-
-        botao.onclick = function() {
-
-            removerItem(index);
-
-        };
-
-
-        div.appendChi
+        <div class="c

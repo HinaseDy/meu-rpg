@@ -17,304 +17,530 @@
 
 body {
     min-height: 100vh;
-    padding: 30px 20px;
-
     background:
         radial-gradient(
-            circle at 50% 25%,
-            #3b0909,
-            #110000 55%,
-            #030303 100%
+            circle at 50% 30%,
+            #3a0505 0%,
+            #160000 45%,
+            #050505 85%
         );
 
     color: #eeeeee;
     font-family: Georgia, serif;
+    overflow-x: hidden;
 }
 
-.container {
-    width: min(900px, 95%);
-    margin: auto;
+
+/* ESTRELAS */
+
+.estrelas {
+    position: fixed;
+    inset: 0;
+
+    background-image:
+        radial-gradient(circle at 12% 18%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 25% 8%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 38% 22%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 52% 10%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 68% 18%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 82% 7%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 91% 28%, white 0 1px, transparent 2px);
+
+    opacity: 0.45;
+    pointer-events: none;
 }
+
+
+/* CONTEÚDO */
+
+.conteudo {
+    position: relative;
+    z-index: 2;
+
+    width: min(92%, 750px);
+
+    margin: auto;
+
+    padding: 50px 0 80px;
+}
+
+
+/* TÍTULO */
 
 .titulo {
     text-align: center;
 
-    font-size: clamp(32px, 6vw, 58px);
-    letter-spacing: 4px;
+    font-size: clamp(32px, 7vw, 58px);
 
-    margin-bottom: 10px;
+    letter-spacing: 5px;
 
     text-shadow:
-        0 0 10px #000,
-        0 0 25px rgba(180,0,0,.7);
+        0 0 8px #000,
+        0 0 25px rgba(180,0,0,0.7);
+
+    margin-bottom: 10px;
 }
 
 .subtitulo {
     text-align: center;
 
-    color: #bfa8a8;
-
-    margin-bottom: 35px;
+    color: #c9aaaa;
 
     font-size: 18px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 40px;
 }
 
-.painel {
-    padding: 30px;
 
-    background: rgba(10,0,0,.85);
+/* CARTÃO */
 
-    border: 1px solid #650000;
+.cartao {
+    padding: 35px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(70,0,0,0.85),
+            rgba(12,12,12,0.96)
+        );
+
+    border: 2px solid #650000;
 
     box-shadow:
-        0 0 25px rgba(120,0,0,.35);
+        0 0 30px rgba(120,0,0,0.35);
+
+    border-radius: 5px;
 }
+
+
+/* SEÇÕES */
+
+.secao {
+    margin-bottom: 30px;
+}
+
+.secao h2 {
+    font-size: 25px;
+
+    color: #eeeeee;
+
+    margin-bottom: 18px;
+
+    border-bottom: 1px solid #650000;
+
+    padding-bottom: 8px;
+}
+
+
+/* CAMPOS */
 
 .campo {
-    margin-bottom: 25px;
+    margin-bottom: 18px;
 }
 
-label {
+.campo label {
     display: block;
 
-    margin-bottom: 8px;
+    margin-bottom: 7px;
 
-    color: #ddd;
+    color: #d8c2c2;
 
-    font-size: 20px;
+    font-size: 17px;
 }
 
-input,
-select,
-textarea {
+.campo input,
+.campo select,
+.campo textarea {
+
     width: 100%;
 
     padding: 13px;
 
-    background: #100909;
+    background: #090909;
 
-    border: 1px solid #5d0000;
+    border: 1px solid #650000;
 
     color: white;
 
     font-family: Georgia, serif;
 
-    font-size: 17px;
+    font-size: 16px;
 
     outline: none;
+
+    border-radius: 3px;
+
+    transition: 0.3s;
 }
 
-input:focus,
-select:focus,
-textarea:focus {
-    border-color: #c00000;
-
-    box-shadow:
-        0 0 12px rgba(180,0,0,.4);
-}
-
-textarea {
-    min-height: 120px;
+.campo textarea {
+    min-height: 110px;
 
     resize: vertical;
 }
 
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+
+    border-color: #c00000;
+
+    box-shadow:
+        0 0 12px rgba(190,0,0,0.35);
+}
+
+
+/* BOTÕES */
+
 .botoes {
+
     display: flex;
 
+    flex-direction: column;
+
     gap: 15px;
-
-    justify-content: center;
-
-    flex-wrap: wrap;
 
     margin-top: 30px;
 }
 
-button {
-    padding: 15px 35px;
+.botao {
 
-    background: #4d0000;
+    width: 100%;
 
-    border: 1px solid #9b0000;
+    padding: 16px;
+
+    border: 1px solid #a00000;
+
+    background:
+        linear-gradient(
+            90deg,
+            #4b0000,
+            #850000,
+            #4b0000
+        );
 
     color: white;
 
     font-family: Georgia, serif;
 
-    font-size: 18px;
+    font-size: 20px;
+
+    letter-spacing: 2px;
 
     cursor: pointer;
 
-    transition: .3s;
+    transition: 0.3s;
 }
 
-button:hover {
-    background: #8b0000;
+.botao:hover {
+
+    transform: scale(1.02);
 
     box-shadow:
-        0 0 20px rgba(200,0,0,.5);
-
-    transform: scale(1.03);
+        0 0 25px rgba(200,0,0,0.6);
 }
 
 .voltar {
-    background: #222;
+
+    background:
+        linear-gradient(
+            90deg,
+            #222,
+            #444,
+            #222
+        );
 
     border-color: #555;
 }
 
-#resultado {
-    display: none;
 
-    margin-top: 30px;
+/* MENSAGEM */
 
-    padding: 25px;
+.mensagem {
 
-    background: rgba(40,0,0,.7);
+    text-align: center;
 
-    border: 1px solid #700000;
-}
+    margin-top: 20px;
 
-#resultado h2 {
+    min-height: 25px;
+
     color: #d00000;
 
-    margin-bottom: 15px;
+    font-size: 17px;
+}
+
+.mensagem.sucesso {
+    color: #b8b8b8;
+}
+
+
+/* RESPONSIVO */
+
+@media (max-width: 600px) {
+
+    .conteudo {
+        width: 94%;
+        padding-top: 30px;
+    }
+
+    .cartao {
+        padding: 22px;
+    }
+
+    .secao h2 {
+        font-size: 22px;
+    }
+
 }
 
 </style>
 
 </head>
 
+
 <body>
 
-<div class="container">
+<div class="estrelas"></div>
+
+
+<div class="conteudo">
 
     <h1 class="titulo">
-        CRIAÇÃO DE PERSONAGEM
+        CRIAÇÃO
     </h1>
 
     <p class="subtitulo">
-        Antes de entrar na história, descubra quem você será.
+        Dê vida ao seu personagem.
     </p>
 
 
-    <div class="painel">
+    <div class="cartao">
 
 
-        <div class="campo">
+        <!-- IDENTIDADE -->
 
-            <label for="nome">
-                Nome do personagem
-            </label>
+        <div class="secao">
 
-            <input
-                type="text"
-                id="nome"
-                placeholder="Digite o nome..."
-            >
+            <h2>
+                Identidade
+            </h2>
+
+
+            <div class="campo">
+
+                <label for="nome">
+                    Nome do personagem
+                </label>
+
+                <input
+                    type="text"
+                    id="nome"
+                    placeholder="Digite o nome..."
+                >
+
+            </div>
+
+
+            <div class="campo">
+
+                <label for="idade">
+                    Idade
+                </label>
+
+                <input
+                    type="number"
+                    id="idade"
+                    min="1"
+                    max="999"
+                    placeholder="Digite a idade..."
+                >
+
+            </div>
+
+
+            <div class="campo">
+
+                <label for="genero">
+                    Gênero
+                </label>
+
+                <select id="genero">
+
+                    <option value="">
+                        Selecione...
+                    </option>
+
+                    <option value="Masculino">
+                        Masculino
+                    </option>
+
+                    <option value="Feminino">
+                        Feminino
+                    </option>
+
+                    <option value="Outro">
+                        Outro
+                    </option>
+
+                </select>
+
+            </div>
 
         </div>
 
 
-        <div class="campo">
+        <!-- ORIGEM -->
 
-            <label for="idade">
-                Idade
-            </label>
+        <div class="secao">
 
-            <input
-                type="number"
-                id="idade"
-                placeholder="Digite a idade..."
-            >
-
-        </div>
-
-
-        <div class="campo">
-
-            <label for="origem">
+            <h2>
                 Origem
-            </label>
+            </h2>
 
-            <select id="origem">
 
-                <option value="">
-                    Escolha uma origem
-                </option>
+            <div class="campo">
 
-                <option>Humano</option>
-                <option>Vampiro</option>
-                <option>Lobisomem</option>
-                <option>Bruxo</option>
-                <option>Caçador</option>
-                <option>Anjo</option>
-                <option>Demônio</option>
-                <option>Elfo</option>
-                <option>Outra</option>
+                <label for="especie">
+                    Espécie
+                </label>
 
-            </select>
+                <select id="especie">
+
+                    <option value="">
+                        Selecione sua espécie...
+                    </option>
+
+                    <option value="Humano">
+                        Humano
+                    </option>
+
+                    <option value="Vampiro">
+                        Vampiro
+                    </option>
+
+                    <option value="Lobisomem">
+                        Lobisomem
+                    </option>
+
+                    <option value="Bruxo">
+                        Bruxo
+                    </option>
+
+                    <option value="Anjo">
+                        Anjo
+                    </option>
+
+                    <option value="Demônio">
+                        Demônio
+                    </option>
+
+                    <option value="Elfo">
+                        Elfo
+                    </option>
+
+                    <option value="Outro">
+                        Outro
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="campo">
+
+                <label for="origem">
+                    Conte um pouco sobre sua origem
+                </label>
+
+                <textarea
+                    id="origem"
+                    placeholder="De onde seu personagem veio?"
+                ></textarea>
+
+            </div>
 
         </div>
 
 
-        <div class="campo">
+        <!-- PERSONALIDADE -->
 
-            <label for="aparencia">
-                Aparência
-            </label>
+        <div class="secao">
 
-            <textarea
-                id="aparencia"
-                placeholder="Descreva a aparência do personagem..."
-            ></textarea>
+            <h2>
+                Personalidade
+            </h2>
+
+
+            <div class="campo">
+
+                <label for="personalidade">
+                    Personalidade
+                </label>
+
+                <textarea
+                    id="personalidade"
+                    placeholder="Como seu personagem é?"
+                ></textarea>
+
+            </div>
 
         </div>
 
 
-        <div class="campo">
+        <!-- HISTÓRIA -->
 
-            <label for="historia">
+        <div class="secao">
+
+            <h2>
                 História
-            </label>
+            </h2>
 
-            <textarea
-                id="historia"
-                placeholder="Conte um pouco sobre o passado do personagem..."
-            ></textarea>
+
+            <div class="campo">
+
+                <label for="historia">
+                    História do personagem
+                </label>
+
+                <textarea
+                    id="historia"
+                    placeholder="Conte a história do seu personagem..."
+                ></textarea>
+
+            </div>
 
         </div>
 
+
+        <!-- BOTÕES -->
 
         <div class="botoes">
 
             <button
-                class="voltar"
+                class="botao"
+                onclick="salvarPersonagem()"
+            >
+                SALVAR PERSONAGEM
+            </button>
+
+
+            <button
+                class="botao voltar"
                 onclick="voltar()"
             >
                 VOLTAR
             </button>
 
-
-            <button
-                onclick="criarPersonagem()"
-            >
-                CRIAR PERSONAGEM
-            </button>
-
         </div>
 
 
-        <div id="resultado">
-
-            <h2>
-                PERSONAGEM CRIADO
-            </h2>
-
-            <p id="textoResultado"></p>
-
-        </div>
+        <div
+            class="mensagem"
+            id="mensagem"
+        ></div>
 
 
     </div>
@@ -324,78 +550,169 @@ button:hover {
 
 <script>
 
-function voltar() {
 
-    window.location.href = "jogador.html";
+/* =========================
+   SALVAR PERSONAGEM
+========================= */
 
-}
-
-
-function criarPersonagem() {
+function salvarPersonagem() {
 
     const nome =
-        document.getElementById("nome").value;
+        document.getElementById("nome").value.trim();
 
     const idade =
         document.getElementById("idade").value;
 
-    const origem =
-        document.getElementById("origem").value;
+    const genero =
+        document.getElementById("genero").value;
 
-    const aparencia =
-        document.getElementById("aparencia").value;
+    const especie =
+        document.getElementById("especie").value;
+
+    const origem =
+        document.getElementById("origem").value.trim();
+
+    const personalidade =
+        document.getElementById("personalidade").value.trim();
 
     const historia =
-        document.getElementById("historia").value;
+        document.getElementById("historia").value.trim();
 
 
-    if (!nome || !origem) {
+    /* Verifica o nome */
 
-        alert(
-            "Preencha pelo menos o nome e a origem do personagem."
+    if (nome === "") {
+
+        mostrarMensagem(
+            "Digite um nome para o personagem."
         );
 
         return;
-
     }
 
 
-    document.getElementById(
-        "resultado"
-    ).style.display = "block";
+    /* Cria o personagem */
+
+    const personagem = {
+
+        nome: nome,
+
+        idade: idade,
+
+        genero: genero,
+
+        especie: especie,
+
+        origem: origem,
+
+        personalidade: personalidade,
+
+        historia: historia,
+
+        dataCriacao:
+            new Date().toISOString()
+
+    };
 
 
-    document.getElementById(
-        "textoResultado"
-    ).innerHTML =
+    /* Salva no navegador */
 
-        "<strong>Nome:</strong> " +
-        nome +
+    localStorage.setItem(
+        "personagemRPG",
+        JSON.stringify(personagem)
+    );
 
-        "<br><br>" +
 
-        "<strong>Idade:</strong> " +
-        (idade || "Não informada") +
-
-        "<br><br>" +
-
-        "<strong>Origem:</strong> " +
-        origem +
-
-        "<br><br>" +
-
-        "<strong>Aparência:</strong><br>" +
-        (aparencia || "Não informada") +
-
-        "<br><br>" +
-
-        "<strong>História:</strong><br>" +
-        (historia || "Não informada");
+    mostrarMensagem(
+        "Personagem salvo com sucesso!",
+        true
+    );
 
 }
+
+
+/* =========================
+   MENSAGEM
+========================= */
+
+function mostrarMensagem(texto, sucesso = false) {
+
+    const mensagem =
+        document.getElementById("mensagem");
+
+    mensagem.textContent = texto;
+
+    mensagem.className =
+        sucesso
+        ? "mensagem sucesso"
+        : "mensagem";
+
+}
+
+
+/* =========================
+   CARREGAR PERSONAGEM
+========================= */
+
+function carregarPersonagem() {
+
+    const salvo =
+        localStorage.getItem("personagemRPG");
+
+
+    if (!salvo) {
+        return;
+    }
+
+
+    const personagem =
+        JSON.parse(salvo);
+
+
+    document.getElementById("nome").value =
+        personagem.nome || "";
+
+    document.getElementById("idade").value =
+        personagem.idade || "";
+
+    document.getElementById("genero").value =
+        personagem.genero || "";
+
+    document.getElementById("especie").value =
+        personagem.especie || "";
+
+    document.getElementById("origem").value =
+        personagem.origem || "";
+
+    document.getElementById("personalidade").value =
+        personagem.personalidade || "";
+
+    document.getElementById("historia").value =
+        personagem.historia || "";
+
+}
+
+
+/* =========================
+   VOLTAR
+========================= */
+
+function voltar() {
+
+    window.location.href =
+        "jogador.html";
+
+}
+
+
+/* =========================
+   INICIAR
+========================= */
+
+carregarPersonagem();
 
 </script>
 
 </body>
 
-  </html>
+                        </html>

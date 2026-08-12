@@ -2,10 +2,15 @@
 <html lang="pt-BR">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Jogar como Jogador</title>
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Caminho do Jogador</title>
 
 <style>
 
@@ -16,8 +21,10 @@
 }
 
 body {
+
     width: 100%;
     min-height: 100vh;
+
     overflow: hidden;
 
     background:
@@ -29,6 +36,7 @@ body {
         );
 
     color: #eeeeee;
+
     font-family: Georgia, serif;
 }
 
@@ -38,17 +46,54 @@ body {
 ========================= */
 
 .estrelas {
+
     position: fixed;
+
     inset: 0;
 
     background-image:
-        radial-gradient(circle at 12% 18%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 25% 8%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 38% 22%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 52% 10%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 68% 18%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 82% 7%, white 0 1px, transparent 2px),
-        radial-gradient(circle at 91% 28%, white 0 1px, transparent 2px);
+
+        radial-gradient(
+            circle at 12% 18%,
+            white 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 25% 8%,
+            white 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 38% 22%,
+            white 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 52% 10%,
+            white 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 68% 18%,
+            white 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 82% 7%,
+            white 0 1px,
+            transparent 2px
+        ),
+
+        radial-gradient(
+            circle at 91% 28%,
+            white 0 1px,
+            transparent 2px
+        );
 
     opacity: 0.5;
 }
@@ -59,14 +104,17 @@ body {
 ========================= */
 
 .conteudo {
+
     position: relative;
 
     min-height: 100vh;
 
     display: flex;
+
     flex-direction: column;
 
     justify-content: center;
+
     align-items: center;
 
     text-align: center;
@@ -82,19 +130,25 @@ body {
 ========================= */
 
 .titulo {
-    font-size: clamp(32px, 6vw, 60px);
+
+    font-size:
+        clamp(32px, 6vw, 60px);
 
     letter-spacing: 5px;
 
     margin-bottom: 15px;
 
     text-shadow:
+
         0 0 8px #000,
-        0 0 25px rgba(180,0,0,0.7);
+
+        0 0 25px
+        rgba(180,0,0,0.7);
 }
 
 
 .subtitulo {
+
     color: #c9aaaa;
 
     font-size: 20px;
@@ -110,11 +164,13 @@ body {
 ========================= */
 
 .cartao {
+
     width: min(90vw, 650px);
 
     padding: 45px 35px;
 
     background:
+
         linear-gradient(
             135deg,
             rgba(70,0,0,0.85),
@@ -124,7 +180,9 @@ body {
     border: 2px solid #650000;
 
     box-shadow:
-        0 0 25px rgba(120,0,0,0.3);
+
+        0 0 25px
+        rgba(120,0,0,0.3);
 
     border-radius: 4px;
 }
@@ -135,6 +193,7 @@ body {
 ========================= */
 
 .cartao h2 {
+
     font-size: 30px;
 
     margin-bottom: 15px;
@@ -144,6 +203,7 @@ body {
 
 
 .cartao p {
+
     font-size: 18px;
 
     line-height: 1.6;
@@ -153,15 +213,17 @@ body {
 
 
 /* =========================
-   BOTÃO
+   BOTÕES
 ========================= */
 
 .botao {
+
     margin-top: 35px;
 
     padding: 16px 45px;
 
     background:
+
         linear-gradient(
             90deg,
             #4b0000,
@@ -186,10 +248,86 @@ body {
 
 
 .botao:hover {
+
     transform: scale(1.05);
 
     box-shadow:
-        0 0 25px rgba(200,0,0,0.6);
+
+        0 0 25px
+        rgba(200,0,0,0.6);
+}
+
+
+/* =========================
+   VOLTAR
+========================= */
+
+.voltar {
+
+    margin-top: 15px;
+
+    padding: 10px 25px;
+
+    background: transparent;
+
+    border: none;
+
+    color: #aaa;
+
+    font-family: Georgia, serif;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.voltar:hover {
+
+    color: white;
+
+    text-shadow:
+        0 0 10px #900;
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 600px) {
+
+    .titulo {
+
+        font-size: 32px;
+
+        letter-spacing: 3px;
+    }
+
+    .subtitulo {
+
+        font-size: 16px;
+
+        margin-bottom: 30px;
+    }
+
+    .cartao {
+
+        padding: 35px 22px;
+    }
+
+    .cartao h2 {
+
+        font-size: 25px;
+    }
+
+    .cartao p {
+
+        font-size: 16px;
+    }
+
 }
 
 </style>
@@ -199,14 +337,17 @@ body {
 
 <body>
 
+
 <div class="estrelas"></div>
 
 
 <div class="conteudo">
 
+
     <h1 class="titulo">
         CAMINHO DO JOGADOR
     </h1>
+
 
     <p class="subtitulo">
         Sua história começa aqui.
@@ -215,26 +356,49 @@ body {
 
     <div class="cartao">
 
+
         <h2>
             Criar seu personagem
         </h2>
 
+
         <p>
-            Em breve você poderá criar seu personagem,
-            contar sua história e começar sua jornada
+            Crie seu personagem, escolha sua origem,
+            conte sua história e prepare-se para entrar
             neste mundo.
         </p>
 
 
-        <button class="botao">
+        <!--
+            ESTE BOTÃO ABRE criação.html
+            QUE ESTÁ NA MESMA PASTA
+        -->
+
+        <button
+            class="botao"
+            onclick="window.location.href='criação.html'"
+        >
             COMEÇAR
         </button>
 
+
+        <br>
+
+
+        <button
+            class="voltar"
+            onclick="window.location.href='../criação.html'"
+        >
+            VOLTAR
+        </button>
+
+
     </div>
+
 
 </div>
 
 
 </body>
 
-  </html>
+</html>

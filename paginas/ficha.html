@@ -5,17 +5,11 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-      content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Ficha do Personagem</title>
 
-
 <style>
-
-/* ==================================================
-   BASE
-================================================== */
 
 * {
     box-sizing: border-box;
@@ -24,7 +18,6 @@
 }
 
 body {
-
     min-height: 100vh;
 
     background:
@@ -36,109 +29,45 @@ body {
         );
 
     color: #eeeeee;
-
     font-family: Georgia, serif;
-
     overflow-x: hidden;
 }
 
-
-/* ==================================================
-   ESTRELAS
-================================================== */
-
 .estrelas {
-
     position: fixed;
-
     inset: 0;
-
     pointer-events: none;
 
     background-image:
-
-        radial-gradient(
-            circle at 12% 18%,
-            white 0 1px,
-            transparent 2px
-        ),
-
-        radial-gradient(
-            circle at 25% 8%,
-            white 0 1px,
-            transparent 2px
-        ),
-
-        radial-gradient(
-            circle at 38% 22%,
-            white 0 1px,
-            transparent 2px
-        ),
-
-        radial-gradient(
-            circle at 52% 10%,
-            white 0 1px,
-            transparent 2px
-        ),
-
-        radial-gradient(
-            circle at 68% 18%,
-            white 0 1px,
-            transparent 2px
-        ),
-
-        radial-gradient(
-            circle at 82% 7%,
-            white 0 1px,
-            transparent 2px
-        ),
-
-        radial-gradient(
-            circle at 91% 28%,
-            white 0 1px,
-            transparent 2px
-        );
+        radial-gradient(circle at 12% 18%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 25% 8%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 38% 22%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 52% 10%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 68% 18%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 82% 7%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 91% 28%, white 0 1px, transparent 2px);
 
     opacity: 0.45;
-
     z-index: 0;
 }
 
-
-/* ==================================================
-   CONTEÚDO
-================================================== */
-
 .conteudo {
-
     position: relative;
-
     z-index: 2;
 
     width: min(95%, 1100px);
-
     margin: auto;
 
     padding: 35px 0 80px;
 }
 
-
-/* ==================================================
-   CABEÇALHO
-================================================== */
-
 .cabecalho {
-
     text-align: center;
-
     margin-bottom: 30px;
 }
 
 .titulo {
-
-    font-size:
-        clamp(32px, 6vw, 58px);
-
+    font-size: clamp(32px, 6vw, 58px);
     letter-spacing: 5px;
 
     text-shadow:
@@ -147,46 +76,34 @@ body {
 }
 
 .nome-personagem {
-
     margin-top: 10px;
-
     color: #c9aaaa;
-
     font-size: 22px;
-
     letter-spacing: 2px;
 }
 
 
-/* ==================================================
+/* =========================
    ABAS
-================================================== */
+========================= */
 
 .abas {
-
     display: flex;
-
     flex-wrap: wrap;
-
     justify-content: center;
-
     gap: 8px;
-
     margin-bottom: 25px;
 }
 
 .aba {
-
     padding: 13px 18px;
 
     background: #180000;
-
     border: 1px solid #650000;
 
     color: #cdbebe;
 
     font-family: Georgia, serif;
-
     font-size: 16px;
 
     cursor: pointer;
@@ -195,18 +112,13 @@ body {
 }
 
 .aba:hover {
-
     background: #500000;
-
     color: white;
 }
 
 .aba.ativa {
-
     background: #850000;
-
     border-color: #c00000;
-
     color: white;
 
     box-shadow:
@@ -214,19 +126,16 @@ body {
 }
 
 
-/* ==================================================
+/* =========================
    PAINÉIS
-================================================== */
+========================= */
 
 .painel {
-
     display: none;
-
     animation: aparecer 0.3s ease;
 }
 
 .painel.ativo {
-
     display: block;
 }
 
@@ -241,17 +150,16 @@ body {
         opacity: 1;
         transform: translateY(0);
     }
+
 }
 
 
-/* ==================================================
-   CARTÃO
-================================================== */
+/* =========================
+   CARTÕES
+========================= */
 
 .cartao {
-
     padding: 28px;
-
     margin-bottom: 20px;
 
     background:
@@ -267,13 +175,21 @@ body {
         0 0 25px rgba(120,0,0,0.25);
 }
 
+.secao-titulo {
+    margin-bottom: 20px;
 
-/* ==================================================
+    font-size: 27px;
+    color: #eeeeee;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================
    INFORMAÇÕES
-================================================== */
+========================= */
 
 .info-grid {
-
     display: grid;
 
     grid-template-columns:
@@ -283,7 +199,6 @@ body {
 }
 
 .info {
-
     padding: 18px;
 
     background: rgba(0,0,0,0.35);
@@ -292,45 +207,28 @@ body {
 }
 
 .info-titulo {
-
     color: #a98787;
 
     font-size: 14px;
-
     margin-bottom: 6px;
 
     text-transform: uppercase;
-
     letter-spacing: 1px;
 }
 
 .info-valor {
-
     font-size: 21px;
-
     color: white;
 
     word-break: break-word;
 }
 
 
-/* ==================================================
+/* =========================
    ATRIBUTOS
-================================================== */
-
-.secao-titulo {
-
-    margin-bottom: 20px;
-
-    font-size: 27px;
-
-    color: #eeeeee;
-
-    letter-spacing: 2px;
-}
+========================= */
 
 .pontos {
-
     text-align: center;
 
     margin-bottom: 20px;
@@ -341,7 +239,6 @@ body {
 }
 
 #pontosRestantes {
-
     color: #e00000;
 
     font-size: 24px;
@@ -350,7 +247,6 @@ body {
 }
 
 .atributos {
-
     display: grid;
 
     grid-template-columns:
@@ -360,7 +256,6 @@ body {
 }
 
 .atributo {
-
     padding: 20px;
 
     background: rgba(0,0,0,0.4);
@@ -371,25 +266,20 @@ body {
 }
 
 .atributo-nome {
-
     font-size: 19px;
-
     margin-bottom: 12px;
 }
 
 .controle {
-
     display: flex;
 
     justify-content: center;
-
     align-items: center;
 
     gap: 15px;
 }
 
 .controle button {
-
     width: 38px;
     height: 38px;
 
@@ -405,12 +295,10 @@ body {
 }
 
 .controle button:hover {
-
     background: #850000;
 }
 
 .valor {
-
     min-width: 35px;
 
     font-size: 28px;
@@ -419,24 +307,20 @@ body {
 }
 
 
-/* ==================================================
+/* =========================
    RECURSOS
-================================================== */
+========================= */
 
 .recursos {
-
     display: grid;
 
     grid-template-columns:
         repeat(auto-fit, minmax(180px, 1fr));
 
     gap: 15px;
-
-    margin-top: 20px;
 }
 
 .recurso {
-
     padding: 20px;
 
     background: rgba(0,0,0,0.45);
@@ -447,21 +331,16 @@ body {
 }
 
 .recurso-nome {
-
     font-size: 18px;
-
     margin-bottom: 10px;
 }
 
 .recurso-valor {
-
     font-size: 30px;
-
     margin-bottom: 12px;
 }
 
 .recurso-controle {
-
     display: flex;
 
     justify-content: center;
@@ -470,7 +349,6 @@ body {
 }
 
 .recurso-controle button {
-
     width: 35px;
     height: 35px;
 
@@ -485,13 +363,16 @@ body {
     cursor: pointer;
 }
 
+.recurso-controle button:hover {
+    background: #850000;
+}
 
-/* ==================================================
+
+/* =========================
    PERÍCIAS
-================================================== */
+========================= */
 
 .pericias {
-
     display: grid;
 
     grid-template-columns:
@@ -501,7 +382,6 @@ body {
 }
 
 .pericia {
-
     padding: 15px;
 
     background: rgba(0,0,0,0.4);
@@ -516,24 +396,20 @@ body {
 }
 
 .pericia-nome {
-
     font-size: 17px;
 }
 
 .pericia-info {
-
     color: #b90000;
-
     font-weight: bold;
 }
 
 
-/* ==================================================
+/* =========================
    TEIA
-================================================== */
+========================= */
 
 .teia-intro {
-
     text-align: center;
 
     color: #bdaaaa;
@@ -544,21 +420,25 @@ body {
 }
 
 .teia {
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    gap: 25px;
-
     padding: 25px 10px;
 
     overflow-x: auto;
 }
 
+.teia-linha {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 25px;
+
+    margin-bottom: 45px;
+
+    flex-wrap: wrap;
+}
+
 .no {
+    position: relative;
 
     min-width: 170px;
 
@@ -578,63 +458,40 @@ body {
     box-shadow:
         0 0 15px rgba(130,0,0,0.25);
 
-    position: relative;
+    cursor: pointer;
+
+    transition: 0.25s;
 }
 
-.no::after {
+.no:hover {
+    transform: scale(1.05);
 
-    content: "";
+    border-color: #c00000;
 
-    position: absolute;
-
-    width: 2px;
-
-    height: 25px;
-
-    background: #750000;
-
-    left: 50%;
-
-    bottom: -27px;
+    box-shadow:
+        0 0 25px rgba(180,0,0,0.5);
 }
 
-.no:last-child::after {
-
-    display: none;
+.no.desbloqueado {
+    border-color: #d00000;
 }
 
 .no-titulo {
-
     font-size: 18px;
-
     margin-bottom: 8px;
 }
 
 .no-custo {
-
     color: #c00000;
-
     font-size: 14px;
 }
 
-.teia-linha {
 
-    display: flex;
-
-    gap: 25px;
-
-    justify-content: center;
-
-    flex-wrap: wrap;
-}
-
-
-/* ==================================================
+/* =========================
    LORE
-================================================== */
+========================= */
 
 textarea {
-
     width: 100%;
 
     min-height: 400px;
@@ -659,20 +516,34 @@ textarea {
 }
 
 textarea:focus {
-
     border-color: #b00000;
 
     box-shadow:
         0 0 15px rgba(180,0,0,0.3);
 }
 
+.salvar-lore {
+    margin-top: 15px;
 
-/* ==================================================
+    padding: 13px 25px;
+
+    background: #500000;
+
+    border: 1px solid #900000;
+
+    color: white;
+
+    font-family: Georgia, serif;
+
+    cursor: pointer;
+}
+
+
+/* =========================
    INVENTÁRIO
-================================================== */
+========================= */
 
 .inventario {
-
     display: flex;
 
     flex-direction: column;
@@ -681,14 +552,11 @@ textarea:focus {
 }
 
 .item {
-
     display: flex;
-
     gap: 10px;
 }
 
 .item input {
-
     flex: 1;
 
     padding: 14px;
@@ -705,7 +573,6 @@ textarea:focus {
 }
 
 .item button {
-
     width: 45px;
 
     background: #400000;
@@ -720,12 +587,10 @@ textarea:focus {
 }
 
 .item button:hover {
-
     background: #900000;
 }
 
 .adicionar {
-
     margin-top: 15px;
 
     padding: 13px 20px;
@@ -742,12 +607,11 @@ textarea:focus {
 }
 
 
-/* ==================================================
+/* =========================
    HISTÓRIA
-================================================== */
+========================= */
 
 .historia {
-
     white-space: pre-wrap;
 
     line-height: 1.7;
@@ -758,28 +622,38 @@ textarea:focus {
 }
 
 
-/* ==================================================
+/* =========================
+   MENSAGEM
+========================= */
+
+.mensagem {
+    text-align: center;
+
+    margin-top: 15px;
+
+    color: #b9a0a0;
+
+    min-height: 20px;
+}
+
+
+/* =========================
    RESPONSIVO
-================================================== */
+========================= */
 
 @media (max-width: 600px) {
 
     .conteudo {
-
         width: 94%;
-
         padding-top: 25px;
     }
 
     .cartao {
-
         padding: 20px;
     }
 
     .aba {
-
         font-size: 14px;
-
         padding: 11px 13px;
     }
 
@@ -792,16 +666,11 @@ textarea:focus {
 
 <body>
 
-
 <div class="estrelas"></div>
 
 
 <div class="conteudo">
 
-
-<!-- ==================================================
-     CABEÇALHO
-================================================== -->
 
 <header class="cabecalho">
 
@@ -819,9 +688,9 @@ textarea:focus {
 </header>
 
 
-<!-- ==================================================
+<!-- =========================
      ABAS
-================================================== -->
+========================= -->
 
 <nav class="abas">
 
@@ -864,14 +733,10 @@ textarea:focus {
 
 
 <!-- ==================================================
-     ABA FICHA
+     FICHA
 ================================================== -->
 
-<section
-    id="ficha"
-    class="painel ativo"
->
-
+<section id="ficha" class="painel ativo">
 
     <div class="cartao">
 
@@ -880,7 +745,6 @@ textarea:focus {
         </h2>
 
         <div class="info-grid">
-
 
             <div class="info">
 
@@ -929,7 +793,6 @@ textarea:focus {
 
             </div>
 
-
         </div>
 
     </div>
@@ -955,7 +818,6 @@ textarea:focus {
 
 
         <div class="atributos">
-
 
             <div class="atributo">
 
@@ -1096,7 +958,6 @@ textarea:focus {
 
             </div>
 
-
         </div>
 
     </div>
@@ -1110,9 +971,7 @@ textarea:focus {
             Recursos
         </h2>
 
-
         <div class="recursos">
-
 
             <div class="recurso">
 
@@ -1197,7 +1056,6 @@ textarea:focus {
 
             </div>
 
-
         </div>
 
     </div>
@@ -1220,18 +1078,14 @@ textarea:focus {
 
     </div>
 
-
 </section>
 
 
 <!-- ==================================================
-     ABA PERÍCIAS
+     PERÍCIAS
 ================================================== -->
 
-<section
-    id="pericias"
-    class="painel"
->
+<section id="pericias" class="painel">
 
     <div class="cartao">
 
@@ -1240,45 +1094,86 @@ textarea:focus {
         </h2>
 
         <p class="teia-intro">
-            As perícias serão utilizadas nos testes de D20.
-            O atributo utilizado pode variar conforme a situação.
+            Cada teste usa D20 + o atributo adequado.
+            O atributo pode mudar conforme a situação.
         </p>
 
 
         <div class="pericias">
 
-
             <div class="pericia">
                 <span class="pericia-nome">Acrobacia</span>
-                <span class="pericia-info">—</span>
+                <span class="pericia-info">D20</span>
             </div>
 
             <div class="pericia">
                 <span class="pericia-nome">Crime</span>
-                <span class="pericia-info">—</span>
+                <span class="pericia-info">D20</span>
             </div>
 
             <div class="pericia">
                 <span class="pericia-nome">Investigação</span>
-                <span class="pericia-info">—</span>
+                <span class="pericia-info">D20</span>
             </div>
 
             <div class="pericia">
                 <span class="pericia-nome">Resistência</span>
-                <span class="pericia-info">—</span>
+                <span class="pericia-info">D20</span>
             </div>
 
             <div class="pericia">
                 <span class="pericia-nome">Percepção</span>
-                <span class="pericia-info">—</span>
+                <span class="pericia-info">D20</span>
             </div>
 
             <div class="pericia">
                 <span class="pericia-nome">Intuição</span>
-                <span class="pericia-info">—</span>
+                <span class="pericia-info">D20</span>
             </div>
 
             <div class="pericia">
                 <span class="pericia-nome">Diplomacia</span>
-                <span class="pericia-info">—</span>
-     
+                <span class="pericia-info">D20</span>
+            </div>
+
+            <div class="pericia">
+                <span class="pericia-nome">Furtividade</span>
+                <span class="pericia-info">D20</span>
+            </div>
+
+            <div class="pericia">
+                <span class="pericia-nome">Enganação</span>
+                <span class="pericia-info">D20</span>
+            </div>
+
+            <div class="pericia">
+                <span class="pericia-nome">Iniciativa</span>
+                <span class="pericia-info">D20</span>
+            </div>
+
+            <div class="pericia">
+                <span class="pericia-nome">Luta</span>
+                <span class="pericia-info">D20</span>
+            </div>
+
+            <div class="pericia">
+                <span class="pericia-nome">Pontaria</span>
+                <span class="pericia-info">D20</span>
+            </div>
+
+            <div class="pericia">
+                <span class="pericia-nome">Reflexo</span>
+                <span class="pericia-info">D20</span>
+            </div>
+
+            <div class="pericia">
+                <span class="pericia-nome">Medicina</span>
+                <span class="pericia-info">D20</span>
+            </div>
+
+            <div class="pericia">
+                <span class="pericia-nome">Profissão</span>
+                <span class="pericia-info">D20</span>
+            </div>
+
+            <div c

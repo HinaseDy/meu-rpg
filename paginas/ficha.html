@@ -2,18 +2,12 @@
 <html lang="pt-BR">
 
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Ficha do Personagem</title>
 
 <style>
-
-/* =====================================================
-   BASE
-===================================================== */
 
 * {
     box-sizing: border-box;
@@ -33,82 +27,53 @@ body {
         );
 
     color: #eeeeee;
-
     font-family: Georgia, serif;
-
     overflow-x: hidden;
 }
 
 
-/* =====================================================
-   ESTRELAS
-===================================================== */
+/* ESTRELAS */
 
 .estrelas {
     position: fixed;
     inset: 0;
-
     pointer-events: none;
 
     background-image:
-
-        radial-gradient(circle at 12% 18%,
-        white 0 1px, transparent 2px),
-
-        radial-gradient(circle at 25% 8%,
-        white 0 1px, transparent 2px),
-
-        radial-gradient(circle at 38% 22%,
-        white 0 1px, transparent 2px),
-
-        radial-gradient(circle at 52% 10%,
-        white 0 1px, transparent 2px),
-
-        radial-gradient(circle at 68% 18%,
-        white 0 1px, transparent 2px),
-
-        radial-gradient(circle at 82% 7%,
-        white 0 1px, transparent 2px),
-
-        radial-gradient(circle at 91% 28%,
-        white 0 1px, transparent 2px);
+        radial-gradient(circle at 12% 18%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 25% 8%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 38% 22%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 52% 10%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 68% 18%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 82% 7%, white 0 1px, transparent 2px),
+        radial-gradient(circle at 91% 28%, white 0 1px, transparent 2px);
 
     opacity: 0.45;
-
-    z-index: 0;
 }
 
 
-/* =====================================================
-   CONTEÚDO
-===================================================== */
+/* CONTEÚDO */
 
 .conteudo {
     position: relative;
-
     z-index: 2;
 
     width: min(95%, 1100px);
-
     margin: auto;
 
     padding: 35px 0 80px;
 }
 
 
-/* =====================================================
-   CABEÇALHO
-===================================================== */
+/* CABEÇALHO */
 
 .cabecalho {
     text-align: center;
-
     margin-bottom: 30px;
 }
 
 .titulo {
-    font-size: clamp(32px, 6vw, 58px);
-
+    font-size: clamp(35px, 6vw, 60px);
     letter-spacing: 5px;
 
     text-shadow:
@@ -120,26 +85,19 @@ body {
     margin-top: 10px;
 
     color: #c9aaaa;
-
     font-size: 22px;
-
     letter-spacing: 2px;
 }
 
 
-/* =====================================================
-   ABAS
-===================================================== */
+/* ABAS */
 
 .abas {
     display: flex;
-
     flex-wrap: wrap;
-
     justify-content: center;
 
     gap: 8px;
-
     margin-bottom: 25px;
 }
 
@@ -147,13 +105,11 @@ body {
     padding: 13px 18px;
 
     background: #180000;
-
     border: 1px solid #650000;
 
     color: #cdbebe;
 
     font-family: Georgia, serif;
-
     font-size: 16px;
 
     cursor: pointer;
@@ -163,13 +119,11 @@ body {
 
 .aba:hover {
     background: #500000;
-
     color: white;
 }
 
 .aba.ativa {
     background: #850000;
-
     border-color: #c00000;
 
     color: white;
@@ -179,9 +133,7 @@ body {
 }
 
 
-/* =====================================================
-   PAINÉIS
-===================================================== */
+/* PAINÉIS */
 
 .painel {
     display: none;
@@ -189,31 +141,13 @@ body {
 
 .painel.ativo {
     display: block;
-
-    animation: aparecer 0.3s ease;
-}
-
-@keyframes aparecer {
-
-    from {
-        opacity: 0;
-        transform: translateY(8px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 
-/* =====================================================
-   CARTÃO
-===================================================== */
+/* CARTÃO */
 
 .cartao {
     padding: 28px;
-
     margin-bottom: 20px;
 
     background:
@@ -227,29 +161,22 @@ body {
 
     box-shadow:
         0 0 25px rgba(120,0,0,0.25);
-
-    border-radius: 4px;
 }
 
 
-/* =====================================================
-   TÍTULOS
-===================================================== */
+/* TÍTULOS */
 
 .secao-titulo {
     margin-bottom: 20px;
 
     font-size: 27px;
-
     color: #eeeeee;
 
     letter-spacing: 2px;
 }
 
 
-/* =====================================================
-   INFORMAÇÕES
-===================================================== */
+/* INFORMAÇÕES */
 
 .info-grid {
     display: grid;
@@ -276,22 +203,17 @@ body {
     margin-bottom: 6px;
 
     text-transform: uppercase;
-
-    letter-spacing: 1px;
 }
 
 .info-valor {
     font-size: 21px;
-
     color: white;
 
     word-break: break-word;
 }
 
 
-/* =====================================================
-   ATRIBUTOS
-===================================================== */
+/* ATRIBUTOS */
 
 .pontos {
     text-align: center;
@@ -306,8 +228,7 @@ body {
 #pontosRestantes {
     color: #e00000;
 
-    font-size: 24px;
-
+    font-size: 25px;
     font-weight: bold;
 }
 
@@ -332,7 +253,6 @@ body {
 
 .atributo-nome {
     font-size: 19px;
-
     margin-bottom: 12px;
 }
 
@@ -340,15 +260,15 @@ body {
     display: flex;
 
     justify-content: center;
-
     align-items: center;
 
     gap: 15px;
 }
 
-.controle button {
-    width: 38px;
-    height: 38px;
+.controle button,
+.recurso-controle button {
+    width: 40px;
+    height: 40px;
 
     border: 1px solid #900000;
 
@@ -361,7 +281,8 @@ body {
     cursor: pointer;
 }
 
-.controle button:hover {
+.controle button:hover,
+.recurso-controle button:hover {
     background: #850000;
 }
 
@@ -369,14 +290,11 @@ body {
     min-width: 35px;
 
     font-size: 28px;
-
     font-weight: bold;
 }
 
 
-/* =====================================================
-   RECURSOS
-===================================================== */
+/* RECURSOS */
 
 .recursos {
     display: grid;
@@ -399,47 +317,23 @@ body {
 
 .recurso-nome {
     font-size: 18px;
-
     margin-bottom: 10px;
 }
 
 .recurso-valor {
     font-size: 30px;
-
     margin-bottom: 12px;
 }
 
 .recurso-controle {
     display: flex;
-
     justify-content: center;
 
     gap: 10px;
 }
 
-.recurso-controle button {
-    width: 38px;
-    height: 38px;
 
-    background: #350000;
-
-    border: 1px solid #800000;
-
-    color: white;
-
-    font-size: 20px;
-
-    cursor: pointer;
-}
-
-.recurso-controle button:hover {
-    background: #850000;
-}
-
-
-/* =====================================================
-   PERÍCIAS
-===================================================== */
+/* PERÍCIAS */
 
 .pericias {
     display: grid;
@@ -460,159 +354,23 @@ body {
     display: flex;
 
     justify-content: space-between;
-
     align-items: center;
 }
 
-.pericia-nome {
-    font-size: 17px;
-}
-
 .pericia-info {
-    color: #d00000;
-
+    color: #b90000;
     font-weight: bold;
 }
 
 
-/* =====================================================
-   TEIA
-===================================================== */
+/* BOTÃO DE TESTE */
 
-.teia-intro {
-    text-align: center;
+.botao-teste {
+    margin-top: 25px;
 
-    color: #bdaaaa;
-
-    line-height: 1.6;
-
-    margin-bottom: 25px;
-}
-
-.teia {
-    padding: 20px;
-
-    overflow-x: auto;
-}
-
-.teia-caminho {
-    display: flex;
-
-    justify-content: center;
-
-    align-items: center;
-
-    flex-wrap: wrap;
-
-    gap: 10px;
-
-    margin-bottom: 35px;
-}
-
-.no {
-    width: 150px;
-    min-height: 100px;
-
-    padding: 15px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #350000,
-            #100000
-        );
-
-    border: 2px solid #700000;
-
-    text-align: center;
-
-    cursor: pointer;
-
-    transition: 0.25s;
-
-    position: relative;
-}
-
-.no:hover {
-    transform: scale(1.05);
-
-    border-color: #c00000;
-
-    box-shadow:
-        0 0 20px rgba(190,0,0,0.4);
-}
-
-.no.desbloqueado {
-    background:
-        linear-gradient(
-            135deg,
-            #750000,
-            #220000
-        );
-
-    border-color: #d00000;
-}
-
-.no-titulo {
-    font-size: 17px;
-
-    margin-bottom: 8px;
-}
-
-.no-custo {
-    color: #d00000;
-
-    font-size: 14px;
-}
-
-.seta {
-    font-size: 25px;
-
-    color: #8c0000;
-}
-
-
-/* =====================================================
-   LORE
-===================================================== */
-
-.lore-textarea {
     width: 100%;
 
-    min-height: 400px;
-
-    padding: 18px;
-
-    background: #080808;
-
-    border: 1px solid #650000;
-
-    color: white;
-
-    font-family: Georgia, serif;
-
-    font-size: 17px;
-
-    line-height: 1.6;
-
-    resize: vertical;
-
-    outline: none;
-}
-
-.lore-textarea:focus {
-    border-color: #b00000;
-
-    box-shadow:
-        0 0 15px rgba(180,0,0,0.3);
-}
-
-.botao-salvar {
-    width: 100%;
-
-    margin-top: 15px;
-
-    padding: 15px;
+    padding: 16px;
 
     background:
         linear-gradient(
@@ -628,93 +386,18 @@ body {
 
     font-family: Georgia, serif;
 
-    font-size: 18px;
+    font-size: 19px;
 
     cursor: pointer;
 }
 
-.botao-salvar:hover {
+.botao-teste:hover {
     box-shadow:
         0 0 20px rgba(200,0,0,0.5);
 }
 
 
-/* =====================================================
-   INVENTÁRIO
-===================================================== */
-
-.inventario {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 12px;
-}
-
-.item {
-    display: flex;
-
-    gap: 10px;
-}
-
-.item input {
-    flex: 1;
-
-    padding: 14px;
-
-    background: #090909;
-
-    border: 1px solid #650000;
-
-    color: white;
-
-    font-family: Georgia, serif;
-
-    font-size: 16px;
-}
-
-.item button {
-    width: 45px;
-
-    background: #400000;
-
-    border: 1px solid #800000;
-
-    color: white;
-
-    cursor: pointer;
-
-    font-size: 20px;
-}
-
-.item button:hover {
-    background: #900000;
-}
-
-.adicionar {
-    margin-top: 15px;
-
-    padding: 13px 20px;
-
-    background: #500000;
-
-    border: 1px solid #900000;
-
-    color: white;
-
-    font-family: Georgia, serif;
-
-    cursor: pointer;
-}
-
-.adicionar:hover {
-    background: #850000;
-}
-
-
-/* =====================================================
-   HISTÓRIA
-===================================================== */
+/* TEXTO */
 
 .historia {
     white-space: pre-wrap;
@@ -727,28 +410,12 @@ body {
 }
 
 
-/* =====================================================
-   MENSAGEM
-===================================================== */
-
-.mensagem {
-    text-align: center;
-
-    margin-top: 15px;
-
-    color: #bdb0b0;
-}
-
-
-/* =====================================================
-   RESPONSIVO
-===================================================== */
+/* RESPONSIVO */
 
 @media (max-width: 600px) {
 
     .conteudo {
         width: 94%;
-
         padding-top: 25px;
     }
 
@@ -758,17 +425,9 @@ body {
 
     .aba {
         font-size: 14px;
-
         padding: 11px 13px;
     }
 
-    .no {
-        width: 125px;
-    }
-
-    .seta {
-        transform: rotate(90deg);
-    }
 }
 
 </style>
@@ -783,10 +442,6 @@ body {
 
 <div class="conteudo">
 
-
-<!-- =====================================================
-     CABEÇALHO
-===================================================== -->
 
 <header class="cabecalho">
 
@@ -804,9 +459,7 @@ body {
 </header>
 
 
-<!-- =====================================================
-     ABAS
-===================================================== -->
+<!-- ABAS -->
 
 <nav class="abas">
 
@@ -848,9 +501,9 @@ body {
 </nav>
 
 
-<!-- =====================================================
+<!-- =========================
      FICHA
-===================================================== -->
+========================= -->
 
 <section
     id="ficha"
@@ -860,355 +513,345 @@ body {
 
 <div class="cartao">
 
-    <h2 class="secao-titulo">
-        Informações
-    </h2>
+<h2 class="secao-titulo">
+    Informações
+</h2>
 
 
-    <div class="info-grid">
+<div class="info-grid">
+
+<div class="info">
+<div class="info-titulo">Nome</div>
+
+<div
+    class="info-valor"
+    id="infoNome"
+>
+—
+</div>
+</div>
 
 
-        <div class="info">
+<div class="info">
+<div class="info-titulo">Idade</div>
 
-            <div class="info-titulo">
-                Nome
-            </div>
-
-            <div
-                class="info-valor"
-                id="infoNome"
-            >
-                —
-            </div>
-
-        </div>
+<div
+    class="info-valor"
+    id="infoIdade"
+>
+—
+</div>
+</div>
 
 
-        <div class="info">
+<div class="info">
+<div class="info-titulo">Gênero</div>
 
-            <div class="info-titulo">
-                Idade
-            </div>
+<div
+    class="info-valor"
+    id="infoGenero"
+>
+—
+</div>
+</div>
 
-            <div
-                class="info-valor"
-                id="infoIdade"
-            >
-                —
-            </div>
-
-        </div>
-
-
-        <div class="info">
-
-            <div class="info-titulo">
-                Gênero
-            </div>
-
-            <div
-                class="info-valor"
-                id="infoGenero"
-            >
-                —
-            </div>
-
-        </div>
-
-
-    </div>
+</div>
 
 </div>
 
 
-<!-- =====================================================
-     ATRIBUTOS
-===================================================== -->
+<!-- ATRIBUTOS -->
 
 <div class="cartao">
 
-    <h2 class="secao-titulo">
-        Atributos
-    </h2>
-
-    <div class="pontos">
-
-        Pontos restantes:
-
-        <span id="pontosRestantes">
-            12
-        </span>
-
-    </div>
+<h2 class="secao-titulo">
+    Atributos
+</h2>
 
 
-    <div class="atributos">
+<div class="pontos">
 
+Pontos restantes:
 
-        <div class="atributo">
-
-            <div class="atributo-nome">
-                Força
-            </div>
-
-            <div class="controle">
-
-                <button onclick="alterarAtributo('forca', -1)">
-                    −
-                </button>
-
-                <span
-                    class="valor"
-                    id="forca"
-                >
-                    0
-                </span>
-
-                <button onclick="alterarAtributo('forca', 1)">
-                    +
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="atributo">
-
-            <div class="atributo-nome">
-                Agilidade
-            </div>
-
-            <div class="controle">
-
-                <button onclick="alterarAtributo('agilidade', -1)">
-                    −
-                </button>
-
-                <span
-                    class="valor"
-                    id="agilidade"
-                >
-                    0
-                </span>
-
-                <button onclick="alterarAtributo('agilidade', 1)">
-                    +
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="atributo">
-
-            <div class="atributo-nome">
-                Carisma
-            </div>
-
-            <div class="controle">
-
-                <button onclick="alterarAtributo('carisma', -1)">
-                    −
-                </button>
-
-                <span
-                    class="valor"
-                    id="carisma"
-                >
-                    0
-                </span>
-
-                <button onclick="alterarAtributo('carisma', 1)">
-                    +
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="atributo">
-
-            <div class="atributo-nome">
-                Vigor
-            </div>
-
-            <div class="controle">
-
-                <button onclick="alterarAtributo('vigor', -1)">
-                    −
-                </button>
-
-                <span
-                    class="valor"
-                    id="vigor"
-                >
-                    0
-                </span>
-
-                <button onclick="alterarAtributo('vigor', 1)">
-                    +
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="atributo">
-
-            <div class="atributo-nome">
-                Intelecto
-            </div>
-
-            <div class="controle">
-
-                <button onclick="alterarAtributo('intelecto', -1)">
-                    −
-                </button>
-
-                <span
-                    class="valor"
-                    id="intelecto"
-                >
-                    0
-                </span>
-
-                <button onclick="alterarAtributo('intelecto', 1)">
-                    +
-                </button>
-
-            </div>
-
-        </div>
-
-
-    </div>
+<span id="pontosRestantes">
+12
+</span>
 
 </div>
 
 
-<!-- =====================================================
-     RECURSOS
-===================================================== -->
-
-<div class="cartao">
-
-    <h2 class="secao-titulo">
-        Recursos
-    </h2>
+<div class="atributos">
 
 
-    <div class="recursos">
+<!-- FORÇA -->
 
+<div class="atributo">
 
-        <div class="recurso">
+<div class="atributo-nome">
+Força
+</div>
 
-            <div class="recurso-nome">
-                ❤️ Vida
-            </div>
+<div class="controle">
 
-            <div
-                class="recurso-valor"
-                id="pv"
-            >
-                10
-            </div>
+<button onclick="alterarAtributo('forca', -1)">
+−
+</button>
 
-            <div class="recurso-controle">
+<span
+class="valor"
+id="forca"
+>
+0
+</span>
 
-                <button onclick="alterarRecurso('pv', -1)">
-                    −
-                </button>
+<button onclick="alterarAtributo('forca', 1)">
++
+</button>
 
-                <button onclick="alterarRecurso('pv', 1)">
-                    +
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="recurso">
-
-            <div class="recurso-nome">
-                🧠 Sanidade
-            </div>
-
-            <div
-                class="recurso-valor"
-                id="sanidade"
-            >
-                15
-            </div>
-
-            <div class="recurso-controle">
-
-                <button onclick="alterarRecurso('sanidade', -1)">
-                    −
-                </button>
-
-                <button onclick="alterarRecurso('sanidade', 1)">
-                    +
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div class="recurso">
-
-            <div class="recurso-nome">
-                ⚡ Esforço
-            </div>
-
-            <div
-                class="recurso-valor"
-                id="esforco"
-            >
-                10
-            </div>
-
-            <div class="recurso-controle">
-
-                <button onclick="alterarRecurso('esforco', -1)">
-                    −
-                </button>
-
-                <button onclick="alterarRecurso('esforco', 1)">
-                    +
-                </button>
-
-            </div>
-
-        </div>
-
-
-    </div>
+</div>
 
 </div>
 
 
-<!-- =====================================================
-     HISTÓRIA
-===================================================== -->
+<!-- AGILIDADE -->
+
+<div class="atributo">
+
+<div class="atributo-nome">
+Agilidade
+</div>
+
+<div class="controle">
+
+<button onclick="alterarAtributo('agilidade', -1)">
+−
+</button>
+
+<span
+class="valor"
+id="agilidade"
+>
+0
+</span>
+
+<button onclick="alterarAtributo('agilidade', 1)">
++
+</button>
+
+</div>
+
+</div>
+
+
+<!-- CARISMA -->
+
+<div class="atributo">
+
+<div class="atributo-nome">
+Carisma
+</div>
+
+<div class="controle">
+
+<button onclick="alterarAtributo('carisma', -1)">
+−
+</button>
+
+<span
+class="valor"
+id="carisma"
+>
+0
+</span>
+
+<button onclick="alterarAtributo('carisma', 1)">
++
+</button>
+
+</div>
+
+</div>
+
+
+<!-- VIGOR -->
+
+<div class="atributo">
+
+<div class="atributo-nome">
+Vigor
+</div>
+
+<div class="controle">
+
+<button onclick="alterarAtributo('vigor', -1)">
+−
+</button>
+
+<span
+class="valor"
+id="vigor"
+>
+0
+</span>
+
+<button onclick="alterarAtributo('vigor', 1)">
++
+</button>
+
+</div>
+
+</div>
+
+
+<!-- INTELECTO -->
+
+<div class="atributo">
+
+<div class="atributo-nome">
+Intelecto
+</div>
+
+<div class="controle">
+
+<button onclick="alterarAtributo('intelecto', -1)">
+−
+</button>
+
+<span
+class="valor"
+id="intelecto"
+>
+0
+</span>
+
+<button onclick="alterarAtributo('intelecto', 1)">
++
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- RECURSOS -->
 
 <div class="cartao">
 
-    <h2 class="secao-titulo">
-        História
-    </h2>
+<h2 class="secao-titulo">
+Recursos
+</h2>
 
-    <div
-        class="historia"
-        id="historiaPersonagem"
-    >
-        —
-    </div>
+
+<div class="recursos">
+
+
+<div class="recurso">
+
+<div class="recurso-nome">
+❤️ Vida
+</div>
+
+<div
+class="recurso-valor"
+id="pv"
+>
+10
+</div>
+
+<div class="recurso-controle">
+
+<button onclick="alterarRecurso('pv', -1)">
+−
+</button>
+
+<button onclick="alterarRecurso('pv', 1)">
++
+</button>
+
+</div>
+
+</div>
+
+
+<div class="recurso">
+
+<div class="recurso-nome">
+🧠 Sanidade
+</div>
+
+<div
+class="recurso-valor"
+id="sanidade"
+>
+15
+</div>
+
+<div class="recurso-controle">
+
+<button onclick="alterarRecurso('sanidade', -1)">
+−
+</button>
+
+<button onclick="alterarRecurso('sanidade', 1)">
++
+</button>
+
+</div>
+
+</div>
+
+
+<div class="recurso">
+
+<div class="recurso-nome">
+⚡ Esforço
+</div>
+
+<div
+class="recurso-valor"
+id="esforco"
+>
+10
+</div>
+
+<div class="recurso-controle">
+
+<button onclick="alterarRecurso('esforco', -1)">
+−
+</button>
+
+<button onclick="alterarRecurso('esforco', 1)">
++
+</button>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- HISTÓRIA -->
+
+<div class="cartao">
+
+<h2 class="secao-titulo">
+História
+</h2>
+
+<div
+class="historia"
+id="historiaPersonagem"
+>
+—
+</div>
 
 </div>
 
@@ -1216,73 +859,218 @@ body {
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      PERÍCIAS
-===================================================== -->
+========================= -->
 
 <section
-    id="pericias"
-    class="painel"
+id="pericias"
+class="painel"
 >
 
 <div class="cartao">
 
-    <h2 class="secao-titulo">
-        Perícias
-    </h2>
-
-    <p class="teia-intro">
-        Seu bônus é influenciado pelo atributo utilizado no teste.
-        Exemplo: Percepção + Agilidade ou Intimidação + Carisma.
-    </p>
+<h2 class="secao-titulo">
+Perícias
+</h2>
 
 
-    <div
-        class="pericias"
-        id="listaPericias"
-    >
+<div class="pericias">
 
-    </div>
+<div class="pericia">
+<span>Acrobacia</span>
+<span class="pericia-info">0</span>
+</div>
+
+<div class="pericia">
+<span>Crime</span>
+<span class="pericia-info">0</span>
+</div>
+
+<div class="pericia">
+<span>Investigação</span>
+<span class="pericia-info">0</span>
+</div>
+
+<div class="pericia">
+<span>Resistência</span>
+<span class="pericia-info">0</span>
+</div>
+
+<div class="pericia">
+<span>Percepção</span>
+<span class="pericia-info">0</span>
+</div>
+
+<div class="pericia">
+<span>Intuição</span>
+<span class="pericia-info">0</span>
+</div>
+
+<div class="pericia">
+<span>Diplomacia</span>
+<span class="pericia-info">0</span>
+</div>
+
+<div class="pericia">
+<span>Furtividade</span>
+<span class="pericia-info">0</span>
+</div>
+
+<div class="pericia">
+<span>Enganação</span>
+<span class="pericia-info">0</span>
+</div>
+
+<div class="pericia">
+<span>Iniciativa</span>
+<span class="pericia-info">0</span>
+</div>
+
+<div class="pericia">
+<span>Luta</span>
+<span class="pericia-info">0</span>
+</div>
+
+<div class="pericia">
+<span>Pontaria</span>
+<span class="pericia-info">0</span>
+</div>
+
+<div class="pericia">
+<span>Reflexo</span>
+<span class="pericia-info">0</span>
+</div>
+
+<div class="pericia">
+<span>Medicina</span>
+<span class="pericia-info">0</span>
+</div>
+
+<div class="pericia">
+<span>Profissão</span>
+<span class="pericia-info">0</span>
+</div>
+
+<div class="pericia">
+<span>Intimidação</span>
+<span class="pericia-info">0</span>
+</div>
+
+<div class="pericia">
+<span>Atletismo</span>
+<span class="pericia-info">0</span>
+</div>
+
+<div class="pericia">
+<span>Religião</span>
+<span class="pericia-info">0</span>
+</div>
+
+</div>
+
+
+<button
+class="botao-teste"
+onclick="rolarD20()"
+>
+🎲 ROLAR D20
+</button>
+
 
 </div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================
      TEIA
-===================================================== -->
+========================= -->
 
 <section
-    id="teia"
-    class="painel"
+id="teia"
+class="painel"
 >
 
 <div class="cartao">
 
-    <h2 class="secao-titulo">
-        🕸️ Teia de Habilidades
-    </h2>
+<h2 class="secao-titulo">
+🕸️ Teia de Habilidades
+</h2>
 
-    <p class="teia-intro">
-        As habilidades serão desbloqueadas através da evolução
-        do personagem. Cada caminho poderá levar a habilidades
-        diferentes. Clique em uma habilidade para testar o sistema.
-    </p>
+<p class="historia">
+A teia de habilidades aparecerá aqui.
+
+As habilidades serão desbloqueadas de acordo com o caminho escolhido pelo jogador.
+</p>
+
+</div>
+
+</section>
 
 
-    <div class="teia">
+<!-- =========================
+     LORE
+========================= -->
+
+<section
+id="lore"
+class="painel"
+>
+
+<div class="cartao">
+
+<h2 class="secao-titulo">
+✦ Lore
+</h2>
+
+<textarea
+id="loreTexto"
+placeholder="Escreva aqui informações importantes sobre seu personagem..."
+></textarea>
+
+</div>
+
+</section>
 
 
-        <div class="teia-caminho">
+<!-- =========================
+     INVENTÁRIO
+========================= -->
 
-            <div
-                class="no desbloqueado"
-                onclick="clicarHabilidade(this, 5)"
-            >
+<section
+id="inventario"
+class="painel"
+>
 
-                <div class="no-titulo">
-                    Fundamentos
-                </div>
+<div class="cartao">
 
-                <div class="no-c
+<h2 class="secao-titulo">
+🎒 Inventário
+</h2>
+
+<div id="listaInventario"></div>
+
+
+<button
+class="botao-teste"
+onclick="adicionarItem()"
+>
+＋ ADICIONAR ITEM
+</button>
+
+</div>
+
+</section>
+
+
+</div>
+
+
+<!-- IMPORTANTE -->
+
+<script src="ficha.js"></script>
+
+</body>
+
+   </html>
